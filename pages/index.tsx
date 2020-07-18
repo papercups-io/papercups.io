@@ -95,7 +95,7 @@ export default function Home() {
           </Flex>
 
           <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
-            <Box flex={1} mx={4} mb={[4, 0]}>
+            <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Title level={3}>Chat directly with your users</Title>
               <Paragraph>
                 Embed our chat feature directly in your website. Customize it as
@@ -103,7 +103,7 @@ export default function Home() {
               </Paragraph>
             </Box>
 
-            <Box flex={1} mx={4}>
+            <Box flex={1} mx={[0, 4]}>
               <Flex
                 alignItems="center"
                 justifyContent="center"
@@ -125,7 +125,7 @@ export default function Home() {
             mx={[0, -4]}
             flexDirection={['column-reverse', 'row']}
           >
-            <Box flex={1} mx={4} mb={[4, 0]}>
+            <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Flex
                 alignItems="center"
                 justifyContent="center"
@@ -141,7 +141,7 @@ export default function Home() {
               </Flex>
             </Box>
 
-            <Box flex={1} mx={4} my={[4, 0]}>
+            <Box flex={1} mx={[0, 4]} my={[4, 0]}>
               <Title level={3}>Create amazing email campaigns</Title>
               <Paragraph>
                 Quickly set up drip campaigns to keep in touch with your
@@ -152,7 +152,7 @@ export default function Home() {
           </Flex>
 
           <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
-            <Box flex={1} mx={4} mb={[4, 0]}>
+            <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Title level={3}>Integrate with your favorite tools</Title>
               <Paragraph>
                 Connect Papercups to Slack, Airtable, Gmail, and many more of
@@ -161,7 +161,7 @@ export default function Home() {
               </Paragraph>
             </Box>
 
-            <Box flex={1} mx={4}>
+            <Box flex={1} mx={[0, 4]}>
               <Flex
                 alignItems="center"
                 justifyContent="center"
