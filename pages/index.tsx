@@ -64,7 +64,7 @@ export default function Home() {
       </Header>
 
       <Content>
-        <Box mx="auto" style={{maxWidth: 920}} py={6}>
+        <Box mx="auto" style={{maxWidth: 960}} py={6} px={4}>
           <Box mb={6}>
             <Title level={1}>
               Grow with your users. <br /> Build a better product.
@@ -94,8 +94,8 @@ export default function Home() {
             <Title level={2}>The open source CRM</Title>
           </Flex>
 
-          <Flex mb={6} mx={-4}>
-            <Box flex={1} mx={4}>
+          <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
+            <Box flex={1} mx={4} mb={[4, 0]}>
               <Title level={3}>Chat directly with your users</Title>
               <Paragraph>
                 Embed our chat feature directly in your website. Customize it as
@@ -120,8 +120,12 @@ export default function Home() {
             </Box>
           </Flex>
 
-          <Flex mb={6} mx={-4}>
-            <Box flex={1} mx={4}>
+          <Flex
+            mb={[5, 6]}
+            mx={[0, -4]}
+            flexDirection={['column-reverse', 'row']}
+          >
+            <Box flex={1} mx={4} mb={[4, 0]}>
               <Flex
                 alignItems="center"
                 justifyContent="center"
@@ -137,7 +141,7 @@ export default function Home() {
               </Flex>
             </Box>
 
-            <Box flex={1} mx={4}>
+            <Box flex={1} mx={4} my={[4, 0]}>
               <Title level={3}>Create amazing email campaigns</Title>
               <Paragraph>
                 Quickly set up drip campaigns to keep in touch with your
@@ -147,8 +151,8 @@ export default function Home() {
             </Box>
           </Flex>
 
-          <Flex mb={6} mx={-4}>
-            <Box flex={1} mx={4}>
+          <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
+            <Box flex={1} mx={4} mb={[4, 0]}>
               <Title level={3}>Integrate with your favorite tools</Title>
               <Paragraph>
                 Connect Papercups to Slack, Airtable, Gmail, and many more of
@@ -174,12 +178,17 @@ export default function Home() {
             </Box>
           </Flex>
 
-          <Flex justifyContent="center" mb={5}>
+          <Flex justifyContent="center" mb={[4, 5]} mt={[6, 0]}>
             <Title level={2}>Papercups for Enterprise</Title>
           </Flex>
 
-          <Flex mx={-3} justifyContent="space-between" mb={6}>
-            <Flex flex={1} mx={3} flexDirection="column">
+          <Flex
+            mx={-3}
+            justifyContent="space-between"
+            mb={6}
+            flexDirection={['column', 'row']}
+          >
+            <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
               <Title level={3}>Self-managed</Title>
               <Paragraph>
                 Papercups can be deployed in your cloud, for painless adoption
@@ -187,7 +196,7 @@ export default function Home() {
                 you covered.
               </Paragraph>
             </Flex>
-            <Flex flex={1} mx={3} flexDirection="column">
+            <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
               <Title level={3}>Unlimited volume</Title>
               <Paragraph>
                 Papercups is built with Elixir on top of BEAM for incredible
@@ -195,7 +204,7 @@ export default function Home() {
                 model.
               </Paragraph>
             </Flex>
-            <Flex flex={1} mx={3} flexDirection="column">
+            <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
               <Title level={3}>Personalized support</Title>
               <Paragraph>
                 We can manage your deployment on your infrastructure. Get the
