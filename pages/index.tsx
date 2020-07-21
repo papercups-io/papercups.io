@@ -64,7 +64,7 @@ export default function Home() {
       </Header>
 
       <Content>
-        <Box mx="auto" style={{maxWidth: 960}} py={6} px={4}>
+        <Box mx="auto" style={{maxWidth: 960}} py={5} px={4}>
           <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
             <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Box mb={6}>
