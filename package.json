@@ -5,7 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "start": "next start"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "antd": "^4.4.2",
@@ -18,6 +29,9 @@
     "@types/node": "^14.0.23",
     "@types/react": "^16.9.43",
     "@types/rebass": "^4.0.6",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
     "typescript": "^3.9.7"
   }
 }
