@@ -69,28 +69,29 @@ export default function Home() {
             <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Box mb={6}>
                 <Title level={1}>
-                  Open Source Customer Messaging <br />
-                  Built for Startups
+                  Connect with your customers. Own your data.
                 </Title>
 
                 <Paragraph>
-                  Join hundreds of companies using Papercups
+                  Open source customer messaging, built for startups and
+                  enterprise alike.
                 </Paragraph>
 
                 <Flex my={3}>
-                  <Box mr={3}>
-                    <Button
-                      type="primary"
-                      size="large"
-                      icon={<RightCircleOutlined />}
-                    >
-                      Get started for free
-                    </Button>
-                  </Box>
                   <Box>
-                    <Button type="default" size="large">
-                      Request a demo
-                    </Button>
+                    <a
+                      href="https://app.papercups.io/login"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        type="primary"
+                        size="large"
+                        icon={<RightCircleOutlined />}
+                      >
+                        Get started for free
+                      </Button>
+                    </a>
                   </Box>
                 </Flex>
               </Box>
@@ -260,7 +261,13 @@ export default function Home() {
             <Title level={1}>What's new?</Title>
 
             <Box my={4}>
-              <Button size="large">Find out on Github</Button>
+              <a
+                href="https://github.com/papercups-io/papercups"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="large">Find out on Github</Button>
+              </a>
             </Box>
           </Flex>
         </Box>
