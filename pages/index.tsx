@@ -80,7 +80,7 @@ export default function Home() {
                 <Flex my={3}>
                   <Box>
                     <a
-                      href="https://app.papercups.io/login"
+                      href="https://app.papercups.io/register"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
