@@ -28,7 +28,7 @@ export default function Home() {
           <Box flex={1}>
             <Link href="/">
               <a>
-                <img src="logo-v2.svg" style={{ height: 40, width: 40 }} />
+                <img src="papercups.svg" style={{ height: 50, width: 100 }} />
               </a>
             </Link>
           </Box>
