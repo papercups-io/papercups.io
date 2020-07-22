@@ -19,6 +19,7 @@
     ]
   },
   "dependencies": {
+    "@papercups-io/chat-widget": "^1.0.6",
     "antd": "^4.4.2",
     "next": "9.4.4",
     "react": "16.13.1",
