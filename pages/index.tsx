@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Box, Flex } from 'rebass';
 import { RightCircleOutlined } from '../components/icons';
+
+import ChatWidget from '@papercups-io/chat-widget';
 import {
   colors,
   Button,
@@ -49,9 +51,9 @@ export default function Home() {
                   Github
                 </a>
               </Menu.Item>
-              <Menu.Item style={{ margin: '0 1em' }} key="login">
+              <Menu.Item style={{ margin: '0 1em' }} key="Sign up">
                 <a
-                  href="https://app.papercups.io/login"
+                  href="https://app.papercups.io/register"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -78,18 +80,23 @@ export default function Home() {
 
                 <Flex my={3}>
                   <Box mr={3}>
-                    <Button
-                      type="primary"
-                      size="large"
-                      icon={<RightCircleOutlined />}
+
+                    <a
+                      href="https://app.papercups.io/register"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Get started for free
-                </Button>
+                      <Button
+                        type="primary"
+                        size="large"
+                        icon={<RightCircleOutlined />}
+                      >
+                        Get started for free
+                      </Button>
+                    </a>
+
                   </Box>
                   <Box>
-                    <Button type="default" size="large">
-                      Request a demo
-                </Button>
                   </Box>
                 </Flex>
               </Box>
@@ -138,16 +145,15 @@ export default function Home() {
                   minHeight: 320,
 
                 }}
-                  src="customize.svg" />
+                  src="setup.svg" />
               </Flex>
             </Box>
 
             <Box flex={1} mx={[0, 4]} my={[4, 0]}>
-              <Title level={3}>Create amazing email campaigns</Title>
+              <Title level={3}>Chat directly with your users</Title>
               <Paragraph>
-                Quickly set up drip campaigns to keep in touch with your
-                customers. Trigger emails to be sent on certain events, like
-                signup or checkout.
+                Embed our chat feature directly in your website. Customize it as
+                much as you'd like to match your existing designs.
               </Paragraph>
             </Box>
           </Flex>
@@ -155,10 +161,10 @@ export default function Home() {
 
           <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column-reverse', 'row']}>
             <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
-              <Title level={3}>Chat directly with your users</Title>
+              <Title level={3}>Highly customizable widget</Title>
               <Paragraph>
-                Embed our chat feature directly in your website. Customize it as
-                much as you'd like to match your existing designs.
+                We let you easily setup the widget as well as providing a React component
+                for easy customization.
               </Paragraph>
             </Box>
 
@@ -178,7 +184,7 @@ export default function Home() {
                   minHeight: 320,
 
                 }}
-                  src="setup.svg" />
+                  src="customize.svg" />
               </Flex>
             </Box>
           </Flex>
@@ -203,7 +209,7 @@ export default function Home() {
                   src="secure.svg" />
               </Flex>
             </Box>
-            <Box pt={100}flex={1} mx={[0, 4]} mb={[4, 0]}>
+            <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Title level={3}>Integrate with your favorite tools</Title>
               <Paragraph>
                 Connect Papercups to Slack, Airtable, Gmail, and many more of
@@ -263,6 +269,13 @@ export default function Home() {
           </Flex>
         </Box>
       </Content>
+
+      <ChatWidget
+        title='Welcome to Papercups!'
+        subtitle='Ask us anything in the chat window below 😊'
+        primaryColor='#13c2c2'
+        accountId='eb504736-0f20-4978-98ff-1a82ae60b266'
+      />
 
       <Footer style={{ backgroundColor: '#001529' }}>
         <Box p={5}>
