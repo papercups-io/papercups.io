@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Box, Flex } from 'rebass';
-import { RightCircleOutlined } from '../components/icons';
-
+import {Box, Flex} from 'rebass';
 import ChatWidget from '@papercups-io/chat-widget';
+import {RightCircleOutlined} from '../components/icons';
+
 import {
   colors,
   Button,
@@ -19,30 +19,30 @@ import {
 
 export default function Home() {
   return (
-    <Layout style={{ background: colors.white }}>
+    <Layout style={{background: colors.white}}>
       <Head>
         <title>Papercups</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header style={{ background: 'transparent' }}>
+      <Header style={{background: 'transparent'}}>
         <Flex>
           <Box flex={1}>
             <Link href="/">
               <a>
-                <img src="papercups.svg" style={{ height: 50, width: 100 }} />
+                <img src="papercups-v2.svg" style={{height: 50, width: 100}} />
               </a>
             </Link>
           </Box>
 
           <Box>
-            <Menu style={{ borderBottom: 'none' }} mode="horizontal">
-              <Menu.Item style={{ margin: '0 1em' }} key="home">
+            <Menu style={{borderBottom: 'none'}} mode="horizontal">
+              <Menu.Item style={{margin: '0 1em'}} key="home">
                 <Link href="/">
                   <a>Home</a>
                 </Link>
               </Menu.Item>
-              <Menu.Item style={{ margin: '0 1em' }} key="github">
+              <Menu.Item style={{margin: '0 1em'}} key="github">
                 <a
                   href="https://github.com/papercups-io/papercups"
                   target="_blank"
@@ -51,7 +51,7 @@ export default function Home() {
                   Github
                 </a>
               </Menu.Item>
-              <Menu.Item style={{ margin: '0 1em' }} key="Sign up">
+              <Menu.Item style={{margin: '0 1em'}} key="Sign up">
                 <a
                   href="https://app.papercups.io/register"
                   target="_blank"
@@ -66,21 +66,21 @@ export default function Home() {
       </Header>
 
       <Content>
-
-        <Box mx="auto" style={{ maxWidth: 960 }} py={6} px={4}>
+        <Box mx="auto" style={{maxWidth: 960}} py={5} px={4}>
           <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
             <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Box mb={6}>
                 <Title level={1}>
-                  Open Source Customer Messaging <br />
-                  Built for Startups
-            </Title>
+                  Connect with your customers. Own your data.
+                </Title>
 
-                <Paragraph>Join hundreds of companies using Papercups</Paragraph>
+                <Paragraph>
+                  Open source customer messaging, built for startups and
+                  enterprise alike.
+                </Paragraph>
 
                 <Flex my={3}>
-                  <Box mr={3}>
-
+                  <Box>
                     <a
                       href="https://app.papercups.io/register"
                       target="_blank"
@@ -94,9 +94,6 @@ export default function Home() {
                         Get started for free
                       </Button>
                     </a>
-
-                  </Box>
-                  <Box>
                   </Box>
                 </Flex>
               </Box>
@@ -112,24 +109,20 @@ export default function Home() {
                   // minHeight: 320,
                 }}
               >
-                <img style={{
-                  width: '100%',
-                  height: '100%',
-                  minHeight: 320,
-
-                }}
-                  src="chatting.svg" />
+                <img
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    minHeight: 320,
+                  }}
+                  src="chatting.svg"
+                />
               </Flex>
             </Box>
           </Flex>
 
-          <Flex
-            mb={[5, 6]}
-            mx={[0, -4]}
-            flexDirection={['column', 'row']}
-          >
+          <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
             <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
-
               <Flex
                 alignItems="center"
                 justifyContent="center"
@@ -139,13 +132,14 @@ export default function Home() {
                   height: '100%',
                 }}
               >
-                <img style={{
-                  width: '100%',
-                  height: '100%',
-                  minHeight: 320,
-
-                }}
-                  src="setup.svg" />
+                <img
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    minHeight: 320,
+                  }}
+                  src="setup.svg"
+                />
               </Flex>
             </Box>
 
@@ -158,8 +152,11 @@ export default function Home() {
             </Box>
           </Flex>
 
-
-          <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column-reverse', 'row']}>
+          <Flex
+            mb={[5, 6]}
+            mx={[0, -4]}
+            flexDirection={['column-reverse', 'row']}
+          >
             <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Title level={3}>Highly customizable widget</Title>
               <Paragraph>
@@ -178,18 +175,18 @@ export default function Home() {
                   height: '100%',
                 }}
               >
-                <img style={{
-                  width: '100%',
-                  height: '100%',
-                  minHeight: 320,
-
-                }}
-                  src="customize.svg" />
+                <img
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    minHeight: 320,
+                  }}
+                  src="customize.svg"
+                />
               </Flex>
             </Box>
           </Flex>
           <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
-
             <Box flex={1} mx={[0, 4]}>
               <Flex
                 alignItems="center"
@@ -200,13 +197,14 @@ export default function Home() {
                   height: '100%',
                 }}
               >
-                <img style={{
-                  width: '100%',
-                  height: '100%',
-                  minHeight: 320,
-
-                }}
-                  src="secure.svg" />
+                <img
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    minHeight: 320,
+                  }}
+                  src="secure.svg"
+                />
               </Flex>
             </Box>
             <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
@@ -264,7 +262,13 @@ export default function Home() {
             <Title level={1}>What's new?</Title>
 
             <Box my={4}>
-              <Button size="large">Find out on Github</Button>
+              <a
+                href="https://github.com/papercups-io/papercups"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="large">Find out on Github</Button>
+              </a>
             </Box>
           </Flex>
         </Box>
@@ -277,13 +281,20 @@ export default function Home() {
         accountId='eb504736-0f20-4978-98ff-1a82ae60b266'
       />
 
-      <Footer style={{ backgroundColor: '#001529' }}>
+      <Footer style={{backgroundColor: '#001529'}}>
         <Box p={5}>
-          <Text style={{ color: colors.white }}>
+          <Text style={{color: colors.white}}>
             Made with ❤️ in SF &amp; NYC
           </Text>
         </Box>
       </Footer>
+
+      <ChatWidget
+        title="Welcome to Papercups!"
+        subtitle="Ask us anything in the chat window below 😊"
+        primaryColor="#1890ff"
+        accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
+      />
     </Layout>
   );
 }
