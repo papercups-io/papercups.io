@@ -146,7 +146,9 @@ export default function Home() {
             <Box flex={1} mx={[0, 4]} my={[4, 0]}>
               <Title level={3}>Chat directly with your users</Title>
               <Paragraph>
-                Convert more website visitors into customers with real-time chat. Don't lose out on prospects because of unanswered questions!
+                Convert more website visitors into customers with real-time
+                chat. Don't lose out on prospects because of unanswered
+                questions!
               </Paragraph>
             </Box>
           </Flex>
@@ -159,7 +161,9 @@ export default function Home() {
             <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Title level={3}>Highly customizable widget</Title>
               <Paragraph>
-                Customize it as much as you'd like to match your existing designs. We also provide a React component for easy customization
+                Customize it as much as you'd like to match your existing
+                designs. We also provide a React component for easy
+                customization.
               </Paragraph>
             </Box>
 
@@ -208,9 +212,9 @@ export default function Home() {
             <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
               <Title level={3}>Integrate with your favorite tools</Title>
               <Paragraph>
-                Connect Papercups to Slack, Gmail, and many more of
-                your favorite tools. Do you want to connect to a platform we
-                don't currently support? Get in touch!
+                Connect Papercups to Slack, Gmail, and many more of your
+                favorite tools. Do you want to connect to a platform we don't
+                currently support? Get in touch!
               </Paragraph>
             </Box>
           </Flex>
@@ -273,10 +277,10 @@ export default function Home() {
       </Content>
 
       <ChatWidget
-        title='Welcome to Papercups!'
-        subtitle='Ask us anything in the chat window below 😊'
-        primaryColor='#13c2c2'
-        accountId='eb504736-0f20-4978-98ff-1a82ae60b266'
+        title="Welcome to Papercups!"
+        subtitle="Ask us anything in the chat window below 😊"
+        primaryColor="#13c2c2"
+        accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
       />
 
       <Footer style={{backgroundColor: '#001529'}}>
