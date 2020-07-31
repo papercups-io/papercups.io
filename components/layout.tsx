@@ -7,6 +7,7 @@ import ChatWidget from '@papercups-io/chat-widget';
 import {
   colors,
   Content,
+  Divider,
   Footer,
   Header,
   Layout,
@@ -22,7 +23,10 @@ type State = any;
 export default class Container extends React.Component<Props, State> {
   state = {
     h1: Title,
+    h2: (props: any) => <Title level={2} {...props} />,
+    h3: (props: any) => <Title level={3} {...props} />,
     p: Paragraph,
+    hr: Divider,
   };
 
   render() {
@@ -77,7 +81,7 @@ export default class Container extends React.Component<Props, State> {
         </Header>
 
         <Content>
-          <Box mx="auto" style={{maxWidth: 960}} py={5} px={4}>
+          <Box mx="auto" style={{maxWidth: 800}} pt={5} px={4} pb={6}>
             <MDXProvider components={this.state}>
               {this.props.children}
             </MDXProvider>

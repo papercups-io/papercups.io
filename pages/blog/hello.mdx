@@ -4,6 +4,10 @@ export default Layout
 
 # Blog Example
 
+*By Alex Reichert*
+
+---
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -26,6 +30,17 @@ Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
 quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
 voluptas nulla pariatur?
 
+Some code highlighting:
+
+```elixir
+def create_customer(attrs \\ %{}) do
+  %Customer{}
+  |> Customer.changeset(attrs)
+  |> Repo.insert()
+end
+```
+
+
 At vero eos et accusamus et iusto odio dignissimos ducimus qui
 blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
 et quas molestias excepturi sint occaecati cupiditate non provident,
@@ -39,3 +54,7 @@ ut et voluptates repudiandae sint et molestiae non recusandae. Itaque
 earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
 voluptatibus maiores alias consequatur aut perferendis doloribus
 asperiores repellat.
+
+---
+
+*Posted on July 31, 2020*

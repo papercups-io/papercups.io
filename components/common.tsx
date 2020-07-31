@@ -1,5 +1,5 @@
 import Button from 'antd/lib/button';
-import Dropdown from 'antd/lib/dropdown';
+import Divider from 'antd/lib/divider';
 import Input from 'antd/lib/input';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
@@ -39,7 +39,7 @@ export {
   Sider,
   // Components
   Button,
-  Dropdown,
+  Divider,
   Input,
   Menu,
   Modal,
