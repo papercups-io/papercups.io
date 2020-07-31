@@ -53,7 +53,7 @@ export default function Home() {
               </Menu.Item>
               <Menu.Item style={{margin: '0 1em'}} key="Sign up">
                 <a
-                  href="https://app.papercups.io/register"
+                  href="https://app.papercups.io"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
