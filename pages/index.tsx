@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import {Box, Flex} from 'rebass';
 import ChatWidget from '@papercups-io/chat-widget';
-import {RightCircleOutlined} from '../components/icons';
+import {RightCircleOutlined, GithubOutlined} from '../components/icons';
 import {
   colors,
   Button,
@@ -79,9 +79,24 @@ export default function Home() {
                 </Paragraph>
 
                 <Flex my={3}>
-                  <Box>
+                  <Box mr={2}>
                     <a
                       href="https://github.com/papercups-io/papercups"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        type="default"
+                        size="large"
+                        icon={<GithubOutlined />}
+                      >
+                        Github
+                      </Button>
+                    </a>
+                  </Box>
+                  <Box mr={2}>
+                    <a
+                      href="https://app.papercups.io/register"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -105,7 +120,6 @@ export default function Home() {
                 style={{
                   width: '100%',
                   height: '100%',
-                  // minHeight: 320,
                 }}
               >
                 <img
@@ -126,7 +140,6 @@ export default function Home() {
                 alignItems="center"
                 justifyContent="center"
                 style={{
-                  // minHeight: 320,
                   width: '100%',
                   height: '100%',
                 }}
@@ -171,7 +184,6 @@ export default function Home() {
                 alignItems="center"
                 justifyContent="center"
                 style={{
-                  // minHeight: 320,
                   width: '100%',
                   height: '100%',
                 }}
@@ -193,7 +205,6 @@ export default function Home() {
                 alignItems="center"
                 justifyContent="center"
                 style={{
-                  // minHeight: 320,
                   width: '100%',
                   height: '100%',
                 }}
