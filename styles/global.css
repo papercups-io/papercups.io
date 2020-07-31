@@ -11,3 +11,7 @@ body {
 * {
   box-sizing: border-box;
 }
+
+#__next {
+  min-height: 100%;
+}

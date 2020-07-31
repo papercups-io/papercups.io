@@ -3,7 +3,6 @@ import Link from 'next/link';
 import {Box, Flex} from 'rebass';
 import ChatWidget from '@papercups-io/chat-widget';
 import {RightCircleOutlined} from '../components/icons';
-
 import {
   colors,
   Button,
@@ -275,13 +274,6 @@ export default function Home() {
           </Flex>
         </Box>
       </Content>
-
-      <ChatWidget
-        title="Welcome to Papercups!"
-        subtitle="Ask us anything in the chat window below 😊"
-        primaryColor="#13c2c2"
-        accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
-      />
 
       <Footer style={{backgroundColor: '#001529'}}>
         <Box p={5}>
