@@ -11,3 +11,9 @@ body {
 * {
   box-sizing: border-box;
 }
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
