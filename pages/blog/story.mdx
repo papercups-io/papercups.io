@@ -1,0 +1,31 @@
+import Layout from '../../components/layout';
+
+export default Layout
+
+# Our Story
+
+*By Alex Reichert*
+
+---
+
+Kam and I met in SF around 6 years ago, and have been hacking on small projects together for the past couple years. Before covid, we would spend many Sunday afternoons in coffee shops building prototypes of whatever our latest and greatest idea was… most of these fizzled out after a few weeks or so. 😬
+
+For 2020, we wanted to take the idea of “building something people want” a bit more seriously. We started off trying to build SaaS tools for ocean freight logistics companies. (Don’t ask.) That failed, but we learned a ton in the process.
+
+Then in June, we tried a completely new idea: a [web app](https://www.producthunt.com/posts/taro) that makes it super easy to manage and deploy simple cron jobs and other recurring/scheduled tasks. One thing we learned from the feedback on this product was how difficult it can be to set up and schedule email campaigns. This definitely resonated with me. While working at Stripe, one particularly painful project I worked on was setting up email campaigns to notify our customers of new regulations.
+
+So we started thinking about tackling this particular pain point: setting up and managing email campaigns. From more user interviews and research, we learned that a few companies already do this pretty well. Intercom is one of them, but it can be prohibitively expensive for many companies. And for other companies that have concerns about sending their customer data to 3rd party services, these products aren’t even an option. If only there was an alternative that could be self-hosted…
+
+At this point we figured, why not be more ambitious? Instead of just building an email campaign tool, let’s build an open source alternative to Intercom!
+
+So here we are. We’re starting off with a chat feature (https://github.com/papercups-io/chat-widget), but we plan on expanding into email campaigns and screen sharing/session replay. We’d love to hear your feature requests!
+
+We decided to build Papercups on top of Elixir/Phoenix because it seemed like the best tool for a job that requires a lot of “realtime” functionality and first class support for websockets/channels. It’s been great so far! The frontend uses React/TypeScript. We may explore using LiveView in the future, but we wanted to start off with a frontend stack that we were familiar with. 🙂
+
+We’ve launched this repo under MIT license so any developer can use the tool. The goal is to not charge individual developers. We make money by charging a license fee for premium features, providing a hosted version, and support.
+
+Give it a spin: https://github.com/papercups-io/papercups. Let us know what you think!
+
+---
+
+*Posted on August 1, 2020*
