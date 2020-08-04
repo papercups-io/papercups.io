@@ -265,6 +265,45 @@ export default function Home() {
             </Flex>
           </Flex>
 
+          <Flex justifyContent="center" mb={[3, 4]} mt={[6, 0]}>
+            <Title level={2}>Connect with us</Title>
+          </Flex>
+
+          <Flex
+            mx={-3}
+            justifyContent="space-between"
+            mb={6}
+            flexDirection={['column', 'row']}
+          >
+            <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
+              <a
+                href="https://join.slack.com/t/papercups-io/shared_invite/zt-gfs0d269-dEHm3SYs_5KmFKQ9YhBzDw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="slack-v1.svg" style={{height: 144}} />
+              </a>
+            </Flex>
+            <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
+              <a
+                href="https://github.com/papercups-io/papercups"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="github-v1.svg" style={{height: 144}} />
+              </a>
+            </Flex>
+            <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
+              <a
+                href="https://discord.gg/Dq2A3eh"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="discord-color.svg" style={{height: 144}} />
+              </a>
+            </Flex>
+          </Flex>
+
           <Flex
             mb={5}
             justifyContent="center"
