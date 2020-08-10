@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import {Component} from 'react';
+import ReactGA from 'react-ga';
 import {Box, Flex} from 'rebass';
 import ChatWidget from '@papercups-io/chat-widget';
 
@@ -16,9 +18,8 @@ import {
   Title,
   Text,
 } from '../components/common';
-import ReactGA from 'react-ga';
-import {Component} from 'react';
 
+// TODO: add prettier so formatting is never an issue
 export default class extends Component {
   componentDidMount() {
     const NEXT_PUBLIC_GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
@@ -27,6 +28,7 @@ export default class extends Component {
       ReactGA.pageview(document.location.pathname);
     }
   }
+
   render() {
     return (
       <Layout style={{background: colors.white}}>
@@ -96,21 +98,21 @@ export default class extends Component {
                     <Box mr={2}>
                       <a
                         href="https://github.com/papercups-io/papercups"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button
-                        type="default"
-                        size="large"
-                        icon={<GithubOutlined />}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        Github
-                      </Button>
-                    </a>
-                  </Box>
-                  <Box mr={2}>
-                    <a
-                      href="https://app.papercups.io/register"
+                        <Button
+                          type="default"
+                          size="large"
+                          icon={<GithubOutlined />}
+                        >
+                          Github
+                        </Button>
+                      </a>
+                    </Box>
+                    <Box mr={2}>
+                      <a
+                        href="https://app.papercups.io/register"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -134,7 +136,6 @@ export default class extends Component {
                   style={{
                     width: '100%',
                     height: '100%',
-
                   }}
                 >
                   <img
@@ -155,7 +156,6 @@ export default class extends Component {
                   alignItems="center"
                   justifyContent="center"
                   style={{
-
                     width: '100%',
                     height: '100%',
                   }}
@@ -200,7 +200,6 @@ export default class extends Component {
                   alignItems="center"
                   justifyContent="center"
                   style={{
-
                     width: '100%',
                     height: '100%',
                   }}
@@ -222,7 +221,6 @@ export default class extends Component {
                   alignItems="center"
                   justifyContent="center"
                   style={{
-
                     width: '100%',
                     height: '100%',
                   }}
@@ -283,44 +281,44 @@ export default class extends Component {
               </Flex>
             </Flex>
 
-          <Flex justifyContent="center" mb={[3, 4]} mt={[6, 0]}>
-            <Title level={2}>Connect with us</Title>
-          </Flex>
+            <Flex justifyContent="center" mb={[3, 4]} mt={[6, 0]}>
+              <Title level={2}>Connect with us</Title>
+            </Flex>
 
-          <Flex
-            mx={-3}
-            justifyContent="space-between"
-            mb={6}
-            flexDirection={['column', 'row']}
-          >
-            <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
-              <a
-                href="https://join.slack.com/t/papercups-io/shared_invite/zt-gfs0d269-dEHm3SYs_5KmFKQ9YhBzDw"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="slack-v1.svg" style={{height: 144}} />
-              </a>
+            <Flex
+              mx={-3}
+              justifyContent="space-between"
+              mb={6}
+              flexDirection={['column', 'row']}
+            >
+              <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
+                <a
+                  href="https://join.slack.com/t/papercups-io/shared_invite/zt-gfs0d269-dEHm3SYs_5KmFKQ9YhBzDw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="slack-v1.svg" style={{height: 144}} />
+                </a>
+              </Flex>
+              <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
+                <a
+                  href="https://github.com/papercups-io/papercups"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="github-v1.svg" style={{height: 144}} />
+                </a>
+              </Flex>
+              <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
+                <a
+                  href="https://discord.gg/Dq2A3eh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="discord-color.svg" style={{height: 144}} />
+                </a>
+              </Flex>
             </Flex>
-            <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
-              <a
-                href="https://github.com/papercups-io/papercups"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="github-v1.svg" style={{height: 144}} />
-              </a>
-            </Flex>
-            <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
-              <a
-                href="https://discord.gg/Dq2A3eh"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="discord-color.svg" style={{height: 144}} />
-              </a>
-            </Flex>
-          </Flex>
 
             <Flex
               mb={5}
