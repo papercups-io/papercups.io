@@ -19,7 +19,6 @@ import {
   Text,
 } from '../components/common';
 
-// TODO: add prettier so formatting is never an issue
 export default class extends Component {
   componentDidMount() {
     const NEXT_PUBLIC_GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
@@ -341,13 +340,6 @@ export default class extends Component {
           </Box>
         </Content>
 
-        <ChatWidget
-          title="Welcome to Papercups!"
-          subtitle="Ask us anything in the chat window below 😊"
-          primaryColor="#13c2c2"
-          accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
-        />
-
         <Footer style={{backgroundColor: '#001529'}}>
           <Box p={5}>
             <Text style={{color: colors.white}}>
@@ -359,8 +351,10 @@ export default class extends Component {
         <ChatWidget
           title="Welcome to Papercups!"
           subtitle="Ask us anything in the chat window below 😊"
+          greeting="Hi there! Send us a message and we'll get back to you as soon as we can. In the meantime, check out our [demo](https://app.papercups.io/demo)!"
           primaryColor="#1890ff"
           accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
+          requireEmailUpfront
         />
       </Layout>
     );
