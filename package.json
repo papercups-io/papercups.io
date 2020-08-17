@@ -25,7 +25,7 @@
     "@mdx-js/loader": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
     "@next/mdx": "^9.5.1",
-    "@papercups-io/chat-widget": "^1.0.25-beta.1",
+    "@papercups-io/chat-widget": "^1.0.25-beta.2",
     "antd": "^4.4.2",
     "next": "9.4.4",
     "react": "16.13.1",
