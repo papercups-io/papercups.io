@@ -301,7 +301,7 @@ export default class extends Component {
             >
               <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
                 <a
-                  href="https://join.slack.com/t/papercups-io/shared_invite/zt-gfs0d269-dEHm3SYs_5KmFKQ9YhBzDw"
+                  href="https://join.slack.com/t/papercups-io/shared_invite/zt-h0c3fxmd-hZi1Zp8~D61S6GD16aMqmg"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
