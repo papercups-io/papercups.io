@@ -113,8 +113,11 @@ export default class Container extends React.Component<Props, State> {
         <ChatWidget
           title="Welcome to Papercups!"
           subtitle="Ask us anything in the chat window below 😊"
+          greeting="Hi there! Send us a message and we'll get back to you as soon as we can. In the meantime, check out our [demo](https://app.papercups.io/demo)!"
           primaryColor="#1890ff"
           accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
+          requireEmailUpfront
+          showAgentAvailability
         />
       </Layout>
     );
