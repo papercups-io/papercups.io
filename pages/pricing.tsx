@@ -1,0 +1,156 @@
+import React from 'react';
+import {Box, Flex} from 'rebass';
+import {Button, Divider, Paragraph, Text, Title} from '../components/common';
+import Layout from '../components/layout';
+
+const PricingCard = ({
+  title,
+  description,
+  cta,
+  pricing,
+  features,
+}: {
+  title: string;
+  description: string;
+  cta: React.ReactElement;
+  pricing: React.ReactElement;
+  features: React.ReactElement;
+}) => {
+  return (
+    <Box
+      mx={2}
+      p={3}
+      style={{
+        flex: 1,
+        border: '1px solid #f5f5f5',
+        borderRadius: 4,
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 8px',
+      }}
+    >
+      <Title level={3}>{title}</Title>
+      <Paragraph style={{minHeight: 44}}>{description}</Paragraph>
+
+      <Box my={3}>{cta}</Box>
+
+      <Box style={{fontSize: 16}}>{pricing}</Box>
+
+      <Divider />
+
+      {features}
+    </Box>
+  );
+};
+
+export const PricingOptions = () => {
+  return (
+    <Flex mx={-2}>
+      <PricingCard
+        title="Starter"
+        description="Basic live chat and inbox to get you started."
+        cta={
+          <a
+            href="https://app.papercups.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button type="primary" size="large" block ghost>
+              Create free account
+            </Button>
+          </a>
+        }
+        pricing={
+          <Text>
+            <Text strong>$0</Text> forever
+          </Text>
+        }
+        features={
+          <>
+            <Paragraph>Comes with:</Paragraph>
+
+            <Paragraph>
+              <li>2 seats included</li>
+              <li>100,000 messages</li>
+              <li>Customizable chat widget</li>
+              <li>Slack integration</li>
+            </Paragraph>
+          </>
+        }
+      />
+
+      <PricingCard
+        title="Team"
+        description="Supercharge your support, sales, and marketing."
+        cta={
+          <a
+            href="https://app.papercups.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button type="primary" size="large" block>
+              Create an account
+            </Button>
+          </a>
+        }
+        pricing={
+          <Text>
+            <Text strong>$40</Text>/month
+          </Text>
+        }
+        features={
+          <>
+            <Paragraph>
+              Everything in <Text strong>Starter</Text> plus:
+            </Paragraph>
+
+            <Paragraph>
+              <li>5 seats included</li>
+              <li>Unlimited messages</li>
+              <li>Additional integrations</li>
+              <li>Webhooks</li>
+            </Paragraph>
+          </>
+        }
+      />
+
+      <PricingCard
+        title="Enterprise"
+        description="Advanced workflows, security, and support."
+        cta={
+          <a href="mailto:founders@papercups.io?Subject=Papercups Enterprise Edition">
+            <Button type="primary" size="large" block ghost>
+              Contact sales
+            </Button>
+          </a>
+        }
+        pricing={<Text>Custom pricing</Text>}
+        features={
+          <>
+            <Paragraph>
+              Everything in <Text strong>Team</Text> plus:
+            </Paragraph>
+
+            <Paragraph>
+              <li>Unlimited seats</li>
+              <li>First-class support</li>
+              <li>Custom integrations</li>
+            </Paragraph>
+          </>
+        }
+      />
+    </Flex>
+  );
+};
+
+const Pricing = () => {
+  return (
+    <Layout width={960}>
+      <Box mb={5}>
+        <Title level={1}>Get started today</Title>
+      </Box>
+
+      <PricingOptions />
+    </Layout>
+  );
+};
+
+export default Pricing;
