@@ -34,7 +34,7 @@ export default class Container extends React.Component<Props, State> {
       <Layout style={{background: colors.white}}>
         <Head>
           <title>Papercups</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/logo-v2.svg" />
         </Head>
 
         <Header style={{background: 'transparent'}}>

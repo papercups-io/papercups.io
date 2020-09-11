@@ -33,7 +33,7 @@ export default class extends Component {
       <Layout style={{background: colors.white}}>
         <Head>
           <title>Papercups | Open Source Intercom Alternative</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/logo-v2.svg" />
         </Head>
         <meta
           name="description"
