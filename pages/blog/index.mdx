@@ -1,13 +1,44 @@
 import Link from 'next/link';
 import Layout from '../../components/layout';
+import {colors, Button, Paragraph, Title, Text} from '../../components/common';
+import {ArrowRightOutlined} from '../../components/icons';
 
-export default Layout
+export default Layout;
 
-# Blog
+<!-- TODO: figure out how to make this dynamic at some point -->
+
+# [Our story](/blog/story)
+
+_August 10, 2020 · by Alex Reichert_
+
+Kam and I met in SF around 6 years ago, and have been hacking on small projects together for the past couple years. Before Covid, we would spend many Sunday afternoons in coffee shops building prototypes of whatever our latest and greatest idea was… most of these fizzled out after a few weeks or so.
+
+<Paragraph style={{textAlign: 'right'}}>
+  <Link href="/blog/story">
+    <a>
+      <Button type="link" icon={<ArrowRightOutlined />}>
+        Read more
+      </Button>
+    </a>
+  </Link>
+</Paragraph>
 
 ---
 
+# What we learned from our HN launch
+
+_TBD · by Kam Leung_
+
 Coming soon!
 
+<Paragraph style={{textAlign: 'right'}}>
+  <Link href="/blog/story">
+    <a>
+      <Button type="link" icon={<ArrowRightOutlined />} disabled>
+        Read more
+      </Button>
+    </a>
+  </Link>
+</Paragraph>
 
-
+---
