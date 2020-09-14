@@ -17,7 +17,7 @@ import {
   Title,
 } from '../components/common';
 
-type Props = {children: any};
+type Props = {width?: number; children: any};
 type State = any;
 
 export default class Container extends React.Component<Props, State> {
@@ -95,7 +95,13 @@ export default class Container extends React.Component<Props, State> {
         </Header>
 
         <Content>
-          <Box mx="auto" style={{maxWidth: 800}} pt={5} px={4} pb={6}>
+          <Box
+            mx="auto"
+            style={{maxWidth: this.props.width || 800}}
+            pt={5}
+            px={4}
+            pb={6}
+          >
             <MDXProvider components={this.state}>
               {this.props.children}
             </MDXProvider>
