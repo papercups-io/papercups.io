@@ -10,9 +10,9 @@ _By Kam Leung_
 
 ---
 
-We launched Papercups on Hacker News recently. In the YC community the Hacker News launch is a rite of passage with the infamous [Dropbox comment on launch](https://news.ycombinator.com/item?id=8863). Originally we were worried about how it would be received but at the same time excited about being able to show our product to a lot of like minded developers. We were very grateful for the feedback and supported and wanted to share what we did and the lessons that we have learned.
+We launched Papercups on Hacker News recently. In the YC community the Hacker News launch is a rite of passage with the infamous [Dropbox comment on launch](https://news.ycombinator.com/item?id=8863). Originally we were worried about how it would be received but at the same time excited about being able to show our product to a lot of like minded developers. We were very grateful for the feedback and support and wanted to share what we did and the lessons that we have learned.
 
-We broke up our launch in to three stages: family and friends, Product Hunt and finally Hacker News. We wanted to spend a lot of time with individual users in the friends and family stage then get broader feedback from the Product Hunt and Hacker News stage. The other benefit of staggering and ramping up the launches is that you can work out a lot of the bugs and user experience issues prior to showing to a wider audience at every stage.
+We broke up our launch in to three stages: family and friends, Product Hunt, and finally Hacker News. We wanted to spend a lot of time with individual users in the friends and family stage then get broader feedback from the Product Hunt and Hacker News stage. The other benefit of staggering and ramping up the launches is that you can work out a lot of the bugs and user experience issues prior to showing to a wider audience at every stage.
 
 Our timeline looked something like this:
 July 31st - Friends and Family Launch
@@ -21,13 +21,13 @@ August 11th - Hacker News Launch
 
 ## Friends and Family Launch
 
-For our friends and family launch we had a very bare minimum set of features required: authentication, dashboard, chat widget and a slack integration. We first called up as many friends that were technical that had their own websites and hopped on a zoom call with them. We would ask them to share their screens and watch them sign up, setup the chat widget and deploy to their personal site. We refrained from giving too much instructions and watched them setup. It was a bit painful to watch someone not find a specific button or having some integrations fail on us because of a change we did the previous day. But because we watched them closely we were able to catch a lot of the embarrassing bugs and UX issues.
+For our friends and family launch we had a very bare minimum set of features required: authentication, dashboard, chat widget, and a Slack integration. We first called up as many friends that were technical that had their own websites and hopped on a Zoom call with them. We would ask them to share their screens and watch them sign up, set up the chat widget, and deploy to their personal site. We refrained from giving too much instructions and watched them set it up. It was a bit painful to watch someone not find a specific button or having some integrations fail on us because of a change we did the previous day. But because we watched them closely we were able to catch a lot of the embarrassing bugs and UX issues.
 
 ## Product Hunt Launch
 
-Once we felt comfortable with our software we wanted it to put it in the hands of strangers and get feedback. Product hunt was the next natural choice because we’ve had success in launching our past projects and getting people to try it out. In preparation we made sure we had some high quality screenshots and typed up a quick descriptions for the launch. For our [demo page](https://app.papercups.io/demo) we linked it to our dashboard and slack channel so we were able to respond and chat with a ton of users to collect feedback. We ended up sending around 500 messages that day!
+Once we felt comfortable with our software we wanted to put it in the hands of strangers and get feedback. Product Hunt was the next natural choice because we’ve had success in launching our past projects and getting people to try it out. In preparation we made sure we had some high quality screenshots and typed up a quick descriptions for the launch. For our [demo page](https://app.papercups.io/demo) we linked it to our dashboard and Slack channel so we were able to respond and chat with a ton of users to collect feedback. We ended up sending around 500 messages that day!
 
-The on product hunt went very well. We didn’t have any major bugs or issues but we did notice a few UX improvements that we wanted to make while dog fooding our product, like better shortcuts for common commands and eventually a bot integration.
+The Product Hunt launch went very well. We didn’t have any major bugs or issues but we did notice a few UX improvements that we wanted to make while dog fooding our product, like better shortcuts for common commands and eventually a bot integration.
 
 Here are two of my favorite messages of that day.
 
@@ -50,7 +50,7 @@ Here are two of my favorite messages of that day.
 
 ## Hacker News Launch
 
-We made sure to save our Hacker News launch for last since we wanted to get a lot of eyes on our [Github repo](http://github.com/papercups-io/papercups) and reach a lot of developers. We began by drafting up our first launch HN a week and a half before our launch. We wanted to tell our story and share things that we thought the Hacker News community would enjoy. We had sent our draft to our YC group partners and some friends. The main feedback we had gotten was to include more about our background and dive deeper in to the technical side. Once we had the core was done we made 2-3 more smaller revision to improve how it flowed and minor text changes. All in all we had 5 revisions and spent around 6 hours on the entire process. By August 10th we finally felt ready.
+We made sure to save our Hacker News launch for last since we wanted to get a lot of eyes on our [Github repo](http://github.com/papercups-io/papercups) and reach a lot of developers. We began by drafting up our first launch HN a week and a half before our launch. We wanted to tell our story and share things that we thought the Hacker News community would enjoy. We had sent our draft to our YC group partners and some friends. The main feedback we had gotten was to include more about our background and dive deeper in to the technical side. Once the core was done we made 2-3 more smaller revisions to improve how it flowed, plus some minor text changes. All in all we had 5 revisions and spent around 6 hours on the entire process. By August 10th we finally felt ready.
 
 From our experience on Product Hunt we knew that we needed to have a system to respond to messages and not be overwhelmed. We made sure we took turns answering questions on Hacker News and answering chat messages from our Papercups dashboard and Slack.
 
@@ -81,21 +81,21 @@ Here were some of my favorite messages/conversations from that day:
   </Box>
 </Flex>
 
-The [launch](https://news.ycombinator.com/item?id=24133719) went incredibly well and we were [16](https://bestofshowhn.com/launch-hn)th on all the Launch HN of all time and we stayed on the front page for over 24 hours. We ended up sending 1400 messages that day and had a ton of feature requests which helped build our roadmap out for the near future. We were pleasantly surprised at how well our Heroku Hobby instance handled the volume fine with out any issues and in part we have to thank Elixir for that.
+The [launch](https://news.ycombinator.com/item?id=24133719) went incredibly well and we were [16th](https://bestofshowhn.com/launch-hn) on all the Launch HN of all time and we stayed on the front page for over 24 hours. We ended up sending over 1400 messages that day and had a ton of feature requests which helped build our roadmap out for the near future. We were pleasantly surprised at how well our Heroku Hobby instance handled the volume without any issues and in part we have to thank Elixir for that.
 
 ## Metrics
 
-For the launch there were a few basic metrics that we wanted to track: signups, Github stars, and how many websites we are live on. We wanted were using Github stars as a proxy for interest in the developer community.
+For the launch there were a few basic metrics that we wanted to track: signups, Github stars, and how many websites we are live on. We were using Github stars as a proxy for interest in the developer community.
 
 **Prior to the Hacker News launch:**
 
-- Number of sign ups on the hosted version - 316
+- Number of signups on the hosted version - 316
 - Number of Github stars - 510
 - Number of websites that are live on our hosted version - 18
 
 **1 week post Hacker News launch:**
 
-- Number of sign ups on the hosted version - 621
+- Number of signups on the hosted version - 621
 - Number of Github stars - 1500
 - Number of websites that are live on our hosted version - 52
 
@@ -106,7 +106,7 @@ For the launch there were a few basic metrics that we wanted to track: signups, 
   src="https://paper-attachments.dropbox.com/s_62D2302FB94827F5A18A61935D23AB3FA86DCD04FE076A7F7D63F33490F45185_1600019918811_Screen+Shot+2020-07-30+at+11.26.28+PM.png"
 />
 
-We didn’t get a chance to take a screenshot of how many visitors that came a week after our Hacker News launch but it we had around 5,000 unique visitors that week on our github repo.
+We didn’t get a chance to take a screenshot of how many visitors that came a week after our Hacker News launch but we had around 5,000 unique visitors that week on our Github repo.
 
 <Image
   mb={3}
@@ -126,7 +126,7 @@ During our launches we paid very close attention to what caused us to what showe
 
 ## Lessons Learned
 
-We launched when we were still nervous about the product and definitely were embarrassed at some of the blemishes and bugs. But looking back we were very glad that we had sat through those awkward calls where the product broke and didn’t work. They really let us move way faster than trying to find those bugs or UX issues with out them. Secondly to ease that process smaller launches are super great and helpful since you don’t have to worry about making a bad impression with a large user base. We were also glad that we had put in so much time in to our launch post since I think it definitely paid dividends. Finally the trending on Github made quite an impact the following days in bringing in additional traffic that fueled a lot of our growth.
+We launched when we were still nervous about the product and definitely were embarrassed at some of the blemishes and bugs. But looking back we were very glad that we had sat through those awkward calls where the product broke and didn’t work. They really let us move way faster than trying to find those bugs or UX issues without them. Secondly to ease that process smaller launches are super great and helpful since you don’t have to worry about making a bad impression with a large user base. We were also glad that we had put in so much time into our launch post since I think it definitely paid dividends. Finally the trending on Github made quite an impact the following days in bringing in additional traffic that fueled a lot of our growth.
 
 ---
 
