@@ -1,0 +1,156 @@
+import Layout from '../../components/layout';
+
+export default Layout;
+
+# Coming to Elixir from TypeScript
+
+_By Alex Reichert_
+
+---
+
+I've been working with Elixir for about 2 months so far, and it's been quite fun. Coming from a background in mostly Ruby and TypeScript/JavaScript, I wasn't sure how approachable I would find it.
+
+I've heard a lot of people say that most Ruby developers would feel comfortable getting started with Elixir, but I'm not sure how much I agree with that. Aside from some superficial similarities, Elixir really forces you to think about solving problems in a slightly different way.
+
+Over the course of my career so far, I've dabbled in programming languages unrelated to the jobs I've been paid for, but this was the first time I really learned a language by jumping right in and attempting to build a full-stack application. I'm a little ashamed to say that I've spent relatively little time going through books on Elixir, and have mostly just jumped right in to hacking on a product. That being said, a lot of the opinions below come from the perspective of someone who probably hasn't written much high-quality Elixir code in production. 😬
+
+## What I like so far
+
+Overview of what I like about Elixir so far.
+
+### The community
+
+This is an easy one. One of the first things I did when I started spinning up on Elixir was join the Elixir Slack group, and it's been one of my most helpful resources for me as a beginner. The community has been nothing but friendly, patient, and helpful. When I was starting to set up authentication, they pointed me to Pow. When I needed to set up workers, they showed me Oban. People have even been nice enough to review some of my shitty code. It's been amazing.
+
+### The extensive built-in functionality
+
+How this compares to Ruby and TypeScript. (All the `Enum` and `Map` functions, e.g. https://hexdocs.pm/elixir/Enum.html, `get_in`, etc)
+
+Like Ruby (but unlike JavaScript), Elixir has a ton of helpful methods built into the language.
+
+### Pattern matching
+
+What I like (and what I'm still getting used to) re: pattern matching.
+
+Talk about pattern matching in methods, in `case` statements, in error handling?
+
+Checking if a user has a given role:
+
+```elixir
+defp has_role?(nil, _roles), do: false
+defp has_role?(user, roles) when is_list(roles),
+  do: Enum.any?(roles, &has_role?(user, &1))
+defp has_role?(%{role: role}, role), do: true
+defp has_role?(_user, _role), do: false
+```
+
+### Async handling
+
+Using `Task`s for async handling, and what's nice.
+
+Ruby is synchronous (blocking) by default; JavaScript is asynchronous (non-blocking) by default. Elixir is also synchronous by default -- which makes things much easier, in my opinion -- but it also makes it incredibly easy to handle processes asynchronously if you would like to.
+
+```elixir
+Task.start(fn -> Papercups.Webhooks.notify(message))
+```
+
+### The pipe operator
+
+It's almost as if any blog post introducing Elixir is obligated to mention this, so here we are.
+
+(Give example of some code written in TypeScript, how it could be re-written in Elixir with pipes)
+
+```elixir
+defp lookup_all_mx_records(domain_name) do
+  domain_name
+  |> String.to_charlist()
+  |> :inet_res.lookup(:in, :mx, [], max_timeout())
+  |> normalize_mx_records_to_string()
+end
+```
+
+From "Elixir in Action":
+
+> The pipeline operator highlights the power of functional programming. You treat functions as data transformations and then combine them in different ways to gain the desired effect.
+
+### Immutability
+
+I can't tell you how many times I've been writing JavaScript and forgotten that calling `.reverse()` or `.sort()` on an array actually mutates the original value.
+
+```javascript
+> const arr = [1, 6, 2, 5, 3, 4];
+> arr.sort().reverse()
+[ 6, 5, 4, 3, 2, 1 ]
+> arr
+[ 6, 5, 4, 3, 2, 1 ] 👎
+```
+
+I love that in Elixir, everything is immutable by default. So if I define a list, and want to reverse or sort it, the original list never changes:
+
+```elixir
+iex(12)> arr = [1, 6, 2, 5, 3, 4]
+[1, 6, 2, 5, 3, 4]
+iex(13)> arr |> Enum.sort() |> Enum.reverse()
+[6, 5, 4, 3, 2, 1]
+iex(14)> arr
+[1, 6, 2, 5, 3, 4] 👌
+```
+
+### Dealing with strings
+
+Triple quotes for the win! Multiple ways to interpolate. (Be care to `inspect` in logging though!)
+
+```elixir
+def welcome_email_text(name) do
+  """
+  Hi #{name}!
+
+  Thanks for signing up for Papercups :)
+
+  Best,
+  Alex
+  """
+end
+```
+
+### Phoenix, Pow, Oban
+
+These libraries have been super powerful and helpful, and I love that the maintainers are engaged with the community!
+
+## What I'm... still getting used to
+
+Overview of what I dislike about Elixir so far (or just haven't gotten used to).
+
+### Error handling
+
+Using the `{:error, reason}` tuple rather than just raising an exception.
+
+### Implicit returns (and no `return` keyword)
+
+Ruby also has implicit returns, but not having the ability to break out of a function early takes some getting used to.
+
+### Dialyzer and the development experience
+
+Cryptic errors, odd warnings.
+
+I've been avoiding `spec`s because I worried it would slow me down, but I'm starting to reconsider...
+
+### Debugging macros
+
+Self-explanatory? (Give an example)
+
+### Dealing with JSON
+
+Switching between strings and atoms as map keys, e.g. `%{"hello" => "world"}` vs `%{hello: "world"}`
+
+### Unclear trajectory of the language
+
+For example: concern about lack of libraries, and how out of date things may become.
+
+## Conclusion
+
+TODO
+
+---
+
+_Posted on August 10, 2020_
