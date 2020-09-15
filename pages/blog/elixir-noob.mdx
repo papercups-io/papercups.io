@@ -8,19 +8,19 @@ _By Alex Reichert_
 
 ---
 
-I've been working with Elixir for about 2 months so far, and it's been quite fun. Coming from a background in mostly Ruby and TypeScript/JavaScript, I wasn't sure how approachable I would find it.
+I've been working with Elixir for about 2 months so far, and it's been quite fun. Coming from a background in mostly TypeScript/JavaScript and Ruby, I wasn't sure how approachable I would find it.
 
-I've heard a lot of people say that most Ruby developers would feel comfortable getting started with Elixir, but I'm not sure how much I agree with that. Aside from some superficial similarities, Elixir really forces you to think about solving problems in a slightly different way.
+A lot of articles I've read say that most Ruby developers would feel comfortable getting started with Elixir, but I'm not sure how much I agree with that. Aside from some superficial similarities, Elixir really forces you to think about solving problems in a slightly different way.
 
 Over the course of my career so far, I've dabbled in programming languages unrelated to the jobs I've been paid for, but this was the first time I really learned a language by jumping right in and attempting to build a full-stack application. I'm a little ashamed to say that I've spent relatively little time going through books on Elixir, and have mostly just jumped right in to hacking on a product. That being said, a lot of the opinions below come from the perspective of someone who probably hasn't written much high-quality Elixir code in production. 😬
 
 ## What I like so far
 
-Overview of what I like about Elixir so far.
+Here are a few of the things that make me excited about working with Elixir. 😊
 
 ### The community
 
-This is an easy one. One of the first things I did when I started spinning up on Elixir was join the Elixir Slack group, and it's been one of my most helpful resources for me as a beginner. The community has been nothing but friendly, patient, and helpful. When I was starting to set up authentication, they pointed me to Pow. When I needed to set up workers, they showed me Oban. People have even been nice enough to review some of my shitty code. It's been amazing.
+This is an easy one. One of the first things I did when I started spinning up on Elixir was join the Elixir Slack group, and it's been one of my most helpful resources for me as a beginner. The community has been nothing but friendly, patient, and helpful. When I was misuing `with` statements, they showed me how to refactor it. When I was starting to set up authentication, they pointed me to Pow. When I needed to set up workers, they showed me Oban. People have even been nice enough to review some of my shitty code on Github. It's been amazing.
 
 ### The extensive built-in functionality
 
@@ -38,9 +38,45 @@ Checking if a user has a given role:
 
 ```elixir
 defp has_role?(nil, _roles), do: false
+
 defp has_role?(user, roles) when is_list(roles),
   do: Enum.any?(roles, &has_role?(user, &1))
+
 defp has_role?(%{role: role}, role), do: true
+
+defp has_role?(_user, _role), do: false
+```
+
+In TypeScript, the (very rough) equivalent of the above might look something like:
+
+```typescript
+const hasRole = (user: User, roleOrRoles: string | Array<string>) => {
+  if (!user) {
+    return false;
+  }
+
+  // This is probably not the most idiomatic TS/JS code :/
+  const roles = Array.isArray(roleOrRoles) ? roleOrRoles : [roleOrRoles];
+
+  return roles.some((role) => user.role === role);
+};
+```
+
+The Elixir code again, with some annotations:
+
+```elixir
+# If the user is `nil`, return false
+defp has_role?(nil, _roles), do: false
+
+# Allow 2nd argument to be list or string; if it is a list, check
+# if any of the values match by applying method recursively to each one
+defp has_role?(user, roles) when is_list(roles),
+  do: Enum.any?(roles, &has_role?(user, &1))
+
+# Use pattern matching to check if the `user.role` matches the `role`
+defp has_role?(%{role: role}, role), do: true
+
+# If none of the patterns match above, fall back to return false
 defp has_role?(_user, _role), do: false
 ```
 
@@ -50,9 +86,13 @@ Using `Task`s for async handling, and what's nice.
 
 Ruby is synchronous (blocking) by default; JavaScript is asynchronous (non-blocking) by default. Elixir is also synchronous by default -- which makes things much easier, in my opinion -- but it also makes it incredibly easy to handle processes asynchronously if you would like to.
 
+As a somewhat naive example, when I was setting up our Messages API, I noticed it slowing down as we added more and more notification side effects (e.g. Slack, Webhooks) whenever a message was created. I loved that I could temporarily fix this issue by simply throwing the logic into an async process with a `Task`:
+
 ```elixir
 Task.start(fn -> Papercups.Webhooks.notify(message))
 ```
+
+Now, this is definitely not the most ideal way to handle this. (It would probably make more sense to put it on a queue, e.g. with Oban.) But I loved how easy it was to unblock myself.
 
 ### The pipe operator
 
@@ -69,9 +109,23 @@ defp lookup_all_mx_records(domain_name) do
 end
 ```
 
+Whereas in TypeScript, I would probably do something like:
+
+```typescript
+const lookupAllMxRecords = async (domain: string) => {
+  const charlist = domain.split('');
+  const records = await InetRes.lookup(charlist, opts);
+  const normalized = normalizeMxRecords(records);
+
+  return normalized;
+};
+```
+
+There's nothing inherently wrong with that, but pipes save us some unhelpful variable declarations, and produce code that is arguably just as readable!
+
 From "Elixir in Action":
 
-> The pipeline operator highlights the power of functional programming. You treat functions as data transformations and then combine them in different ways to gain the desired effect.
+_The pipeline operator highlights the power of functional programming. You treat functions as data transformations and then combine them in different ways to gain the desired effect._
 
 ### Immutability
 
@@ -82,7 +136,7 @@ I can't tell you how many times I've been writing JavaScript and forgotten that 
 > arr.sort().reverse()
 [ 6, 5, 4, 3, 2, 1 ]
 > arr
-[ 6, 5, 4, 3, 2, 1 ] 👎
+[ 6, 5, 4, 3, 2, 1 ] // arr was mutated 👎
 ```
 
 I love that in Elixir, everything is immutable by default. So if I define a list, and want to reverse or sort it, the original list never changes:
@@ -93,7 +147,7 @@ iex(12)> arr = [1, 6, 2, 5, 3, 4]
 iex(13)> arr |> Enum.sort() |> Enum.reverse()
 [6, 5, 4, 3, 2, 1]
 iex(14)> arr
-[1, 6, 2, 5, 3, 4] 👌
+[1, 6, 2, 5, 3, 4] # nothing has changed 👌
 ```
 
 ### Dealing with strings
@@ -113,6 +167,23 @@ def welcome_email_text(name) do
 end
 ```
 
+If I wanted to do this in TypeScript, I'd have to do something like:
+
+```typescript
+const welcomeEmailText = (name: string) => {
+  return `
+Hi ${name}!
+
+Thanks for signing up for Papercups :)
+
+Best,
+Alex
+  `.trim();
+};
+```
+
+Which just looks... awkward.
+
 ### Phoenix, Pow, Oban
 
 These libraries have been super powerful and helpful, and I love that the maintainers are engaged with the community!
@@ -129,6 +200,39 @@ Using the `{:error, reason}` tuple rather than just raising an exception.
 
 Ruby also has implicit returns, but not having the ability to break out of a function early takes some getting used to.
 
+For example, if I wanted to write a function to compute the total cost of a bill in TypeScript, I might do something like:
+
+```typescript
+const calculateTotalPrice = (bill: Bill) => {
+  if (!bill) {
+    return 0;
+  }
+
+  const {prices = []} = bill;
+
+  // This is a little unnecessary, but illustrates the point of
+  // a second reason we may want to return early in a function
+  if (prices.length === 0) {
+    return 0;
+  }
+
+  return prices.reduce((total, price) => total + price, 0);
+};
+```
+
+The code above allows me to break early and `return 0` under certain circumstances (e.g. when `bill` is `null`, or `prices` is an empty list).
+
+Elixir solves this with pattern matching (see above).
+
+```elixir
+def calculate_total_price(nil), do: 0
+
+def calculate_total_price(%{prices: prices}) when is_list(prices),
+  do: Enum.sum(prices)
+
+def calculate_total_price(_bill), do: 0
+```
+
 ### Dialyzer and the development experience
 
 Cryptic errors, odd warnings.
@@ -138,6 +242,8 @@ I've been avoiding `spec`s because I worried it would slow me down, but I'm star
 ### Debugging macros
 
 Self-explanatory? (Give an example)
+
+e.g. [this macro in the Pow library](https://github.com/danschultzer/pow/blob/18954e6bc889d8824529abe4fb45a0f8554a420e/lib/pow/ecto/schema.ex#L185-L219)
 
 ### Dealing with JSON
 
