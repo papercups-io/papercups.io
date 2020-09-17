@@ -21,7 +21,7 @@ import {
 
 export default class extends Component {
   componentDidMount() {
-    const NEXT_PUBLIC_GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
+    const {NEXT_PUBLIC_GA_TRACKING_ID} = process.env;
 
     if (NEXT_PUBLIC_GA_TRACKING_ID) {
       ReactGA.initialize(NEXT_PUBLIC_GA_TRACKING_ID);

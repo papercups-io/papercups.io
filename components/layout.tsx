@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import Head from 'next/head';
 import Link from 'next/link';
 import {Box, Flex} from 'rebass';
@@ -28,6 +29,15 @@ export default class Container extends React.Component<Props, State> {
     p: Paragraph,
     hr: Divider,
   };
+
+  componentDidMount() {
+    const {NEXT_PUBLIC_GA_TRACKING_ID} = process.env;
+
+    if (NEXT_PUBLIC_GA_TRACKING_ID) {
+      ReactGA.initialize(NEXT_PUBLIC_GA_TRACKING_ID);
+      ReactGA.pageview(document.location.pathname);
+    }
+  }
 
   render() {
     return (
