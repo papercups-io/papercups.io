@@ -13,7 +13,7 @@ I've been working with Elixir for about 2 months so far, and it's been quite fun
 
 A lot of articles I've read say that most Ruby developers would feel comfortable getting started with Elixir, but I'm not sure how much I agree with that. Aside from some superficial similarities, Elixir really forces you to think about solving problems in a slightly different way.
 
-Over the course of my career so far, I've dabbled in programming languages unrelated to the jobs I've been paid for, but this was the first time I really learned a language by jumping right in and attempting to build a full-stack application. I'm a little ashamed to say that I've spent relatively little time going through books on Elixir, and have mostly just gone straight to hacking on our product. That being said, a lot of the opinions below come from the perspective of someone who probably hasn't written much high-quality Elixir code in production. 😬
+Over the course of my career so far, I've dabbled in programming languages unrelated to the jobs I've been paid for, but this was the first time I really learned a language by jumping right in and attempting to build [a full-stack application](https://github.com/papercups-io/papercups). I'm a little ashamed to say that I've spent relatively little time going through books on Elixir, and have mostly just gone straight to hacking on our product. That being said, a lot of the opinions below come from the perspective of someone who probably hasn't written much high-quality Elixir code in production. 😬
 
 ## What I like so far
 
@@ -119,9 +119,9 @@ Not sure how idiomatic that is, but it's a nice way to avoid `if` blocks!
 
 ### Async handling
 
-JavaScript is asynchronous (non-blocking) by default. This can be a bit tricky for new programmers, but it can be quite powerful once you get the hang of it (e.g. `Promise.all` to execute a bunch of async processes concurrently).
+JavaScript is asynchronous (non-blocking) by default. This can be a bit tricky for new programmers, but it can be quite powerful once you get the hang of it (e.g. `Promise.all` is a nice way to execute a bunch of async processes concurrently).
 
-Elixir is synchronous (blocking) by default -- which makes things much easier, in my opinion -- but it also happens to make it incredibly easy to handle processes asynchronously if you would like to.
+Elixir is synchronous (blocking) by default — which makes things much easier, in my opinion — but Elixir also happens to make it incredibly easy to handle processes asynchronously if you would like to.
 
 As a somewhat naive example, when I was setting up our Messages API, I noticed it slowing down as we added more and more notification side effects (e.g. Slack, Webhooks) whenever a message was created. I loved that I could temporarily fix this issue by simply throwing the logic into an async process with a `Task`:
 
@@ -151,7 +151,7 @@ This allows us to shutdown any processes that are taking longer than expected. �
 
 It's almost as if any blog post introducing Elixir is obligated to mention this, so here we are.
 
-Let's just take an example directly from the Papercups codebase. In one of our modules, we do some email validation by checking the MX records of the given domain. Here's how it looks in Elixir:
+Let's just take an example directly from the [Papercups codebase](https://github.com/papercups-io/papercups/blob/master/lib/chat_api/emails/helpers.ex#L46-L51). In one of our modules, we do some email validation by checking the MX records of the given domain. Here's how it looks in Elixir:
 
 ```elixir
 defp lookup_all_mx_records(domain_name) do
@@ -178,7 +178,7 @@ There's nothing inherently wrong with that, but pipes save us some unhelpful var
 
 I think the thing people like most about the pipe operator is that it both looks cool _AND_ improves (or at least doesn't detract from) readability. But mostly it just looks cool. 🤓
 
-Since I wasn't able to write anything particulary intelligent about pipes, I'll leave this section with a quote from Saša Juric's "Elixir in Action":
+Since I wasn't able to write anything particulary intelligent about pipes, I'll leave this section with a quote from Saša Juric's "[Elixir in Action](https://www.manning.com/books/elixir-in-action-second-edition)":
 
 _The pipeline operator highlights the power of functional programming. You treat functions as data transformations and then combine them in different ways to gain the desired effect._
 
@@ -210,8 +210,6 @@ iex(14)> arr
 Hooray! This makes the code much more predictable.
 
 ### Dealing with strings
-
-Triple quotes for the win! Multiple ways to interpolate. (Be care to `inspect` in logging though!)
 
 I love that there are so many ways to format and interpolate strings in Elixir. This might be a bit of a niche use case, but the triple-quote `"""` approach has been super useful for email text templates, since it removes all the preceding whitespace from each line:
 
@@ -249,7 +247,7 @@ Which just looks... awkward.
 
 I almost called this section, "What I dislike so far", but I thought that would be a little unfair. Just because I'm not accustomed to certain ways of thinking doesn't mean I have to hate on it.
 
-So without further ado, here are the things I'm still getting used to with Elixir. 😬
+So without further ado, here are some of the things I'm still getting used to with Elixir. 😬
 
 ### Error handling
 
@@ -286,11 +284,11 @@ end
 
 (It's very possible that the above code is an antipattern, and I'm simply not handling things correctly.)
 
-Anyway, on one hand, I feel like this convention of the language is good because it forces programmers to be more cognizant of error handling. But it definitely takes some getting used to.
+Anyway, on one hand, I feel like this convention of the language is good because it forces programmers to be more cognizant of error handling. But on the other hand, it definitely takes some getting used to.
 
 ### Implicit returns (and no `return` keyword)
 
-While pattern matching is great and all, the fact that Elixir does not have the ability to break out of a function early takes some getting used to.
+While pattern matching is great and all, the fact that Elixir does not have the ability to break out of a function early can be a bit frustrating as a beginner.
 
 For example, if I wanted to write a function to compute the total cost of a bill in TypeScript, I might do something like:
 
@@ -314,7 +312,7 @@ const calculateTotalPrice = (bill: Bill) => {
 
 The code above allows me to break early and `return 0` under certain circumstances (e.g. when `bill` is `null`, or `prices` is an empty list).
 
-Elixir solves this with pattern matching (see above).
+Elixir solves this with pattern matching (as we've discussed in more detail above).
 
 ```elixir
 def calculate_total_price(nil), do: 0
@@ -325,7 +323,7 @@ def calculate_total_price(%{prices: prices}) when is_list(prices),
 def calculate_total_price(_bill), do: 0
 ```
 
-For someone approaching Elixir as a newbie like myself, this can take some getting used to, because it forces you to take a step back and rethink how you would normalize design your functions.
+For someone approaching Elixir as a newbie like myself, this can take some getting used to, because it forces you to take a step back and rethink how you would normally design your functions.
 
 ### Dialyzer and the development experience
 
@@ -372,13 +370,13 @@ Honestly, I feel like this is true for most languages (other than JavaScript/Typ
 
 ### Unclear trajectory of the language
 
-I honestly have no idea whether Elixir is growing, stagnating, or declining in popularity, but so far things seem much less painful than I expected.
+I honestly have no idea whether Elixir is growing, stagnating, or declining in popularity, but so far things seem much more enjoyable and less painful than I expected.
 
-When we first started building Papercups in Elixir, a few people warned us that the lack of libraries and support would make it much harder to move quickly. While it's clear that the amount of open source libraries is much lower compared to languages like JavaScript, Ruby, Python, and Go, so far this hasn't been a huge issue.
+When we first started building [Papercups](https://github.com/papercups-io/papercups) in Elixir, a few people warned us that the lack of libraries and support would make it much harder to move quickly. While it's clear that the amount of open source libraries is much lower compared to languages like JavaScript, Ruby, Python, and Go, so far this hasn't been a huge issue.
 
 As more well-known companies (e.g. WhatsApp, Discord, Brex) begin using Elixir in production, I'm hoping developer adoption continues to grow. I'm optimistic! 😊
 
-## Fin
+## That's all for now!
 
 If you're interested in contributing to an open source Elixir project, come check out [Papercups on Github](https://github.com/papercups-io/papercups)!
 
