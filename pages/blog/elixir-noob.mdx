@@ -1,3 +1,4 @@
+import {Box, Flex, Image} from 'rebass';
 import Layout from '../../components/layout';
 
 export default Layout;
@@ -12,7 +13,7 @@ I've been working with Elixir for about 2 months so far, and it's been quite fun
 
 A lot of articles I've read say that most Ruby developers would feel comfortable getting started with Elixir, but I'm not sure how much I agree with that. Aside from some superficial similarities, Elixir really forces you to think about solving problems in a slightly different way.
 
-Over the course of my career so far, I've dabbled in programming languages unrelated to the jobs I've been paid for, but this was the first time I really learned a language by jumping right in and attempting to build a full-stack application. I'm a little ashamed to say that I've spent relatively little time going through books on Elixir, and have mostly just jumped right in to hacking on a product. That being said, a lot of the opinions below come from the perspective of someone who probably hasn't written much high-quality Elixir code in production. 😬
+Over the course of my career so far, I've dabbled in programming languages unrelated to the jobs I've been paid for, but this was the first time I really learned a language by jumping right in and attempting to build a full-stack application. I'm a little ashamed to say that I've spent relatively little time going through books on Elixir, and have mostly just gone straight to hacking on our product. That being said, a lot of the opinions below come from the perspective of someone who probably hasn't written much high-quality Elixir code in production. 😬
 
 ## What I like so far
 
@@ -20,21 +21,41 @@ Here are a few of the things that make me excited about working with Elixir. �
 
 ### The community
 
-This is an easy one. One of the first things I did when I started spinning up on Elixir was join the Elixir Slack group, and it's been one of my most helpful resources for me as a beginner. The community has been nothing but friendly, patient, and helpful. When I was misuing `with` statements, they showed me how to refactor it. When I was starting to set up authentication, they pointed me to Pow. When I needed to set up workers, they showed me Oban. People have even been nice enough to review some of my shitty code on Github. It's been amazing.
+This is an easy one. One of the first things I did when I started spinning up on Elixir was joining the [Elixir Slack](https://elixir-slackin.herokuapp.com/) group, and it's been one of the most helpful resources for me as a beginner. The community has been nothing but friendly, patient, and supportive. When I was misusing `with` statements, they showed me how to refactor it. When I was starting to set up authentication, they pointed me to [Pow](https://github.com/danschultzer/pow). When I needed to set up workers, they showed me [Oban](https://github.com/sorentwo/oban). People have even been nice enough to review some of my shitty code on [Github](https://github.com/papercups-io/papercups/pull/208). It's been amazing.
 
 ### The extensive built-in functionality
 
-How this compares to Ruby and TypeScript. (All the `Enum` and `Map` functions, e.g. https://hexdocs.pm/elixir/Enum.html, `get_in`, etc)
+It's kind of nice just having so many useful functions built into the language. Want to flatten an array? Boom, `List.flatten()`. No need to `import {flatten} from 'lodash'`. Need to group a list of records by a given key? Boom, `Enum.group_by()`. I could go on and on!
 
-Like Ruby (but unlike JavaScript), Elixir has a ton of helpful methods built into the language.
+I especially love that lists, maps, and ranges all implement the Enum protocol. For example, if I wanted to map over an object/map in JavaScript and double each value, I'd have to do something like:
+
+```javascript
+const obj = {a: 1, b: 2, c: 3};
+
+const result = Object.keys(obj).reduce((acc, key) => {
+  return {...acc, [key]: obj[key] * 2};
+}, {});
+
+// {a: 2, b: 4, c: 6}
+```
+
+Whereas in Elixir, I could just do:
+
+```elixir
+map = %{a: 1, b: 2, c: 3}
+
+result = map |> Enum.map(fn {k, v} -> {k, v * 2} end) |> Map.new()
+
+# %{a: 2, b: 4, c: 6}
+```
+
+Lastly, I love that there are methods like [`String.jaro_distance/2`](https://hexdocs.pm/elixir/String.html#jaro_distance/2), which calculates the distance/similarity between two strings. I don't currently use it, but I could see how this might be useful for validating email address domains (e.g. `foo@gmial.com` -> "Did you mean `foo@gmail.com`?")
 
 ### Pattern matching
 
-What I like (and what I'm still getting used to) re: pattern matching.
+Pattern matching feels like one of more powerful features Elixir offers as language. While it certainly takes some getting used to, I've found that it forces me to write cleaner code. (It's also caused me to write more `case` statements and much fewer `if` clauses than I ever have before!)
 
-Talk about pattern matching in methods, in `case` statements, in error handling?
-
-Checking if a user has a given role:
+For example, if I wanted to write a method in Elixir that determines if a user has a given role (e.g. for the sake of restricting access to certain functionality), I might do something [like this](https://hexdocs.pm/pow/user_roles.html#add-role-plug):
 
 ```elixir
 defp has_role?(nil, _roles), do: false
@@ -46,6 +67,8 @@ defp has_role?(%{role: role}, role), do: true
 
 defp has_role?(_user, _role), do: false
 ```
+
+(Note the additional use of pattern matching in the 3rd variant of `has_role?/2` to check if the `user.role` in the 1st parameter is the same as the `role` provided in the 2nd parameter!)
 
 In TypeScript, the (very rough) equivalent of the above might look something like:
 
@@ -62,7 +85,7 @@ const hasRole = (user: User, roleOrRoles: string | Array<string>) => {
 };
 ```
 
-The Elixir code again, with some annotations:
+Still confused? I don't blame you. Here's the Elixir code again, with some annotations:
 
 ```elixir
 # If the user is `nil`, return false
@@ -80,11 +103,25 @@ defp has_role?(%{role: role}, role), do: true
 defp has_role?(_user, _role), do: false
 ```
 
+This approach has taken some getting used to, but it's definitely growing on me. For example, one pattern I've started using to roll out new features (e.g. Slack notifications) is something like this:
+
+```elixir
+def notify(msg), do: notify(msg, slack_enabled?())
+
+# If Slack is not enabled, do nothing
+def notify(msg, false), do: {:ok, nil}
+
+# If it _is_ enabled, send the message
+def notify(msg, true), do: Slack.post("/chat.postMessage", msg)
+```
+
+Not sure how idiomatic that is, but it's a nice way to avoid `if` blocks!
+
 ### Async handling
 
-Using `Task`s for async handling, and what's nice.
+JavaScript is asynchronous (non-blocking) by default. This can be a bit tricky for new programmers, but it can be quite powerful once you get the hang of it (e.g. `Promise.all` to execute a bunch of async processes concurrently).
 
-Ruby is synchronous (blocking) by default; JavaScript is asynchronous (non-blocking) by default. Elixir is also synchronous by default -- which makes things much easier, in my opinion -- but it also makes it incredibly easy to handle processes asynchronously if you would like to.
+Elixir is synchronous (blocking) by default -- which makes things much easier, in my opinion -- but it also happens to make it incredibly easy to handle processes asynchronously if you would like to.
 
 As a somewhat naive example, when I was setting up our Messages API, I noticed it slowing down as we added more and more notification side effects (e.g. Slack, Webhooks) whenever a message was created. I loved that I could temporarily fix this issue by simply throwing the logic into an async process with a `Task`:
 
@@ -94,11 +131,27 @@ Task.start(fn -> Papercups.Webhooks.notify(message))
 
 Now, this is definitely not the most ideal way to handle this. (It would probably make more sense to put it on a queue, e.g. with Oban.) But I loved how easy it was to unblock myself.
 
+If we wanted to implement something similar to JavaScript's `Promise.all`, Elixir gives us something even better: control over timeouts!
+
+```elixir
+tasks = [
+  Task.async(fn -> Process.sleep(1000) end), # Sleep 1s
+  Task.async(fn -> Process.sleep(4000) end), # Sleep 4s
+  Task.async(fn -> Process.sleep(7000) end)  # Sleep 7s, will timeout
+]
+
+tasks
+|> Task.yield_many(5000) # Set timeout limit to 5s
+|> Enum.map(fn {t, res} -> res || Task.shutdown(t, :brutal_kill) end)
+```
+
+This allows us to shutdown any processes that are taking longer than expected. 🔥
+
 ### The pipe operator
 
 It's almost as if any blog post introducing Elixir is obligated to mention this, so here we are.
 
-(Give example of some code written in TypeScript, how it could be re-written in Elixir with pipes)
+Let's just take an example directly from the Papercups codebase. In one of our modules, we do some email validation by checking the MX records of the given domain. Here's how it looks in Elixir:
 
 ```elixir
 defp lookup_all_mx_records(domain_name) do
@@ -109,7 +162,7 @@ defp lookup_all_mx_records(domain_name) do
 end
 ```
 
-Whereas in TypeScript, I would probably do something like:
+If I wanted to write this in TypeScript, I would probably do something like:
 
 ```typescript
 const lookupAllMxRecords = async (domain: string) => {
@@ -123,13 +176,17 @@ const lookupAllMxRecords = async (domain: string) => {
 
 There's nothing inherently wrong with that, but pipes save us some unhelpful variable declarations, and produce code that is arguably just as readable!
 
-From "Elixir in Action":
+I think the thing people like most about the pipe operator is that it both looks cool _AND_ improves (or at least doesn't detract from) readability. But mostly it just looks cool. 🤓
+
+Since I wasn't able to write anything particulary intelligent about pipes, I'll leave this section with a quote from Saša Juric's "Elixir in Action":
 
 _The pipeline operator highlights the power of functional programming. You treat functions as data transformations and then combine them in different ways to gain the desired effect._
 
 ### Immutability
 
-I can't tell you how many times I've been writing JavaScript and forgotten that calling `.reverse()` or `.sort()` on an array actually mutates the original value.
+I can't tell you how many times I've been writing JavaScript and forgotten that calling `.reverse()` or `.sort()` on an array actually mutates the original value. (This almost screwed me over in my last technical interview, embarrassingly enough.)
+
+For example:
 
 ```javascript
 > const arr = [1, 6, 2, 5, 3, 4];
@@ -150,9 +207,13 @@ iex(14)> arr
 [1, 6, 2, 5, 3, 4] # nothing has changed 👌
 ```
 
+Hooray! This makes the code much more predictable.
+
 ### Dealing with strings
 
 Triple quotes for the win! Multiple ways to interpolate. (Be care to `inspect` in logging though!)
+
+I love that there are so many ways to format and interpolate strings in Elixir. This might be a bit of a niche use case, but the triple-quote `"""` approach has been super useful for email text templates, since it removes all the preceding whitespace from each line:
 
 ```elixir
 def welcome_email_text(name) do
@@ -184,21 +245,52 @@ Alex
 
 Which just looks... awkward.
 
-### Phoenix, Pow, Oban
-
-These libraries have been super powerful and helpful, and I love that the maintainers are engaged with the community!
-
 ## What I'm... still getting used to
 
-Overview of what I dislike about Elixir so far (or just haven't gotten used to).
+I almost called this section, "What I dislike so far", but I thought that would be a little unfair. Just because I'm not accustomed to certain ways of thinking doesn't mean I have to hate on it.
+
+So without further ado, here are the things I'm still getting used to with Elixir. 😬
 
 ### Error handling
 
-Using the `{:error, reason}` tuple rather than just raising an exception.
+One of the first things I noticed when I started to dip my toes in Elixir was the prevalence of methods returning `{:ok, result}`/`{:error, reason}` tuples. I didn't give it much thought at first, and found myself writing a lot of code that looked like:
+
+```elixir
+{:ok, foo} = Foo.retrieve(foo_id)
+{:ok, bar} = Bar.retrieve(bar_id)
+{:ok, baz} = Baz.retrieve(baz_id)
+```
+
+...and then got hit with a bunch of `MatchError`s.
+
+As you might have guessed (if you've written any Elixir), this led me to start getting a little overly enthusastic about the `with` statement. Which if you haven't written any Elixir, looks something like this:
+
+```elixir
+with {:ok, foo} <- Foo.retrieve(foo_id),
+     {:ok, bar} <- Bar.retrieve(bar_id),
+     {:ok, baz} <- Baz.retrieve(baz_id) do
+  # Do whatever, as long as all 3 methods above execute without error
+else
+  error -> handle_error(error)
+end
+```
+
+There's nothing particularly wrong with that, but I've also found myself writing some methods that basically just extract the `result` portion of the `{:ok, result}` tuple, which feels a little silly:
+
+```elixir
+case Foo.retrieve(foo_id) do
+  {:ok, foo} -> foo
+  error -> error
+end
+```
+
+(It's very possible that the above code is an antipattern, and I'm simply not handling things correctly.)
+
+Anyway, on one hand, I feel like this convention of the language is good because it forces programmers to be more cognizant of error handling. But it definitely takes some getting used to.
 
 ### Implicit returns (and no `return` keyword)
 
-Ruby also has implicit returns, but not having the ability to break out of a function early takes some getting used to.
+While pattern matching is great and all, the fact that Elixir does not have the ability to break out of a function early takes some getting used to.
 
 For example, if I wanted to write a function to compute the total cost of a bill in TypeScript, I might do something like:
 
@@ -233,30 +325,63 @@ def calculate_total_price(%{prices: prices}) when is_list(prices),
 def calculate_total_price(_bill), do: 0
 ```
 
+For someone approaching Elixir as a newbie like myself, this can take some getting used to, because it forces you to take a step back and rethink how you would normalize design your functions.
+
 ### Dialyzer and the development experience
 
-Cryptic errors, odd warnings.
+There's not much to say here, other than that Dialyzer can be pretty frustrating to deal with at times. Sometimes it's just slow, and warnings take a few seconds to pop up... this is annoying when I: change some code to fix a warning; the warning goes away for a few seconds; I feel good about myself for having fixed it; and then boom, another warning pops up.
 
-I've been avoiding `spec`s because I worried it would slow me down, but I'm starting to reconsider...
+Other times, the warnings and just cryptic or confusing:
+
+<Box mb={3}>
+  <img
+    width="480"
+    alt="Cryptic Dialyzer warning"
+    src="https://user-images.githubusercontent.com/5264279/93506100-bec6f600-f8e9-11ea-85e7-870c73aae6d6.png"
+  />
+</Box>
+
+(I have no idea what this means...)
 
 ### Debugging macros
 
-Self-explanatory? (Give an example)
+When I was starting off with the [Pow library](https://github.com/danschultzer/pow) to implement auth, I ran into Elixir macros for the first time. I felt like such an idiot trying to figure out where the `pow_password_changeset` method was defined, until I finally found [this piece of code](https://github.com/danschultzer/pow/blob/18954e6bc889d8824529abe4fb45a0f8554a420e/lib/pow/ecto/schema.ex#L185-L219):
 
-e.g. [this macro in the Pow library](https://github.com/danschultzer/pow/blob/18954e6bc889d8824529abe4fb45a0f8554a420e/lib/pow/ecto/schema.ex#L185-L219)
+```elixir
+@changeset_methods [:user_id_field_changeset, :password_changeset, :current_password_changeset]
+
+# ...
+
+for method <- @changeset_methods do
+  pow_method_name = String.to_atom("pow_#{method}")
+
+  quote do
+    @spec unquote(pow_method_name)(Ecto.Schema.t() | Changeset.t(), map()) :: Changeset.t()
+    def unquote(pow_method_name)(user_or_changeset, attrs) do
+      unquote(__MODULE__).Changeset.unquote(method)(user_or_changeset, attrs, @pow_config)
+    end
+  end
+end
+```
+
+It's pretty cool that Elixir supports macros, but the syntax and the idea of dynamically generating methods is not something I've ever had to deal with. But I'm excited to try it out!
 
 ### Dealing with JSON
 
-Switching between strings and atoms as map keys, e.g. `%{"hello" => "world"}` vs `%{hello: "world"}`
+Honestly, I feel like this is true for most languages (other than JavaScript/TypeScript). Since most maps in Elixir use atoms for keys, I've found myself accidentally mixing atom/string keys when I'm unknowing working with a map that has been decoded from JSON.
 
 ### Unclear trajectory of the language
 
-For example: concern about lack of libraries, and how out of date things may become.
+I honestly have no idea whether Elixir is growing, stagnating, or declining in popularity, but so far things seem much less painful than I expected.
 
-## Conclusion
+When we first started building Papercups in Elixir, a few people warned us that the lack of libraries and support would make it much harder to move quickly. While it's clear that the amount of open source libraries is much lower compared to languages like JavaScript, Ruby, Python, and Go, so far this hasn't been a huge issue.
 
-TODO
+As more well-known companies (e.g. WhatsApp, Discord, Brex) begin using Elixir in production, I'm hoping developer adoption continues to grow. I'm optimistic! 😊
+
+## Fin
+
+If you're interested in contributing to an open source Elixir project, come check out [Papercups on Github](https://github.com/papercups-io/papercups)!
 
 ---
 
-_Posted on August 10, 2020_
+_Posted on September 17, 2020_
