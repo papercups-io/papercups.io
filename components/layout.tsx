@@ -18,7 +18,7 @@ import {
   Title,
 } from '../components/common';
 
-type Props = {width?: number; children: any};
+type Props = {width?: number; title?: string; children: any};
 type State = any;
 
 export default class Container extends React.Component<Props, State> {
@@ -43,8 +43,14 @@ export default class Container extends React.Component<Props, State> {
     return (
       <Layout style={{background: colors.white}}>
         <Head>
-          <title>Papercups</title>
+          <title>
+            Papercups | {this.props.title || 'Open Source Intercom Alternative'}
+          </title>
           <link rel="icon" href="/logo-v2.svg" />
+          <meta
+            name="description"
+            content="Papercups is an open-source live chat widget. Chat with your customers to improve conversions and customer satisfaction."
+          ></meta>
         </Head>
 
         <Header style={{background: 'transparent'}}>

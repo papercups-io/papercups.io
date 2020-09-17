@@ -35,11 +35,11 @@ export default class extends Component {
         <Head>
           <title>Papercups | Open Source Intercom Alternative</title>
           <link rel="icon" href="/logo-v2.svg" />
+          <meta
+            name="description"
+            content="Papercups is an open-source live chat widget. Chat with your customers to improve conversions and customer satisfaction."
+          ></meta>
         </Head>
-        <meta
-          name="description"
-          content="Papercups is an open-source live chat widget. Chat with your customers to improve conversions and customer satisfaction."
-        ></meta>
 
         <Header style={{background: 'transparent'}}>
           <Flex>
