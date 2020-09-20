@@ -51,6 +51,14 @@ result = map |> Enum.map(fn {k, v} -> {k, v * 2} end) |> Map.new()
 # %{a: 2, b: 4, c: 6}
 ```
 
+_**Edit**: Apparently there's an even easier way to handle this using `Map.new/2`! (Thanks to [/u/metis_seeker](https://www.reddit.com/user/metis_seeker) on Reddit for the tip 😊)_
+
+```elixir
+Map.new(map, fn {k, v} -> {k, v * 2} end)
+
+# %{a: 2, b: 4, c: 6}
+```
+
 Lastly, I love that there are methods like [`String.jaro_distance/2`](https://hexdocs.pm/elixir/String.html#jaro_distance/2), which calculates the distance/similarity between two strings. I don't currently use it, but I could see how this might be useful for validating email address domains (e.g. `foo@gmial.com` -> "Did you mean `foo@gmail.com`?")
 
 ### Pattern matching
@@ -121,9 +129,9 @@ Not sure how idiomatic that is, but it's a nice way to avoid `if` blocks!
 
 ### Async handling
 
-JavaScript is asynchronous (non-blocking) by default. This can be a bit tricky for new programmers, but it can be quite powerful once you get the hang of it (e.g. `Promise.all` is a nice way to execute a bunch of async processes concurrently).
+A lot of JavaScript is conventionally handled asynchronously (non-blocking) by default. This can be a bit tricky for new programmers, but it can be quite powerful once you get the hang of it (e.g. `Promise.all` is a nice way to execute a bunch of async processes concurrently).
 
-Elixir is synchronous (blocking) by default — which makes things much easier, in my opinion — but Elixir also happens to make it incredibly easy to handle processes asynchronously if you would like to.
+Elixir is handled synchronously (blocking) by default — which makes things much easier, in my opinion — but Elixir also happens to make it incredibly easy to handle processes asynchronously if you would like to.
 
 As a somewhat naive example, when I was setting up our Messages API, I noticed it slowing down as we added more and more notification side effects (e.g. Slack, Webhooks) whenever a message was created. I loved that I could temporarily fix this issue by simply throwing the logic into an async process with a `Task`:
 
