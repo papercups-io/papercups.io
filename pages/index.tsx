@@ -375,6 +375,7 @@ export default class extends Component {
           accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
           requireEmailUpfront
           showAgentAvailability
+          iframeUrlOverride="https://chat-window-git-improve-logging-in-prod.papercups.vercel.app"
         />
       </Layout>
     );
