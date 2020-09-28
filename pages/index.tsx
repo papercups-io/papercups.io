@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {Component} from 'react';
 import ReactGA from 'react-ga';
 import {Box, Flex} from 'rebass';
-import ChatWidget from '@papercups-io/chat-widget';
+import {ChatWidget, Papercups} from '@papercups-io/chat-widget';
 
 import {RightCircleOutlined, GithubOutlined} from '../components/icons';
 import {
@@ -346,15 +346,27 @@ export default class extends Component {
             >
               <Title level={1}>What's new?</Title>
 
-              <Box my={4}>
-                <a
-                  href="https://github.com/papercups-io/papercups"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button size="large">Find out on Github</Button>
-                </a>
-              </Box>
+              <Flex my={4} mx={-2}>
+                <Box mx={2}>
+                  <a
+                    href="https://github.com/papercups-io/papercups"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button size="large">Find out on Github</Button>
+                  </a>
+                </Box>
+                <Box mx={2}>
+                  <Button
+                    type="primary"
+                    size="large"
+                    icon={<RightCircleOutlined />}
+                    onClick={Papercups.toggle}
+                  >
+                    Ask us!
+                  </Button>
+                </Box>
+              </Flex>
             </Flex>
           </Box>
         </Content>
