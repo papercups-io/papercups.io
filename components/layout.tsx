@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import {Box, Flex} from 'rebass';
 import {MDXProvider} from '@mdx-js/react';
-import ChatWidget from '@papercups-io/chat-widget';
+import {ChatWidget} from '@papercups-io/chat-widget';
 import {
   colors,
   Content,
