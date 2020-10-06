@@ -1,0 +1,132 @@
+import {Image} from 'rebass';
+import Layout from '../../components/layout';
+
+export default ({children}) => (
+  <Layout title="Launch HN: What We Learned">{children}</Layout>
+);
+
+# Launch HN: What We Learned
+
+_By Alex Reichert_
+
+---
+
+_Papercups (YC S20) is an open source alternative to customer messaging tools like Intercom. We launched on Hacker News in August: https://news.ycombinator.com/item?id=24133719_
+
+_Check out our [demo](https://app.papercups.io/demo), or [sign up for a free account](https://app.papercups.io/register)!_
+
+_Github repo: https://github.com/papercups-io/papercups_
+
+---
+
+## Anticipation
+
+Launching on Hacker News is scary.
+
+From the cheery positivity on Product Hunt to the crushing cynicism of /r/programming, HN lies somewhere in the middle. But every now and then it skews toward the latter. (Just kidding /r/programming, we love you too.)
+
+This isn’t because people on HN are “mean”, or cruel. Sure, they can be a little judgmental at times. But they tend to be thoughtful and fair. Because of that, it’s not the mean-spirited criticism that we fear — it’s the negative comments that may contain a kernel of truth.
+
+It’s not uncommon for earnest, optimistic YC founders to launch on HN and be met with comments like:
+
+- _“Seems like a pretty gross security and privacy risk with extremely limited upside for the employee.”_
+- _“Is this really a problem that needs solving? It seems like very little effort to implement this yourself in a way that doesn't involve completely trusting a different company.”_
+
+And, of course, the infamous “[Dropbox comment](https://news.ycombinator.com/item?id=8863)”:
+
+- _“For a Linux user, you can already build such a system yourself quite trivially by getting an FTP account, mounting it locally with curlftpfs, and then using SVN or CVS on the mounted filesystem. From Windows or Mac, this FTP account could be accessed through built-in software.”_
+
+To make matters worse, a few days before our planned launch, [this post](https://news.ycombinator.com/item?id=24059438) hit the front page. The comments filled up with people railing against products like Intercom and commiserating over how irritating these “chat bubbles” can be. Fantastic timing for us.
+
+Still, we plunged forward, cautiously optimistic. We set some goals for the launch. At the top of that list was the desire to surpass 1k stars on Github. From some moderately successful early launches on [Product Hunt](https://www.producthunt.com/posts/papercups) and within the Elixir community, we had already climbed to around 500 stars. So hitting 1k after our Launch HN should be easy, right? _(Narrator: it wasn’t.)_
+
+## The day of the launch
+
+Unlike many of our peers, not only did we have to prepare to respond to the moderate trickle of comments on our HN thread — we also had to be ready for the onslaught of messages coming in through the chat widget on our demo page. (This is one downside of building a live chat product 😬)
+
+As soon as we [hit the front page](https://news.ycombinator.com/item?id=24133719), the floodgates were open. We got several nice messages, a few trolls, and one guy who tried to break our chat by sending us the entire “lorem ipsum” text over and over again. But the vast majority of our inbound looked like this:
+
+- “hi”
+- “test”
+- “asdfasdf”
+
+And from our international crowd:
+
+- “ola” (that’s not a typo of “hola”, which I initially thought… that’s Portuguese)
+- “teste” (also not a typo! more Portuguese!)
+- “안녕” (from our friends in Korea 👋)
+- “asdfasdf” (some things just happen to be the same in every language 😛)
+
+…and we tried to respond to every single message. (Over 1400 messages were sent that day!)
+
+In our HN thread, we got a lot of great feedback. We were relieved at the generally positive attitudes of the commenters. Much of the feedback reflected what we already knew — things like frustration around existing pricing models, excitement about an open source alternative, the desire for more integrations and customization, etc.
+
+But we also learned quite a lot of new things. In particular, we had no idea that React Native support was something that was sorely lacking in existing products. (So we built it right after the launch: https://github.com/papercups-io/chat-widget-native)
+
+We also learned that a lot of the value that people get from products like Intercom comes not from the chat component, but from other features like email campaigns and their lightweight CRM. It’s given us a lot to think about!
+
+## Metrics
+
+I mentioned that one of our top goals for launching on HN was to hit 1k stars on Github. Well, 24 hours after the launch, we were just above 800 stars. Not even close. I was pretty bummed.
+
+But one thing I hadn’t anticipated was the second order effects of the traffic that Hacker News generated for us. The biggest of these was that it led us to be “trending” on the front page of Github:
+
+<Image
+  mt={2}
+  mb={4}
+  width="100%"
+  alt=""
+  src="https://paper-attachments.dropbox.com/s_62D2302FB94827F5A18A61935D23AB3FA86DCD04FE076A7F7D63F33490F45185_1599706413955_trending.png"
+/>
+
+That helped **a lot**.
+
+It also meant a lot of random blogs were writing about us, and sending their readers to our Github repo as well. To our pleasant surprise, this led to little bursts of new stars over the course of the week:
+
+<Image
+  mt={2}
+  mb={3}
+  pr={4}
+  width="100%"
+  alt=""
+  src="https://paper-attachments.dropbox.com/s_62D2302FB94827F5A18A61935D23AB3FA86DCD04FE076A7F7D63F33490F45185_1600021268524_Screen+Shot+2020-08-17+at+1.26.33+PM.png"
+/>
+
+So even though we didn’t quite hit our 24 hour goals, a week later we recorded the following metrics:
+
+- Number of Github stars: 500 → **1.5k**
+- Number of signups on our hosted version: 300 → **621**
+- Number of websites live on our hosted version: 18 → **52**
+
+And a lot of the credit goes to our friends on Hacker News! Thank you ❤️
+
+## Going forward
+
+Getting some positive feedback on Hacker News has very little impact on whether or not Papercups will become a successful company. We certainly haven’t found the ever-elusive “product market fit” yet, so there’s still plenty of work to do.
+
+Since our Launch HN, we’ve added:
+
+- React Native support: https://github.com/papercups-io/chat-widget-native
+- [Webhooks](https://github.com/papercups-io/papercups/wiki/Event-Subscriptions-with-Webhooks) for custom integrations and chatbots
+- Email notifications and improvements to our Slack integration
+- …and [much more!](https://github.com/papercups-io/papercups/wiki/Changelog)
+
+Moving forward, we’re excited to add more features like:
+
+- Our own [lightweight CRM](https://github.com/papercups-io/papercups/wiki/Features#lightweight-crm-coming-soon)
+- Tags, labels, and better customer segmentation
+- A sleek new [Reporting & Analytics](https://github.com/papercups-io/papercups/issues/252) dashboard
+
+We’d love to hear about the features you’d like to see in Papercups! Feel free to [submit a request on Github](https://github.com/papercups-io/papercups/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=) or message us on [Slack](https://join.slack.com/t/papercups-io/shared_invite/zt-h0c3fxmd-hZi1Zp8~D61S6GD16aMqmg) 🙂
+
+---
+
+_Papercups (YC S20) is an open source alternative to customer messaging tools like Intercom. We launched on Hacker News in August: https://news.ycombinator.com/item?id=24133719_
+
+_Check out our [demo](https://app.papercups.io/demo), or [sign up for a free account](https://app.papercups.io/register)!_
+
+_Github repo: https://github.com/papercups-io/papercups_
+
+---
+
+_Posted on October 1, 2020_
