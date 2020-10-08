@@ -1,0 +1,89 @@
+import {Box, Flex, Image} from 'rebass';
+import Layout from '../../components/layout';
+import {Text} from '../../components/common';
+
+export default ({children}) => (
+  <Layout title="Building a FAQ chatbot">{children}</Layout>
+);
+
+# Building a FAQ chatbot
+
+_By Kam Leung_
+
+---
+
+### Introduction
+
+We recently launched our open source Papercups FAQ chatbot in beta mode. It's a simple chatbot that you can “train” by feeding it questions and answers. You can play around with it at https://www.papercupsbot.io/bot/demo and see the code [here](https://github.com/papercups-io/papercups/blob/master/assets/src/components/demo/BotDemo.tsx). Since we’ve launched Papercups a month and a half ago we’ve sent over 10,000 messages manually between the two of us. A large percentage of these messages were repeat questions or 1 word messages that we had the same answers for. We built the FAQ chatbot to automate away these repeat questions. By no means is this to replace complex customer service flows where you need a much more robust system or a human in the loop. With that said we wanted to share how it was built and the inner workings of our model.
+
+### Technical Overview
+
+Our chatbot is very simple. We take the user’s input string to find the closest FAQ question that we have and then return the answer associated with that FAQ. To do so you need an algorithm or way to compare words and sentences and see how they match. One simple algorithm is to generate a similarity score by computing how many words overlap between the user's chat message and each FAQ question. There are some significant flaws in this approach, one being that it is incredibly brittle, and similar words that have similar meanings will get the same score as two very different words.
+
+For example: 
+
+* I like cake.
+* I enjoy cake.
+* I hate cake.
+
+Will all return the same value when in reality they mean very different things. We want an algorithm that will return a better similarity score for “I like cake” and “I enjoy cake” than “I hate cake”
+
+
+### Turning words to numbers with Embeddings
+
+To build this better similarity score we need a better way to turn words into numeric values so we can compare them to each other that is more robust. This can be done with word embeddings - a way to capture the essence of words and generating comparable numbers. For example, a word embedding like word2vec can take words and spit out a vector of numbers and you can do some interesting math on them. In word2vec if you pass in the value for king and add the value of woman your output value is very similar to the value for queen i.e King + Women ~= Queen. You can also compare how “close” or similar words are with one another. In our case, we can use something called a sentence embedding and this will take a sentence and output some numbers that you can compare with one another. The sentence embedding we are going to use is google’s universal sentence encoder.
+
+To get a better intuition of how embedding works you can play around with https://projector.tensorflow.org/ which maps the embedding on a 3D space.
+
+### Comparing Embeddings outputs
+
+One caveat with comparing text embedding value is that subtracting values from one vector i.e the Euclidean distance is not a good way of measuring how similar words or sentences are. To work around this researchers have found that measuring the cosine similarity between two vectors is much better. To give an example, the red point and green point have a closer distance (Euclidean distance) with one another but in actuality, if you take the cosine similarity blue and red have a closer angular distance from one another. For practical purposes, you just need to know that use cosine distance instead of Euclidean distances when you are using embeddings to compare text similarity. 
+
+
+<Box mb={3} textAlign="center">
+  <Box mb={2}>
+    <Image
+      alt="Visualizing cosine similarity"
+      src="https://uc35e770b95e8cad58955df2ce33.previews.dropboxusercontent.com/p/thumb/AA_KJuF2lmCy58gE0ERsUwdtNHfmDjSfDqXwOLLO7u0dYngeQMT-Vxg7bF-MS1ZeMu6egYPVcJuvR-41nU4qzwfMf21L69gsqwga8QU--t91YFd26Id2bPiEC8biDT1Duw2aOSk-Rtp-cT_na5AbdRoYHxTy2YbGPf_5Ao_OlvdUawukMszZgN6FJHkvBQZatfd-DAMJcuelkJ7DVC453FdpLdCKlu0mdaq3fkN9N4-OvKWObItcY_Ss5zhTUlSnIxHw6u62svgziEOpVOFmI6v7ePidO3VnST0rVC0tqyZ2uiiXl857E6CWxNHjtFem19HfSwYN-ST6jZLB76Ad5vD7rM6W5rmZ95q51gjBeMVzLeCOGx9F-eJDEs8i5zzO0Yq4UiG-YHkMLHi8_Lc2L9XpqkKjyOPkqseXoYYLOM1J-kjPq3CD-jw2i7s79F8ZHb8/p.png"
+    />
+  </Box>
+  <Text type="secondary">Visualizing cosine similarity</Text>
+</Box>
+
+### Putting it all together
+
+Finally, once you have a similarity score all you have to do is iterate through your FAQ to find the response that has the highest match. We set up a simple python API that loads google’s universal encoder and takes a string and an array of string and returns a score of each value. https://github.com/papercups-io/papercups-simple-chatbot/blob/main/main.py 
+
+<Box mb={3} textAlign="center">
+  <Box mb={2}>
+    <Image
+      alt="loading google's universal sentence encoder"
+      src="https://uccb0abfe88ac4c6e3b2856744d8.previews.dropboxusercontent.com/p/thumb/AA-bVu7cc0D9I_8IXoOHhTXc7_Dr2JY6jOvlIt9NS73ZMPIPAAmheCqWRxPUqnFQ6QqX_8OFQSW1su8YnSbtClI0UvRSCPI0GoffoJUmeOOOIF4AfL7JsNf-DJ08VM-enSiLlpwY0VisoLKSNNQQAqkKJGaIQJsFM4iLxpuhX5o2HjX31QYtu10HGB7hYvQO7VHNc6LNw5Cb4SW0Ck1meWoVF-3enpOgAJc_XrcCpF-O4pSJXwBVr8Ul-AWpWERTcmgfM5PAibJMSpj5ejt77mn_5kNSQcGW7rgP8-AWxODgMHmbTVt0AWJp4AtDXvsh9q76fttE64fHC6U_kOisu11vVuk7OHSkaQNcphubjB2lqOYEMuUx5Xh1thgdOa4-as0VjvciaY3fKk2S0yLpK9UOH9h_lgIrOFq4ShnGIKfvCHNymJGTKf86DuTWD9fT0ms/p.png"
+    />
+  </Box>
+</Box>
+
+<Box mb={3} textAlign="center">
+  <Image
+    alt=""
+    src="https://uce8b75f0e8efa2dd94524cabc46.previews.dropboxusercontent.com/p/thumb/AA_q6h3lKyZr8HMzd0J9xsoeYvP-M72bu8TFx4LWuFXO2uGtET-FjBHQcwweMOokaQ5pmV9inHrUXCleEuECSTjLOlhkzx-ugYFOGKcQDfIfuhk2YK-NPuRjAMWmfKMUFEeiZ21t-sEMcZA793hCd7DUEw7QlDvHSsu9z2VwPU-O54yRGpQW2AuhnJTE6pDi7O6nPtOudqn5eTtfKDWGxKiABx9_SpTUImuzzP2HfHV-Chz8U7rGVvBFsbNitIp7QbaXInDY705xlO0ViPOVOI1A9DRO-G_iulvm0dOhxqMr0AI2fj7tJpYJetrTRLKARGYU4mzw37WPe2QZuyRUcqMZy1maCNk8X4iAc3QP6GRRVTk7R2fKU7rZLhwPBz9d9uX-ZJtKZe6-SKkNxyA5j3O8tMfDJ-jyjL37H-drHTd52W7HRxUHaH3y_P4bHhRCsY0/p.png"
+  />
+</Box>
+
+### Conclusion
+
+There are still a lot of rough edges to this chatbot and we’re still trying to figure out whether we want to productize this yet. But in the meantime, we wanted to share how we built this chatbot. We hope you can use this as an inspiration to build some clever and powerful tools.
+
+---
+
+_Posted on October 8, 2020_
+
+*Footnotes:*
+
+*The code lives in a few repositories [chatbot](https://github.com/papercups-io/papercups-simple-chatbot), [client side](https://github.com/papercups-io/papercups/blob/master/assets/src/components/demo/BotDemo.tsx), [webhook connector](https://github.com/papercups-io/webhooks-demo)
+
+*We tried to set the bot up with GPT3 but with the cost structure, it didn’t make sense since you have to feed the FAQs every time and they don’t support just returning the encoding values yet.*
+
+*The image of angular distance we used was from https://www.baeldung.com/cs/euclidean-distance-vs-cosine-similarity where they dive deeper to cosine similarity*
+
+*Check out: https://www.tensorflow.org/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder for more details on how the embeddings and model work*
