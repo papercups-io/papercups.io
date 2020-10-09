@@ -3,31 +3,40 @@ import Layout from '../../components/layout';
 import {Text} from '../../components/common';
 
 export default ({children}) => (
-  <Layout title="Building a FAQ chatbot">{children}</Layout>
+  <Layout title="Building an FAQ chatbot">{children}</Layout>
 );
 
-# Building a FAQ chatbot
+# Building an FAQ chatbot
 
 _By Kam Leung_
 
 ---
 
+_Papercups is an [open source](https://github.com/papercups-io/papercups) alternative to customer messaging tools like Intercom._
+
+_Check out our [FAQ chatbot demo](https://www.papercupsbot.io/bot/demo)!_
+
+_Github repo: https://github.com/papercups-io/papercups_
+
+---
+
 ### Introduction
 
-We recently launched our open source Papercups FAQ chatbot in beta mode. It's a simple chatbot that you can “train” by feeding it questions and answers. You can play around with it [here](https://www.papercupsbot.io/bot/demo) and see the code [here](https://github.com/papercups-io/papercups/blob/master/assets/src/components/demo/BotDemo.tsx). Since we’ve launched Papercups a month and a half ago we’ve sent over 10,000 messages manually between the two of us. A large percentage of these messages were repeat questions or 1 word messages that we had the same answers for. We built the FAQ chatbot to automate away these repeat questions. By no means is this to replace complex customer service flows where you need a much more robust system or a human in the loop. With that said we wanted to share how it was built and the inner workings of our model.
+We recently launched our open source Papercups FAQ chatbot in beta mode. It's a simple chatbot that you can “train” by feeding it questions and answers. You can play around with it [here](https://www.papercupsbot.io/bot/demo) and see the code [here](https://github.com/papercups-io/papercups/blob/master/assets/src/components/demo/BotDemo.tsx).
+
+Since we’ve launched Papercups a month and a half ago we’ve sent over 10,000 messages manually between the two of us. A large percentage of these messages were repeat questions or 1 word messages that we had the same answers for. We built the FAQ chatbot to automate away these repeat questions. By no means is this to replace complex customer service flows where you need a much more robust system or a human in the loop. With that said we wanted to share how it was built and the inner workings of our model.
 
 ### Technical Overview
 
 Our chatbot is very simple. We take the user’s input string to find the closest FAQ question that we have and then return the answer associated with that FAQ. To do so you need an algorithm or way to compare words and sentences and see how they match. One simple algorithm is to generate a similarity score by computing how many words overlap between the user's chat message and each FAQ question. There are some significant flaws in this approach, one being that it is incredibly brittle, and similar words that have similar meanings will get the same score as two very different words.
 
-For example: 
+For example:
 
-* I like cake.
-* I enjoy cake.
-* I hate cake.
+- I like cake.
+- I enjoy cake.
+- I hate cake.
 
 Will all return the same value when in reality they mean very different things. We want an algorithm that will return a better similarity score for “I like cake” and “I enjoy cake” than “I hate cake”
-
 
 ### Turning words to numbers with Embeddings
 
@@ -37,8 +46,7 @@ To get a better intuition of how embedding works you can play around with https:
 
 ### Comparing Embeddings outputs
 
-One caveat with comparing text embedding value is that subtracting values from one vector i.e the Euclidean distance is not a good way of measuring how similar words or sentences are. To work around this researchers have found that measuring the cosine similarity between two vectors is much better. To give an example, the red point and green point have a closer distance (Euclidean distance) with one another but in actuality, if you take the cosine similarity blue and red have a closer angular distance from one another. For practical purposes, you just need to know that use cosine distance instead of Euclidean distances when you are using embeddings to compare text similarity. 
-
+One caveat with comparing text embedding value is that subtracting values from one vector i.e the Euclidean distance is not a good way of measuring how similar words or sentences are. To work around this researchers have found that measuring the cosine similarity between two vectors is much better. To give an example, the red point and green point have a closer distance (Euclidean distance) with one another but in actuality, if you take the cosine similarity blue and red have a closer angular distance from one another. For practical purposes, you just need to know that use cosine distance instead of Euclidean distances when you are using embeddings to compare text similarity.
 
 <Box mb={3} textAlign="center">
   <Box mb={2}>
@@ -52,7 +60,7 @@ One caveat with comparing text embedding value is that subtracting values from o
 
 ### Putting it all together
 
-Finally, once you have a similarity score all you have to do is iterate through your FAQ to find the response that has the highest match. We set up a simple python API that loads google’s universal encoder and takes a string and an array of string and returns a score of each value. https://github.com/papercups-io/papercups-simple-chatbot/blob/main/main.py 
+Finally, once you have a similarity score all you have to do is iterate through your FAQ to find the response that has the highest match. We set up a simple python API that loads google’s universal encoder and takes a string and an array of string and returns a score of each value. https://github.com/papercups-io/papercups-simple-chatbot/blob/main/main.py
 
 <Box mb={3} textAlign="center">
   <Box mb={2}>
@@ -78,12 +86,14 @@ There are still a lot of rough edges to this chatbot and we’re still trying to
 
 _Posted on October 8, 2020_
 
-*Footnotes:*
+---
 
-*The code lives in a few repositories [chatbot](https://github.com/papercups-io/papercups-simple-chatbot), [client side](https://github.com/papercups-io/papercups/blob/master/assets/src/components/demo/BotDemo.tsx), [webhook connector](https://github.com/papercups-io/webhooks-demo)
+_Footnotes:_
 
-*We tried to set the bot up with GPT3 but with the cost structure, it didn’t make sense since you have to feed the FAQs every time and they don’t support just returning the encoding values yet.*
+- _The code lives in a few repositories [chatbot](https://github.com/papercups-io/papercups-simple-chatbot), [client side](https://github.com/papercups-io/papercups/blob/master/assets/src/components/demo/BotDemo.tsx), [webhook connector](https://github.com/papercups-io/webhooks-demo)_
 
-*The image of angular distance we used was from https://www.baeldung.com/cs/euclidean-distance-vs-cosine-similarity where they dive deeper to cosine similarity*
+- _We tried to set the bot up with GPT3 but with the cost structure, it didn’t make sense since you have to feed the FAQs every time and they don’t support just returning the encoding values yet._
 
-*Check out: https://www.tensorflow.org/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder for more details on how the embeddings and model work*
+- _The image of angular distance we used was from https://www.baeldung.com/cs/euclidean-distance-vs-cosine-similarity where they dive deeper to cosine similarity_
+
+- _Check out: https://www.tensorflow.org/hub/tutorials/semantic_similarity_with_tf_hub_universal_encoder for more details on how the embeddings and model work_
