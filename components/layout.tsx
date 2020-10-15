@@ -51,6 +51,11 @@ export default class Container extends React.Component<Props, State> {
             name="description"
             content="Papercups is an open-source live chat widget. Chat with your customers to improve conversions and customer satisfaction."
           ></meta>
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
         </Head>
 
         <Header style={{background: 'transparent'}}>
