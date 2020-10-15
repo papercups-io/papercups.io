@@ -54,7 +54,7 @@ export default class Container extends React.Component<Props, State> {
           <script
             async
             src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"
+            charSet="utf-8"
           ></script>
         </Head>
 
