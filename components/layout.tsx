@@ -5,7 +5,6 @@ import Link from 'next/link';
 import {Box, Flex} from 'rebass';
 import {MDXProvider} from '@mdx-js/react';
 import {ChatWidget} from '@papercups-io/chat-widget';
-import {Storytime} from '@papercups-io/storytime';
 import {
   colors,
   Content,
@@ -39,10 +38,14 @@ export default class Container extends React.Component<Props, State> {
       ReactGA.pageview(document.location.pathname);
     }
 
-    Storytime.init({
-      accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
-      host: 'https://alex-papercups-staging.herokuapp.com',
-    });
+    if (typeof window !== 'undefined') {
+      const {Storytime} = require('@papercups-io/storytime');
+
+      Storytime.init({
+        accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
+        host: 'https://alex-papercups-staging.herokuapp.com',
+      });
+    }
   }
 
   render() {
