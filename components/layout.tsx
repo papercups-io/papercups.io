@@ -43,7 +43,6 @@ export default class Container extends React.Component<Props, State> {
 
       Storytime.init({
         accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
-        host: 'https://alex-papercups-staging.herokuapp.com',
       });
     }
   }
