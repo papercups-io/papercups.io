@@ -39,6 +39,7 @@ export default class Container extends React.Component<Props, State> {
     }
 
     if (typeof window !== 'undefined') {
+      // NB: just testing this out, feel free to remove if anything breaks
       const {Storytime} = require('@papercups-io/storytime');
 
       Storytime.init({
