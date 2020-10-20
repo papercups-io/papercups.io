@@ -75,6 +75,11 @@ export default class extends Component {
                     Features
                   </a>
                 </Menu.Item>
+                <Menu.Item style={{margin: '0 1em'}} key="pricing">
+                  <Link href="/pricing">
+                    <a>Pricing</a>
+                  </Link>
+                </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="github">
                   <a
                     href="https://github.com/papercups-io/papercups"
