@@ -33,14 +33,15 @@ export default class Container extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    const {NEXT_PUBLIC_GA_TRACKING_ID} = process.env;
+    const gaTrackingId = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
+    const isStorytimeEnabled = process.env.NEXT_STORYTIME_ENABLED;
 
-    if (NEXT_PUBLIC_GA_TRACKING_ID) {
-      ReactGA.initialize(NEXT_PUBLIC_GA_TRACKING_ID);
+    if (gaTrackingId) {
+      ReactGA.initialize(gaTrackingId);
       ReactGA.pageview(document.location.pathname);
     }
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && isStorytimeEnabled) {
       // NB: just testing this out, feel free to remove if anything breaks
       const {Storytime} = require('@papercups-io/storytime');
 
