@@ -22,6 +22,8 @@ type Props = {width?: number; title?: string; children: any};
 type State = any;
 
 export default class Container extends React.Component<Props, State> {
+  storytime: any = null;
+
   state = {
     h1: Title,
     h2: (props: any) => <Title level={2} {...props} />,
@@ -40,10 +42,17 @@ export default class Container extends React.Component<Props, State> {
 
     if (typeof window !== 'undefined') {
       // NB: just testing this out, feel free to remove if anything breaks
-      // const {Storytime} = require('@papercups-io/storytime');
-      // Storytime.init({
-      //   accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
-      // });
+      const {Storytime} = require('@papercups-io/storytime');
+
+      this.storytime = Storytime.init({
+        accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.storytime && this.storytime.finish) {
+      this.storytime.finish();
     }
   }
 
