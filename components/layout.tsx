@@ -40,11 +40,10 @@ export default class Container extends React.Component<Props, State> {
 
     if (typeof window !== 'undefined') {
       // NB: just testing this out, feel free to remove if anything breaks
-      const {Storytime} = require('@papercups-io/storytime');
-
-      Storytime.init({
-        accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
-      });
+      // const {Storytime} = require('@papercups-io/storytime');
+      // Storytime.init({
+      //   accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
+      // });
     }
   }
 
