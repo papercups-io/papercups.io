@@ -4,7 +4,6 @@ import {Component} from 'react';
 import ReactGA from 'react-ga';
 import {Box, Flex} from 'rebass';
 import {ChatWidget, Papercups} from '@papercups-io/chat-widget';
-
 import {RightCircleOutlined, GithubOutlined} from '../components/icons';
 import {
   colors,
@@ -30,10 +29,12 @@ export default class extends Component {
   }
 
   render() {
+    const displayDemoAsGif = true; // TODO
+
     return (
       <Layout style={{background: colors.white}}>
         <Head>
-          <title>Papercups | Open Source Intercom Alternative</title>
+          <title>Storytime | Open Source Intercom Alternative</title>
           <link rel="icon" href="/logo-v2.svg" />
           <meta
             name="description"
@@ -44,12 +45,9 @@ export default class extends Component {
         <Header style={{background: 'transparent'}}>
           <Flex>
             <Box flex={1}>
-              <Link href="/">
+              <Link href="/storytime">
                 <a>
-                  <img
-                    src="papercups-v2.svg"
-                    style={{height: 50, width: 100}}
-                  />
+                  <img src="storytime-logo.svg" style={{height: 40}} />
                 </a>
               </Link>
             </Box>
@@ -60,15 +58,6 @@ export default class extends Component {
                   <Link href="/blog">
                     <a>Blog</a>
                   </Link>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="features">
-                  <a
-                    href="https://github.com/papercups-io/papercups/wiki/Features"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Features
-                  </a>
                 </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="pricing">
                   <Link href="/pricing">
@@ -100,53 +89,87 @@ export default class extends Component {
 
         <Content>
           <Box mx="auto" style={{maxWidth: 960}} py={5} px={4}>
-            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
-              <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Box mb={6}>
-                  <Title level={1}>
-                    Connect with your customers. Own your data.
-                  </Title>
+            <Box pt={80} mx={[0, 4]} mb={5}>
+              <Box mb={5} sx={{textAlign: 'center'}}>
+                <Title level={1}>
+                  View and chat with your users in real time.
+                </Title>
 
-                  <Paragraph>
-                    Open source customer messaging, built for startups and
-                    enterprise alike.
-                  </Paragraph>
+                <Paragraph>
+                  Open source customer messaging with built-in screen sharing
+                  through the browser. Get started in minutes.
+                </Paragraph>
 
-                  <Flex my={3}>
-                    <Box mr={2}>
-                      <a
-                        href="https://github.com/papercups-io/papercups"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                <Flex
+                  my={3}
+                  sx={{justifyContent: 'center', alignItems: 'center'}}
+                >
+                  <Box mr={2}>
+                    <a
+                      href="https://github.com/papercups-io/papercups"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        type="default"
+                        size="large"
+                        icon={<GithubOutlined />}
                       >
-                        <Button
-                          type="default"
-                          size="large"
-                          icon={<GithubOutlined />}
-                        >
-                          Github
-                        </Button>
-                      </a>
-                    </Box>
-                    <Box mr={2}>
-                      <a
-                        href="https://app.papercups.io/register"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        Github
+                      </Button>
+                    </a>
+                  </Box>
+                  <Box mr={2}>
+                    <a
+                      href="https://app.papercups.io/register"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        type="primary"
+                        size="large"
+                        icon={<RightCircleOutlined />}
                       >
-                        <Button
-                          type="primary"
-                          size="large"
-                          icon={<RightCircleOutlined />}
-                        >
-                          Get started for free
-                        </Button>
-                      </a>
-                    </Box>
-                  </Flex>
-                </Box>
+                        Get started for free
+                      </Button>
+                    </a>
+                  </Box>
+                </Flex>
               </Box>
+            </Box>
 
+            <Box mx={[0, 4]} mb={6}>
+              <Flex
+                alignItems="center"
+                justifyContent="center"
+                style={{
+                  width: '100%',
+                  height: 400,
+                }}
+              >
+                {displayDemoAsGif ? (
+                  <img
+                    style={{
+                      width: '100%',
+                      boxShadow: '0 24px 48px rgba(17, 16, 62, 0.12)',
+                    }}
+                    src="https://user-images.githubusercontent.com/5264279/96898977-56c27d00-145e-11eb-907b-ca8db13a0fa0.gif"
+                  />
+                ) : (
+                  <iframe
+                    src="https://player.vimeo.com/video/471072025?autoplay=1&loop=1&muted=1"
+                    style={{boxShadow: '0 24px 48px rgba(17, 16, 62, 0.12)'}}
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                  ></iframe>
+                )}
+              </Flex>
+            </Box>
+
+            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box flex={1} mx={[0, 4]}>
                 <Flex
                   alignItems="center"
@@ -162,39 +185,16 @@ export default class extends Component {
                       height: '100%',
                       minHeight: 320,
                     }}
-                    src="chatting.svg"
+                    src="online-collab.svg"
                   />
                 </Flex>
               </Box>
-            </Flex>
-
-            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
-              <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                  }}
-                >
-                  <img
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      minHeight: 320,
-                    }}
-                    src="setup.svg"
-                  />
-                </Flex>
-              </Box>
-
-              <Box flex={1} mx={[0, 4]} my={[4, 0]}>
-                <Title level={3}>Chat directly with your users</Title>
+              <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
+                <Title level={3}>View and collaborate in real time</Title>
                 <Paragraph>
-                  Convert more website visitors into customers with real-time
-                  chat. Don't lose out on prospects because of unanswered
-                  questions!
+                  Watch how your users are interacting with your website and
+                  chat with them in real time. See exactly what they're seeing
+                  and help them with anything they need.
                 </Paragraph>
               </Box>
             </Flex>
@@ -205,11 +205,11 @@ export default class extends Component {
               flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Title level={3}>Highly customizable widget</Title>
+                <Title level={3}>Built with security in mind</Title>
                 <Paragraph>
-                  Customize it as much as you'd like to match your existing
-                  designs. We also provide a React component for easy
-                  customization.
+                  Password inputs, iframes, and other sensitive data are blocked
+                  by default. Customize which elements are blocked with simple
+                  CSS class tags to protect user privacy.
                 </Paragraph>
               </Box>
 
@@ -227,14 +227,16 @@ export default class extends Component {
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
+                      maxHeight: 360,
                     }}
-                    src="customize.svg"
+                    src="secure-v2.svg"
                   />
                 </Flex>
               </Box>
             </Flex>
+
             <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
-              <Box flex={1} mx={[0, 4]}>
+              <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Flex
                   alignItems="center"
                   justifyContent="center"
@@ -249,16 +251,17 @@ export default class extends Component {
                       height: '100%',
                       minHeight: 320,
                     }}
-                    src="secure.svg"
+                    src="online-message.svg"
                   />
                 </Flex>
               </Box>
-              <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Title level={3}>Integrate with your favorite tools</Title>
+
+              <Box flex={1} mx={[0, 4]} my={[4, 0]}>
+                <Title level={3}>Chat directly with your users</Title>
                 <Paragraph>
-                  Connect Papercups to Slack, Gmail, and many more of your
-                  favorite tools. Do you want to connect to a platform we don't
-                  currently support? Get in touch!
+                  Convert more website visitors into customers with real-time
+                  chat. Don't lose out on prospects because of unanswered
+                  questions!
                 </Paragraph>
               </Box>
             </Flex>
