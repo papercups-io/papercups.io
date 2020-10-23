@@ -170,7 +170,7 @@ export default class extends Component {
             </Box>
 
             <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
-              <Box flex={1} mx={[0, 4]}>
+              <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Flex
                   alignItems="center"
                   justifyContent="center"
@@ -189,7 +189,7 @@ export default class extends Component {
                   />
                 </Flex>
               </Box>
-              <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
+              <Box flex={1} mx={[0, 4]} my={[4, 0]}>
                 <Title level={3}>View and collaborate in real time</Title>
                 <Paragraph>
                   Watch how your users are interacting with your website and
@@ -204,7 +204,7 @@ export default class extends Component {
               mx={[0, -4]}
               flexDirection={['column-reverse', 'row']}
             >
-              <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
+              <Box flex={1} mx={[0, 4]} my={[4, 0]}>
                 <Title level={3}>Built with security in mind</Title>
                 <Paragraph>
                   Password inputs, iframes, and other sensitive data are blocked
@@ -213,7 +213,7 @@ export default class extends Component {
                 </Paragraph>
               </Box>
 
-              <Box flex={1} mx={[0, 4]}>
+              <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Flex
                   alignItems="center"
                   justifyContent="center"
@@ -227,7 +227,6 @@ export default class extends Component {
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
-                      maxHeight: 360,
                     }}
                     src="secure-v2.svg"
                   />
