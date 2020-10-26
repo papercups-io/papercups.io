@@ -47,6 +47,7 @@ export default class Container extends React.Component<Props, State> {
 
       this.storytime = Storytime.init({
         accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
+        debug: true,
       });
     }
   }
