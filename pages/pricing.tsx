@@ -18,7 +18,7 @@ const PricingCard = ({
 }) => {
   return (
     <Box
-      mx={2}
+      m={2}
       p={3}
       style={{
         flex: 1,
@@ -43,7 +43,7 @@ const PricingCard = ({
 
 export const PricingOptions = () => {
   return (
-    <Flex mx={-2}>
+    <Flex mx={-2} flexDirection={['column', 'row']}>
       <PricingCard
         title="Starter"
         description="Basic live chat and inbox to get you started."
