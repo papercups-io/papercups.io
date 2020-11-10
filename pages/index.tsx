@@ -386,6 +386,7 @@ export default class extends Component {
           primaryColor="#1890ff"
           accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
           iconVariant="filled"
+          iframeUrlOverride="https://chat-window-git-ie11.papercups.vercel.app"
           requireEmailUpfront
           showAgentAvailability
         />
