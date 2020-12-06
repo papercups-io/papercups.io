@@ -49,7 +49,7 @@ export const PricingOptions = () => {
         description="Basic live chat and inbox to get you started."
         cta={
           <a
-            href="https://app.papercups.io"
+            href="https://app.papercups.io/register?redirect=/getting&utm_source=pricing_page&plan=Starter"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -70,8 +70,8 @@ export const PricingOptions = () => {
             <Paragraph>
               <li>2 seats included</li>
               <li>100,000 messages</li>
+              <li>30 day message retention</li>
               <li>Customizable chat widget</li>
-              <li>Slack integration</li>
             </Paragraph>
           </>
         }
@@ -82,18 +82,18 @@ export const PricingOptions = () => {
         description="Supercharge your support, sales, and marketing."
         cta={
           <a
-            href="https://app.papercups.io"
+            href="https://app.papercups.io/register?redirect=/billing&utm_source=pricing_page&plan=Team"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button type="primary" size="large" block>
-              Create an account
+              Start my free trial
             </Button>
           </a>
         }
         pricing={
           <Text>
-            <Text strong>$40</Text>/month
+            <Text strong>$94</Text>/month
           </Text>
         }
         features={
@@ -103,10 +103,13 @@ export const PricingOptions = () => {
             </Paragraph>
 
             <Paragraph>
-              <li>5 seats included</li>
-              <li>Unlimited messages</li>
-              <li>Additional integrations</li>
+              <li>10 seats included</li>
+              <li>Slack integration</li>
+              <li>Unlimited data retention</li>
+              <li>Website screen sharing</li>
+              <li>Private Notes</li>
               <li>Webhooks</li>
+              <li>Priority Support</li>
             </Paragraph>
           </>
         }
@@ -144,10 +147,17 @@ export const PricingOptions = () => {
 const Pricing = () => {
   return (
     <Layout width={960}>
-      <Box mb={5}>
-        <Title level={1}>Get started today</Title>
-      </Box>
-
+      <Flex
+        flexDirection="column"
+        justify-content="center"
+        alignItems="center"
+        paddingBottom="20px"
+      >
+        <Title level={1}>Get started with Papercups</Title>
+        <Paragraph>
+          ✓ 30 day free trial ✓ No credit card required ✓ Cancel anytime
+        </Paragraph>
+      </Flex>
       <PricingOptions />
     </Layout>
   );
