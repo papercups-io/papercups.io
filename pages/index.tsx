@@ -190,11 +190,11 @@ export default class extends Component {
               </Box>
 
               <Box flex={1} mx={[0, 4]} my={[4, 0]}>
-                <Title level={3}>Chat directly with your users</Title>
+                <Title level={2}>Reply directly from slack</Title>
                 <Paragraph>
-                  Convert more website visitors into customers with real-time
-                  chat. Don't lose out on prospects because of unanswered
-                  questions!
+                  Directly talk to your users from a single Slack channel.
+                  Remove the friction of having to login to another dashboard.
+                  Set up our Slack integration in minutes.
                 </Paragraph>
               </Box>
             </Flex>
@@ -205,11 +205,11 @@ export default class extends Component {
               flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Title level={3}>Highly customizable widget</Title>
+                <Title level={3}>Brand and customize your widget</Title>
                 <Paragraph>
-                  Customize it as much as you'd like to match your existing
-                  designs. We also provide a React component for easy
-                  customization.
+                  Our widget is highly customizable. Change your color,
+                  greetings, text and more through our simple UI without needing
+                  any code.
                 </Paragraph>
               </Box>
 
@@ -254,11 +254,12 @@ export default class extends Component {
                 </Flex>
               </Box>
               <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Title level={3}>Integrate with your favorite tools</Title>
+                <Title level={3}>Save your developer's time</Title>
                 <Paragraph>
-                  Connect Papercups to Slack, Gmail, and many more of your
-                  favorite tools. Do you want to connect to a platform we don't
-                  currently support? Get in touch!
+                  Papercups is open source and made with a developer in mind. We
+                  support HTML, React, React Native and Flutter integrations.
+                  Our integration takes minutes to setup and if you can't do it
+                  in minutes we'll hop on a zoom call and do it for you!
                 </Paragraph>
               </Box>
             </Flex>
