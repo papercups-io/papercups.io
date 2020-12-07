@@ -49,7 +49,7 @@ export const PricingOptions = () => {
         description="Basic live chat and inbox to get you started."
         cta={
           <a
-            href="https://app.papercups.io/register?redirect=/getting&utm_source=pricing_page&plan=Starter"
+            href="https://app.papercups.io/register?redirect=/account/getting-started&utm_source=pricing_page&plan=Starter"
             target="_blank"
             rel="noopener noreferrer"
           >

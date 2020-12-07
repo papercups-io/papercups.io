@@ -130,7 +130,7 @@ export default class extends Component {
                     </Box>
                     <Box mr={2}>
                       <a
-                        href="https://app.papercups.io/register"
+                        href="https://app.papercups.io/register?redirect=/account/getting-started"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
