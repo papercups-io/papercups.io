@@ -45,11 +45,11 @@ export const PricingOptions = () => {
   return (
     <Flex mx={-2} flexDirection={['column', 'row']}>
       <PricingCard
-        title="Bootstrap"
+        title="Starter"
         description="Basic live chat and inbox to get you started."
         cta={
           <a
-            href="https://app.papercups.io/register?redirect=/account/getting-started&utm_source=pricing_page&plan=Bootstrap"
+            href="https://app.papercups.io/register?redirect=/account/getting-started&utm_source=pricing_page&plan=Starter"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -78,11 +78,11 @@ export const PricingOptions = () => {
       />
 
       <PricingCard
-        title="Startup"
+        title="Team"
         description="Supercharge your support, sales, and marketing."
         cta={
           <a
-            href="https://app.papercups.io/register?redirect=/billing&utm_source=pricing_page&plan=Startup"
+            href="https://app.papercups.io/register?redirect=/billing&utm_source=pricing_page&plan=Team"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -99,7 +99,7 @@ export const PricingOptions = () => {
         features={
           <>
             <Paragraph>
-              Everything in <Text strong>Bootstrap</Text> plus:
+              Everything in <Text strong>Starter</Text> plus:
             </Paragraph>
 
             <Paragraph>
