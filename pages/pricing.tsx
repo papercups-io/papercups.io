@@ -45,11 +45,11 @@ export const PricingOptions = () => {
   return (
     <Flex mx={-2} flexDirection={['column', 'row']}>
       <PricingCard
-        title="Starter"
+        title="Bootstrap"
         description="Basic live chat and inbox to get you started."
         cta={
           <a
-            href="https://app.papercups.io/register?redirect=/account/getting-started&utm_source=pricing_page&plan=Starter"
+            href="https://app.papercups.io/register?redirect=/account/getting-started&utm_source=pricing_page&plan=Bootstrap"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -78,11 +78,11 @@ export const PricingOptions = () => {
       />
 
       <PricingCard
-        title="Team"
+        title="Startup"
         description="Supercharge your support, sales, and marketing."
         cta={
           <a
-            href="https://app.papercups.io/register?redirect=/billing&utm_source=pricing_page&plan=Team"
+            href="https://app.papercups.io/register?redirect=/billing&utm_source=pricing_page&plan=Startup"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -99,17 +99,17 @@ export const PricingOptions = () => {
         features={
           <>
             <Paragraph>
-              Everything in <Text strong>Starter</Text> plus:
+              Everything in <Text strong>Bootstrap</Text> plus:
             </Paragraph>
 
             <Paragraph>
               <li>10 seats included</li>
-              <li>Slack integration</li>
+              <li>Reply from Slack</li>
               <li>Unlimited data retention</li>
               <li>Website screen sharing</li>
-              <li>Private Notes</li>
+              <li>Private notes</li>
               <li>Webhooks</li>
-              <li>Priority Support</li>
+              <li>Priority support</li>
             </Paragraph>
           </>
         }
@@ -134,7 +134,7 @@ export const PricingOptions = () => {
 
             <Paragraph>
               <li>Unlimited seats</li>
-              <li>First-class support</li>
+              <li>On premise deployment</li>
               <li>Custom integrations</li>
             </Paragraph>
           </>
@@ -155,7 +155,8 @@ const Pricing = () => {
       >
         <Title level={1}>Get started with Papercups</Title>
         <Paragraph>
-          ✓ 30 day free trial ✓ No credit card required ✓ Cancel anytime
+          ✓ 30 day free trial &nbsp; ✓ No credit card required &nbsp; ✓ Cancel
+          anytime
         </Paragraph>
       </Flex>
       <PricingOptions />
