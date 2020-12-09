@@ -164,10 +164,10 @@ Let's start off where the core of the logic actually lives: in the GenServer cal
 The callbacks implemented in this particular module are:
 
 - `init/1` (required) - invoked when the server is started, and sets the initial state
-- `handle_cast/2` - invoked when `GenServer.cast/2` is called, to handle asynchronous messages
-- `handle_call/3` - invoked when `GenServer.call/3` is called, to handle synchronous messages
+- `handle_cast/2` - invoked when `GenServer.cast/2` is called, to handle messages asynchronously
+- `handle_call/3` - invoked when `GenServer.call/3` is called, to handle messages synchronously
   - `GenServer.call/3` will block until a reply is received (unless the call times out or nodes are disconnected)
-- `handle_info/2` - invoked to handle all other messages (i.e. outside of those triggered by `GenServer.call/3` and `GenServer.cast/2`)
+- `handle_info/2` - invoked to handle all other messages (i.e. outside of those triggered by `GenServer.call/3` and `GenServer.cast/2`, and ["system" messages](https://erlang.org/doc/design_principles/spec_proc.html#msg))
   - e.g. messages/events handled internally within the GenServer
 - `terminate/2` - invoked when the GenServer is about to exit
 
@@ -206,7 +206,7 @@ Finally, we store the initial `buffer` (in this case, an empty list, i.e. `[]`) 
 
 ### The `handle_cast/2` callback
 
-The `handle_cast/2` callback is invoked when `GenServer.cast/2` is called, to handle asynchronous messages.
+The `handle_cast/2` callback is invoked when `GenServer.cast/2` is called, to handle asynchronous requests.
 
 <Box mb={3}>
   <Image
@@ -443,7 +443,7 @@ One last time, here's the `insert/1` method:
   end
 ```
 
-Here we see that all this is doing is taking an `event` and sending an asynchronous message to our GenServer via the `cast/2` method. (Since we're using `cast/2` here instead of `call/3`, we know that this is a non-blocking call which will return immediately, regardless of what happens in the callback.)
+Here we see that all this is doing is taking an `event` and sending an asynchronous request to our GenServer via the `cast/2` method. (Since we're using `cast/2` here instead of `call/3`, we know that this is a non-blocking call which will return immediately, regardless of what happens in the callback.)
 
 The first argument of `GenServer.cast/2` takes a process ID (i.e. PID) or a registered server name. In this case, we set the name to `__MODULE__` in the 3rd argument of our `GenServer.start_link/3` above, which is why we're using that here. (This is a very common practice with GenServers.)
 
@@ -500,7 +500,7 @@ defmodule Plausible.Event.WriteBuffer do
   end
 
   @doc """
-  Sends an asynchronous `:insert` message to the current module's GenServer
+  Sends an `:insert` message asynchronously to the current module's GenServer
   process, which adds the provided `event` to the internal state's `buffer`.
   """
   def insert(event) do
