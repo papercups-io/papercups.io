@@ -27,6 +27,18 @@ But it's an incredible useful feature of the language that you can add to your t
 
 ...all without any external dependencies!
 
+### What is a GenServer, anyway?
+
+A [GenServer](https://hexdocs.pm/elixir/GenServer.html) is a process, just like any other Elixir process. It can be used to manage state and execute code asynchronously, and includes some handy functionality around tracing and error reporting.
+
+Another way of thinking about it — a GenServer is like an isolated little box, with a few things inside of it:
+
+- its internal state (which can be any Elixir data structure, from a simple number to a complex map/struct),
+- a mailbox to process incoming messages (in the order they're received),
+- and a callback module, which defines the code to run depending on the message that is received in the mailbox
+
+If that's confusing, hopefully a real-world example will help clarify things! :wink:
+
 ## Finding a good real-world example
 
 While learning about GenServers, I found many of the examples to be a bit contrived... a lot of "key-value" stores, shopping lists, and things like that. I wanted to understand how GenServers are being used "out in the wild", so I turned to one of my favorite Elixir open-source repos: https://github.com/plausible/analytics
