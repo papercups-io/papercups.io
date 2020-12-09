@@ -1,6 +1,14 @@
 import React from 'react';
 import {Box, Flex} from 'rebass';
-import {Button, Divider, Paragraph, Text, Title} from '../components/common';
+import {
+  colors,
+  Button,
+  Divider,
+  Paragraph,
+  Text,
+  Title,
+} from '../components/common';
+import {CheckCircleTwoTone} from '../components/icons';
 import Layout from '../components/layout';
 
 const PricingCard = ({
@@ -154,10 +162,21 @@ const Pricing = () => {
         paddingBottom="20px"
       >
         <Title level={1}>Get started with Papercups</Title>
-        <Paragraph>
-          ✓ 30 day free trial &nbsp; ✓ No credit card required &nbsp; ✓ Cancel
-          anytime
-        </Paragraph>
+
+        <Flex mx={-3} mb={3} justifyContent="space-between">
+          <Box mx={3}>
+            <CheckCircleTwoTone style={{marginRight: 8}} />
+            30 day free trial
+          </Box>
+          <Box mx={3}>
+            <CheckCircleTwoTone style={{marginRight: 8}} />
+            No credit card required
+          </Box>
+          <Box mx={3}>
+            <CheckCircleTwoTone style={{marginRight: 8}} />
+            Cancel anytime
+          </Box>
+        </Flex>
       </Flex>
       <PricingOptions />
     </Layout>

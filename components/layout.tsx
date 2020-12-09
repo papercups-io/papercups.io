@@ -165,6 +165,16 @@ export default class Container extends React.Component<Props, State> {
           iconVariant="filled"
           requireEmailUpfront
           showAgentAvailability
+          setDefaultGreeting={(settings) => {
+            const path = window.location.pathname;
+
+            switch (path) {
+              case '/pricing':
+                return "Hi there! Let us know if you have any questions about pricing :) (we're offering deals to startups and international founders)";
+              default:
+                return "Hi there! Send us a message and we'll get back to you as soon as we can. In the meantime, check out our [demo](https://app.papercups.io/demo)!";
+            }
+          }}
         />
       </Layout>
     );
