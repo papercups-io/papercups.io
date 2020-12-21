@@ -28,6 +28,7 @@ export default class Container extends React.Component<Props, State> {
     h1: Title,
     h2: (props: any) => <Title level={2} {...props} />,
     h3: (props: any) => <Title level={3} {...props} />,
+    ul: (props: any) => <ul className="ant-typography" {...props}></ul>,
     p: Paragraph,
     hr: Divider,
   };
