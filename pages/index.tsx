@@ -47,7 +47,7 @@ export default class extends Component {
               <Link href="/">
                 <a>
                   <img
-                    src="papercups-v2.svg"
+                    src="/papercups-v2.svg"
                     style={{height: 40, width: 160}}
                   />
                 </a>
