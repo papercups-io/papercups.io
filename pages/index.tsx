@@ -47,18 +47,15 @@ export default class extends Component {
               <Link href="/">
                 <a>
                   <img
-                    src="papercups-v2.svg"
-                    style={{height: 100, width: 250}}
+                    src="/papercups-v2.svg"
+                    style={{height: 40, width: 160}}
                   />
                 </a>
               </Link>
             </Box>
 
             <Box>
-              <Menu
-                style={{borderBottom: 'none', paddingTop: '17px'}}
-                mode="horizontal"
-              >
+              <Menu style={{borderBottom: 'none'}} mode="horizontal">
                 <Menu.Item style={{margin: '0 1em'}} key="blog">
                   <Link href="/blog">
                     <a>Blog</a>
