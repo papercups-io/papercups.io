@@ -81,7 +81,7 @@ export default class extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Github
+                    GitHub
                   </a>
                 </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="Sign up">
@@ -124,7 +124,7 @@ export default class extends Component {
                           size="large"
                           icon={<GithubOutlined />}
                         >
-                          Github
+                          GitHub
                         </Button>
                       </a>
                     </Box>
@@ -190,7 +190,7 @@ export default class extends Component {
               </Box>
 
               <Box flex={1} mx={[0, 4]} my={[4, 0]}>
-                <Title level={2}>Reply directly from slack</Title>
+                <Title level={2}>Reply directly from Slack</Title>
                 <Paragraph>
                   Directly talk to your users from a single Slack channel.
                   Remove the friction of having to login to another dashboard.
