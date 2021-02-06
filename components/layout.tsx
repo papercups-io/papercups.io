@@ -118,7 +118,7 @@ export default class Container extends React.Component<Props, State> {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Github
+                    GitHub
                   </a>
                 </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="Sign up">
