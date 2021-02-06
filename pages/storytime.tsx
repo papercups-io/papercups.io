@@ -70,7 +70,7 @@ export default class extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Github
+                    GitHub
                   </a>
                 </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="Sign up">
@@ -115,7 +115,7 @@ export default class extends Component {
                         size="large"
                         icon={<GithubOutlined />}
                       >
-                        Github
+                        GitHub
                       </Button>
                     </a>
                   </Box>
@@ -355,7 +355,7 @@ export default class extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button size="large">Find out on Github</Button>
+                    <Button size="large">Find out on GitHub</Button>
                   </a>
                 </Box>
                 <Box mx={2}>
