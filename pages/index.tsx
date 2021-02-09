@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import {Component} from 'react';
 import ReactGA from 'react-ga';
+import posthog from 'posthog-js';
 import {Box, Flex} from 'rebass';
 import {ChatWidget, Papercups} from '@papercups-io/chat-widget';
 
@@ -27,6 +28,10 @@ export default class extends Component {
       ReactGA.initialize(NEXT_PUBLIC_GA_TRACKING_ID);
       ReactGA.pageview(document.location.pathname);
     }
+
+    posthog.init('cQo4wipp5ipWWXhTN8kTacBItgqo457yDRtzCMOr-Tw', {
+      api_host: 'https://app.posthog.com',
+    });
   }
 
   render() {
