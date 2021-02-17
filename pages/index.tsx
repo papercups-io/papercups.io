@@ -109,7 +109,7 @@ export default class extends Component {
               <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Box mb={6}>
                   <Title level={1}>
-                    Connect with your customers. Own your data.
+                    Connect and chat with customers from your website
                   </Title>
 
                   <Paragraph>
