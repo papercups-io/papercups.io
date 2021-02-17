@@ -120,16 +120,12 @@ export default class extends Component {
                   <Flex my={3}>
                     <Box mr={2}>
                       <a
-                        href="https://github.com/papercups-io/papercups"
+                        href="https://app.papercups.io/demo"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Button
-                          type="default"
-                          size="large"
-                          icon={<GithubOutlined />}
-                        >
-                          GitHub
+                        <Button type="default" size="large">
+                          Demo
                         </Button>
                       </a>
                     </Box>
@@ -144,7 +140,7 @@ export default class extends Component {
                           size="large"
                           icon={<RightCircleOutlined />}
                         >
-                          Get started for free
+                          Sign up for free
                         </Button>
                       </a>
                     </Box>
