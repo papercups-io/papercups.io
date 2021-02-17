@@ -8,10 +8,9 @@ const DEFAULT_ERROR_MESSAGE =
   'Something went wrong. Please try again in a few minutes or contact us for help.';
 
 const subscribe = async (email: string) => {
-  return request.post(
-    'https://alex-papercups-staging.herokuapp.com/api/newsletters/pg/subscribe',
-    {email}
-  );
+  return request.post('https://app.papercups.io/api/newsletters/pg/subscribe', {
+    email,
+  });
 };
 
 const PgNewsletter = () => {
