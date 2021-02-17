@@ -84,7 +84,38 @@ export const PricingOptions = () => {
           </>
         }
       />
-
+      <PricingCard
+        title="Lite"
+        description="Essential chat functionality for your business."
+        cta={
+          <a
+            href="https://app.papercups.io/register?redirect=/account/getting-started&utm_source=pricing_page&plan=Lite"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button type="primary" size="large" block>
+              Start my free trial
+            </Button>
+          </a>
+        }
+        pricing={
+          <Text>
+            <Text strong>$34</Text>/month
+          </Text>
+        }
+        features={
+          <>
+            Everything in <Text strong>Starter</Text> plus:
+            <Paragraph>
+              <li>4 seats included</li>
+              <li>Unlimited messages</li>
+              <li>3 months data retention</li>
+              <li>Private notes</li>
+              <li>Reply from Slack</li>
+            </Paragraph>
+          </>
+        }
+      />
       <PricingCard
         title="Team"
         description="Supercharge your support, sales, and marketing."
@@ -94,7 +125,7 @@ export const PricingOptions = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button type="primary" size="large" block>
+            <Button type="primary" size="large" block ghost>
               Start my free trial
             </Button>
           </a>
@@ -112,10 +143,8 @@ export const PricingOptions = () => {
 
             <Paragraph>
               <li>10 seats included</li>
-              <li>Reply from Slack</li>
               <li>Unlimited data retention</li>
               <li>Website screen sharing</li>
-              <li>Private notes</li>
               <li>Webhooks</li>
               <li>Priority support</li>
             </Paragraph>
@@ -154,7 +183,7 @@ export const PricingOptions = () => {
 
 const Pricing = () => {
   return (
-    <Layout width={960}>
+    <Layout width={1200}>
       <Flex
         flexDirection="column"
         justify-content="center"
