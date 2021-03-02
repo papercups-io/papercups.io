@@ -374,19 +374,26 @@ export default class extends Component {
         </Content>
 
         <Footer style={{backgroundColor: '#001529'}}>
-          <Box p={3}>
-            <Text style={{color: colors.white, paddingRight: '10px'}}>
-              Backed by <b>Y Combinator</b>
-            </Text>
+          <Flex justifyContent="space-between" paddingRight="3">
+            <Box p={3}>
+              <Text style={{color: colors.white, paddingRight: '10px'}}>
+                Backed by <b>Y Combinator</b>
+              </Text>
 
-            <img
-              style={{
-                width: '20px',
-                height: '20px',
-              }}
-              src="yc-logo.png"
-            />
-          </Box>
+              <img
+                style={{
+                  width: '20px',
+                  height: '20px',
+                }}
+                src="yc-logo.png"
+              />
+            </Box>
+            <Box p={3}>
+              <a href="/privacy" className="white_link">
+                Privacy
+              </a>
+            </Box>
+          </Flex>
         </Footer>
 
         <ChatWidget

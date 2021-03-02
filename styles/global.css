@@ -17,3 +17,7 @@ body {
   flex-direction: column;
   min-height: 100%;
 }
+
+.white_link {
+  color: white;
+}
