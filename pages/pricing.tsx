@@ -195,7 +195,7 @@ const Pricing = () => {
         <Flex mx={-3} mb={3} justifyContent="space-between">
           <Box mx={3}>
             <CheckCircleTwoTone style={{marginRight: 8}} />
-            30 day free trial
+            14 day free trial
           </Box>
           <Box mx={3}>
             <CheckCircleTwoTone style={{marginRight: 8}} />
