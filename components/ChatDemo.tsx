@@ -22,6 +22,7 @@ const ChatDemo = () => {
               width: '100%',
               border: '1px solid rgb(230, 230, 230)',
               borderRadius: 4,
+              overflow: 'hidden',
             }}
           >
             <Flex
