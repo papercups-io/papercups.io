@@ -3,13 +3,14 @@ import Link from 'next/link';
 import {Component} from 'react';
 import ReactGA from 'react-ga';
 import posthog from 'posthog-js';
-import {Box, Flex} from 'rebass';
+import {Box, Flex, Image} from 'rebass';
 import {ChatWidget, Papercups} from '@papercups-io/chat-widget';
 
-import {RightCircleOutlined, GithubOutlined} from '../components/icons';
+import {RightCircleOutlined} from '../components/icons';
 import {
   colors,
   Button,
+  Carousel,
   Content,
   Footer,
   Header,
@@ -18,6 +19,7 @@ import {
   Paragraph,
   Title,
   Text,
+  Divider,
 } from '../components/common';
 
 export default class extends Component {
@@ -169,6 +171,49 @@ export default class extends Component {
               </Box>
             </Flex>
 
+            <Box mb={[5, 6]}>
+              <Flex
+                sx={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                }}
+              >
+                <Title level={2}>One powerful dashboard</Title>
+                <Paragraph>
+                  Streamline customer support and feedback with our feature-rich
+                  dashboard.
+                </Paragraph>
+              </Flex>
+
+              <Box>
+                <Carousel autoplay>
+                  <Flex sx={{height: 400, justifyContent: 'center'}}>
+                    <Image
+                      sx={{width: '100%'}}
+                      src="images/demo-getting-started.png"
+                    />
+                  </Flex>
+                  <Flex sx={{height: 400, justifyContent: 'center'}}>
+                    <Image
+                      sx={{width: '100%'}}
+                      src="images/demo-conversations.png"
+                    />
+                  </Flex>
+                  <Flex sx={{height: 400, justifyContent: 'center'}}>
+                    <Image
+                      sx={{width: '100%'}}
+                      src="images/demo-reporting.png"
+                    />
+                  </Flex>
+                </Carousel>
+              </Box>
+            </Box>
+
+            <Box mb={[5, 6]}>
+              <Divider />
+            </Box>
+
             <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Flex
@@ -191,7 +236,7 @@ export default class extends Component {
               </Box>
 
               <Box flex={1} mx={[0, 4]} my={[4, 0]}>
-                <Title level={2}>Reply directly from Slack</Title>
+                <Title level={3}>Reply directly from Slack</Title>
                 <Paragraph>
                   Directly talk to your users from a single Slack channel.
                   Remove the friction of having to login to another dashboard.
@@ -255,7 +300,7 @@ export default class extends Component {
                 </Flex>
               </Box>
               <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Title level={3}>Save your developer's time</Title>
+                <Title level={3}>Save your developers time</Title>
                 <Paragraph>
                   Papercups is open source and made with a developer in mind. We
                   support HTML, React, React Native and Flutter integrations.

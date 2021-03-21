@@ -1,4 +1,5 @@
 import Button from 'antd/lib/button';
+import Carousel from 'antd/lib/carousel';
 import Divider from 'antd/lib/divider';
 import Input from 'antd/lib/input';
 import Layout from 'antd/lib/layout';
@@ -39,6 +40,7 @@ export {
   Sider,
   // Components
   Button,
+  Carousel,
   Divider,
   Input,
   Menu,
