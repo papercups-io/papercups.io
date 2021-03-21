@@ -187,7 +187,7 @@ export default class extends Component {
               </Flex>
 
               <Box>
-                <Carousel autoplay>
+                <Carousel autoplay effect="fade">
                   <Flex sx={{height: 400, justifyContent: 'center'}}>
                     <Image
                       sx={{width: '100%'}}
