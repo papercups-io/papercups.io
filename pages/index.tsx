@@ -21,6 +21,7 @@ import {
   Text,
   Divider,
 } from '../components/common';
+import ChatDemo from '../components/ChatDemo';
 
 export default class extends Component {
   componentDidMount() {
@@ -159,6 +160,8 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
+                  <ChatDemo />
+                  {/* 
                   <img
                     style={{
                       width: '100%',
@@ -166,7 +169,8 @@ export default class extends Component {
                       minHeight: 320,
                     }}
                     src="chatting.svg"
-                  />
+                  /> 
+                  */}
                 </Flex>
               </Box>
             </Flex>

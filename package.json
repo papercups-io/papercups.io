@@ -25,6 +25,7 @@
     "@mdx-js/loader": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
     "@next/mdx": "^9.5.1",
+    "@papercups-io/chat-builder": "0.0.3",
     "@papercups-io/chat-widget": "^1.1.9-beta.0",
     "@papercups-io/storytime": "^1.0.5",
     "antd": "4.4.2",
