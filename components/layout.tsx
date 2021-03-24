@@ -148,6 +148,64 @@ export default class Container extends React.Component<Props, State> {
             </MDXProvider>
           </Box>
         </Content>
+        <div>
+          {/* Begin Mailchimp Signup Form */}
+          <link
+            href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css"
+            rel="stylesheet"
+            type="text/css"
+          />
+          <style
+            type="text/css"
+            dangerouslySetInnerHTML={{
+              __html:
+                '\n\t#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\n\t/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.\n\t   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n',
+            }}
+          />
+          <div id="mc_embed_signup">
+            <form
+              action="https://papercups.us1.list-manage.com/subscribe/post?u=3a91de52d39fe8157b80ab8cf&id=9bc2b3ce0a"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              className="validate"
+              target="_blank"
+              noValidate
+            >
+              <div id="mc_embed_signup_scroll">
+                <input
+                  type="email"
+                  name="EMAIL"
+                  className="email"
+                  id="mce-EMAIL"
+                  placeholder="email address"
+                  required
+                />
+                {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
+                <div
+                  style={{position: 'absolute', left: '-5000px'}}
+                  aria-hidden="true"
+                >
+                  <input
+                    type="text"
+                    name="b_3a91de52d39fe8157b80ab8cf_9bc2b3ce0a"
+                    tabIndex={-1}
+                  />
+                </div>
+                <div className="clear">
+                  <input
+                    type="submit"
+                    value="Subscribe"
+                    defaultValue="Subscribe"
+                    name="subscribe"
+                    id="mc-embedded-subscribe"
+                    className="button"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
 
         <Footer style={{backgroundColor: '#001529'}}>
           <Box p={5}>
