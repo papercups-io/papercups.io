@@ -1,3 +1,7 @@
+# papercups.io
+
+![landing-page-chat-demo](https://user-images.githubusercontent.com/5264279/113348968-52e83000-9305-11eb-98dd-08aa9048b713.gif)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
