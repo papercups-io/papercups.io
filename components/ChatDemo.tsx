@@ -191,7 +191,7 @@ const ChatDemo = () => {
 
       setPrimaryColor(colors[(idx + 1) % colors.length]);
       setHeaderTitle(titles[(idx + 1) % titles.length]);
-    }, 4000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [colors, primaryColor]);
