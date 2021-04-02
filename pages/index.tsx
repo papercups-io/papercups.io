@@ -71,7 +71,7 @@ export default class extends Component {
                 </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="features">
                   <a
-                    href="https://github.com/papercups-io/papercups/wiki/Features"
+                    href="https://docs.papercups.io/#features"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
