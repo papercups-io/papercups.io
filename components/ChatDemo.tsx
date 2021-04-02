@@ -202,8 +202,8 @@ const ChatDemo = () => {
         return (
           <Box
             sx={{
-              height: 480,
-              width: '100%',
+              height: 600,
+              width: '350px',
               border: '1px solid rgb(230, 230, 230)',
               borderRadius: 4,
               overflow: 'hidden',
