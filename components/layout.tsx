@@ -59,6 +59,34 @@ export default class Container extends React.Component<Props, State> {
     }
   }
 
+  // TODO: find a better way to handle this?
+  isWindowReady = () => {
+    return typeof window !== 'undefined';
+  };
+
+  getCurrentWindowPath = (): string | null => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname;
+    } else {
+      return null;
+    }
+  };
+
+  shouldPopUpInitialMessage = (): number | boolean => {
+    if (this.getCurrentWindowPath() === '/pricing') {
+      // Pop up chat message after 2s
+      return 2000;
+    } else {
+      return false;
+    }
+  };
+
+  shouldDisplayMailchimpForm = () => {
+    const path = this.getCurrentWindowPath();
+    // Only display on blog pages
+    return path && path?.startsWith('/blog');
+  };
+
   render() {
     return (
       <Layout style={{background: colors.white}}>
@@ -93,11 +121,6 @@ export default class Container extends React.Component<Props, State> {
 
             <Box>
               <Menu style={{borderBottom: 'none'}} mode="horizontal">
-                <Menu.Item style={{margin: '0 1em'}} key="home">
-                  <Link href="/">
-                    <a>Home</a>
-                  </Link>
-                </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="blog">
                   <Link href="/blog">
                     <a>Blog</a>
@@ -105,12 +128,17 @@ export default class Container extends React.Component<Props, State> {
                 </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="features">
                   <a
-                    href="https://github.com/papercups-io/papercups/wiki/Features"
+                    href="https://docs.papercups.io/#features"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Features
                   </a>
+                </Menu.Item>
+                <Menu.Item style={{margin: '0 1em'}} key="pricing">
+                  <Link href="/pricing">
+                    <a>Pricing</a>
+                  </Link>
                 </Menu.Item>
                 <Menu.Item style={{margin: '0 1em'}} key="github">
                   <a
@@ -148,64 +176,66 @@ export default class Container extends React.Component<Props, State> {
             </MDXProvider>
           </Box>
         </Content>
-        <div>
-          {/* Begin Mailchimp Signup Form */}
-          <link
-            href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css"
-            rel="stylesheet"
-            type="text/css"
-          />
-          <style
-            type="text/css"
-            dangerouslySetInnerHTML={{
-              __html:
-                '\n\t#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\n\t/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.\n\t   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n',
-            }}
-          />
-          <div id="mc_embed_signup">
-            <form
-              action="https://papercups.us1.list-manage.com/subscribe/post?u=3a91de52d39fe8157b80ab8cf&id=9bc2b3ce0a"
-              method="post"
-              id="mc-embedded-subscribe-form"
-              name="mc-embedded-subscribe-form"
-              className="validate"
-              target="_blank"
-              noValidate
-            >
-              <div id="mc_embed_signup_scroll">
-                <input
-                  type="email"
-                  name="EMAIL"
-                  className="email"
-                  id="mce-EMAIL"
-                  placeholder="email address"
-                  required
-                />
-                {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
-                <div
-                  style={{position: 'absolute', left: '-5000px'}}
-                  aria-hidden="true"
-                >
+        {this.shouldDisplayMailchimpForm() && (
+          <div>
+            {/* Begin Mailchimp Signup Form */}
+            <link
+              href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css"
+              rel="stylesheet"
+              type="text/css"
+            />
+            <style
+              type="text/css"
+              dangerouslySetInnerHTML={{
+                __html:
+                  '\n\t#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\n\t/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.\n\t   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n',
+              }}
+            />
+            <div id="mc_embed_signup">
+              <form
+                action="https://papercups.us1.list-manage.com/subscribe/post?u=3a91de52d39fe8157b80ab8cf&id=9bc2b3ce0a"
+                method="post"
+                id="mc-embedded-subscribe-form"
+                name="mc-embedded-subscribe-form"
+                className="validate"
+                target="_blank"
+                noValidate
+              >
+                <div id="mc_embed_signup_scroll">
                   <input
-                    type="text"
-                    name="b_3a91de52d39fe8157b80ab8cf_9bc2b3ce0a"
-                    tabIndex={-1}
+                    type="email"
+                    name="EMAIL"
+                    className="email"
+                    id="mce-EMAIL"
+                    placeholder="email address"
+                    required
                   />
+                  {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
+                  <div
+                    style={{position: 'absolute', left: '-5000px'}}
+                    aria-hidden="true"
+                  >
+                    <input
+                      type="text"
+                      name="b_3a91de52d39fe8157b80ab8cf_9bc2b3ce0a"
+                      tabIndex={-1}
+                    />
+                  </div>
+                  <div className="clear">
+                    <input
+                      type="submit"
+                      value="Subscribe"
+                      defaultValue="Subscribe"
+                      name="subscribe"
+                      id="mc-embedded-subscribe"
+                      className="button"
+                    />
+                  </div>
                 </div>
-                <div className="clear">
-                  <input
-                    type="submit"
-                    value="Subscribe"
-                    defaultValue="Subscribe"
-                    name="subscribe"
-                    id="mc-embedded-subscribe"
-                    className="button"
-                  />
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-        </div>
+        )}
 
         <Footer style={{backgroundColor: '#001529'}}>
           <Box p={5}>
@@ -215,26 +245,29 @@ export default class Container extends React.Component<Props, State> {
           </Box>
         </Footer>
 
-        <ChatWidget
-          title="Welcome to Papercups!"
-          subtitle="Ask us anything in the chat window below 😊"
-          greeting="Hi there! Send us a message and we'll get back to you as soon as we can. In the meantime, check out our [demo](https://app.papercups.io/demo)!"
-          primaryColor="#1890ff"
-          accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
-          iconVariant="filled"
-          requireEmailUpfront
-          showAgentAvailability
-          setDefaultGreeting={(settings) => {
-            const path = window.location.pathname;
+        {this.isWindowReady() && (
+          <ChatWidget
+            title="Welcome to Papercups!"
+            subtitle="Ask us anything in the chat window below 😊"
+            greeting="Hi there! Send us a message and we'll get back to you as soon as we can. In the meantime, check out our [demo](https://app.papercups.io/demo)!"
+            primaryColor="#1890ff"
+            accountId="eb504736-0f20-4978-98ff-1a82ae60b266"
+            iconVariant="filled"
+            requireEmailUpfront
+            showAgentAvailability
+            popUpInitialMessage={this.shouldPopUpInitialMessage()}
+            setDefaultGreeting={(settings) => {
+              const path = window.location.pathname;
 
-            switch (path) {
-              case '/pricing':
-                return "Hi there! Let us know if you have any questions about pricing :) (we're offering deals to startups and international founders)";
-              default:
-                return "Hi there! Send us a message and we'll get back to you as soon as we can. In the meantime, check out our [demo](https://app.papercups.io/demo)!";
-            }
-          }}
-        />
+              switch (path) {
+                case '/pricing':
+                  return "Hi there! Let us know if you have any questions about pricing :) (we're offering deals to startups and international founders)";
+                default:
+                  return "Hi there! Send us a message and we'll get back to you as soon as we can. In the meantime, check out our [demo](https://app.papercups.io/demo)!";
+              }
+            }}
+          />
+        )}
       </Layout>
     );
   }
