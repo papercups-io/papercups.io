@@ -250,6 +250,7 @@ export default class Container extends React.Component<Props, State> {
             iconVariant="filled"
             requireEmailUpfront
             showAgentAvailability
+            // Pops up initial message after 2s when `shouldPopUpInitialMessage` return `true`
             popUpInitialMessage={
               this.shouldPopUpInitialMessage() ? 2000 : false
             }
