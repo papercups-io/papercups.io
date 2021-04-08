@@ -73,12 +73,7 @@ export default class Container extends React.Component<Props, State> {
   };
 
   shouldPopUpInitialMessage = (): number | boolean => {
-    if (this.getCurrentWindowPath() === '/pricing') {
-      // Pop up chat message after 2s
-      return 2000;
-    } else {
-      return false;
-    }
+    return this.getCurrentWindowPath() === '/pricing';
   };
 
   shouldDisplayMailchimpForm = () => {
@@ -255,7 +250,9 @@ export default class Container extends React.Component<Props, State> {
             iconVariant="filled"
             requireEmailUpfront
             showAgentAvailability
-            popUpInitialMessage={this.shouldPopUpInitialMessage()}
+            popUpInitialMessage={
+              this.shouldPopUpInitialMessage() ? 2000 : false
+            }
             setDefaultGreeting={(settings) => {
               const path = window.location.pathname;
 
