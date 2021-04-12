@@ -164,7 +164,13 @@ const Body = ({state, color, scrollToRef}) => {
   );
 };
 
-const ChatDemo = () => {
+const ChatDemo = ({
+  height,
+  width,
+}: {
+  height?: number | string;
+  width?: number | string;
+}) => {
   const colors = [
     'rgb(24, 144, 255)',
     '#00488c',
@@ -202,8 +208,8 @@ const ChatDemo = () => {
         return (
           <Box
             sx={{
-              height: 560,
-              width: 376,
+              height: height || 560,
+              width: width || 376,
               border: '1px solid rgb(230, 230, 230)',
               borderRadius: 4,
               overflow: 'hidden',

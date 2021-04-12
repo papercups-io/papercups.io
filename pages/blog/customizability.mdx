@@ -1,0 +1,246 @@
+import {Box, Flex, Image} from 'rebass';
+import Layout from '../../components/layout';
+import ChatDemo from '../../components/ChatDemo';
+
+export default Layout;
+
+# Evolution of a chat widget
+
+_By Alex Reichert_
+
+---
+
+_Papercups is an [open source](https://github.com/papercups-io/papercups) alternative to customer messaging tools like Intercom and Zendesk._
+
+_GitHub repo: https://github.com/papercups-io/papercups_
+
+---
+
+When we started building [Papercups](https://github.com/papercups-io/papercups), we wanted to build a product that developers and designers would love. To us, one of the things this means is as much control over the design and behavior of the live chat interface on your website as possible, with reliable defaults to fall back on.
+
+Over the past 8 months, we've launched several iterations of our embeddable chat component. This is the story of the three major releases we've pushed so far 🚀
+
+## The initial demo (v0)
+
+We built the [first version](https://github.com/papercups-io/chat-widget) in ~3 weeks. For the design, we wanted something relatively unopinionated, and took some inspiration from some of the major players out there (e.g. Intercom, Drift, Crisp).
+
+After looking at some of the "competition", another thing we knew we wanted was the ability to embed the chat UI as a React (+ Vue/Svelte/etc) component in our apps. We would certain support the standard approach of pasting in a script tag in the HTML as well, but we liked the granularity of control that a importable React component gave us.
+
+<img
+  style={{maxWidth: '100%'}}
+  alt="Demo v1"
+  src="https://user-images.githubusercontent.com/5264279/114090449-7111db00-9885-11eb-99cc-78c4f35d1a46.gif"
+/>
+
+It didn't take long to build an MVP. It turns out that the frontend implementation of a basic chat feature is pretty straightforward — all you really need is a way to send and display messages. So we started off with a simple React component that did just that, and started looking for developers to try us out.
+
+The first hiccup we had was managing CSS clashes with the websites that were using us. At first I thought it was "clever" (the classic excuse of a lazy developer) that our chat UI would inherit the typography of the website, but this didn't always turn out nicely. Another issue was dealing with `!important` properties in the parent CSS, which was annoyingly common.
+
+To fix these issues, we knew we either had to use the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) or embed most of the chat UI in an iframe. We ended up going with [the latter](https://github.com/papercups-io/chat-window), mostly because it was something we were more familiar with.
+
+The first version had pretty limited customizability, but it was enough to get started. You could customize the header content, the color theme, and the greeting message. In practice, the code looked roughly like this:
+
+```jsx
+import React from 'react';
+import {ChatWidget} from '@papercups-io/chat-widget';
+
+const App = (props) => {
+  return (
+    <ChatWidget
+      title="Welcome to Papercups!"
+      subtitle="Ask us anything in the chat window below 😊"
+      greeting="Hi there! Have any questions or feedback?"
+      primaryColor="#1890ff"
+      {...props}
+    />
+  );
+};
+```
+
+The nice thing about using React props for these fields was that it made it easy to set up a demo page where you could customize things in real-time. You can still play around with it here 👉 [app.papercups.io/demo](https://app.papercups.io/demo)
+
+## After the launch (v1)
+
+After launching on [Hacker News](https://news.ycombinator.com/item?id=24133719), we started to learn a lot more about what companies wanted from their live chat products.
+
+Here are a few of the things people asked for:
+
+- Integrations with bot providers (e.g. [Google Dialogflow](https://cloud.google.com/dialogflow), [Amazon Lex](https://aws.amazon.com/lex/), [Rasa](https://rasa.com/))
+- Support for React Native/Flutter/Vue components
+- The ability to automatically collect a user's name and email upfront
+- A variety of options for dealing with the situation where no one is available to respond to incoming messages (e.g. showing agent availability in the chat, displaying an away message outside of business hours, or just completely hiding the chat component under certain circumstances)
+
+Since then, we've built out a basic [React Native library](https://github.com/papercups-io/chat-widget-native), set up [webhook events](https://docs.papercups.io/webhook-events) and a [public API](https://docs.papercups.io/api-endpoints) (which is all you really need to be able to get started with most chat bot providers 😬), and added a ton of [new configuration options](https://github.com/papercups-io/chat-widget#options) to our chat component:
+
+```jsx
+import React from 'react';
+import {ChatWidget} from '@papercups-io/chat-widget';
+
+const App = (props) => {
+  return (
+    <ChatWidget
+      title="Welcome to Papercups!"
+      subtitle="Ask us anything in the chat window 😊"
+      primaryColor="#1890ff"
+      greeting="Hi there! How can I help you?"
+      awayMessage="Sorry, we're not available at the moment!"
+      agentAvailableText="Agents are online!"
+      agentUnavailableText="Agents are not available at the moment."
+      customer={{
+        name: 'Test User',
+        email: 'test@test.com',
+        // Ad hoc metadata
+        metadata: {
+          plan: 'starter',
+          registered_at: '2020-09-01',
+          age: 25,
+          valid: true,
+        },
+      }}
+      requireEmailUpfront
+      showAgentAvailability
+      hideOutsideWorkingHours
+      popUpInitialMessage={1000}
+      isOpenByDefault
+      persistOpenState
+      iconVariant="filled"
+      position={{side: 'left', offset: 80}}
+      onChatLoaded={() => console.log('Chat loaded!')}
+      onChatClosed={() => console.log('Chat closed!')}
+      onChatOpened={() => console.log('Chat opened!')}
+      onMessageReceived={(message) => console.log('Message received!', message)}
+      onMessageSent={(message) => console.log('Message sent!', message)}
+      {...props}
+    />
+  );
+};
+```
+
+We've also been super lucky to get some help from the open source community on building out our [Flutter library](https://github.com/papercups-io/papercups_flutter), as well as a basic [Vue wrapper](https://github.com/vmarnauza/vue-papercups/commits/main) for our chat component. ❤️
+
+One other thing we did was make it possible to set all the chat configuration defaults in the dashboard, so you don't have to always change it in the code if you don't want to. This makes it a bit easier for non-technical users, and prevents the need to redeploy your app whenever you want to change your chat configuration details.
+
+<img
+  style={{maxWidth: '100%', marginBottom: 40}}
+  alt="Getting started"
+  src="https://user-images.githubusercontent.com/5264279/114096919-5cd1dc00-988d-11eb-8aef-c599480d44f8.gif"
+/>
+
+## Complete UI customizability (with ReactJS)
+
+Even though we've added a bunch of new ways to configure our embeddable chat component, there wasn't a way to make it appear _completely_ native to your app. As with most other chat libraries, it's usually at least a tiny bit obvious that the component comes from a third party. And even if it's not obvious to your users, it can still be frustrating to you, as the developer or owner of your app.
+
+<Flex sx={{margin: '1em 0em', flexDirection: ['column', 'row']}}>
+<Box sx={{flex: 1}}>
+  <p>
+    For example, what if you don't want to have your chat rendered in a pop-up,
+    but organically on your website instead? What if the chat component you're
+    using doesn't have a feature you want yet, but you know you could build it
+    quickly yourself? What if you use a unique font, and simply want to make
+    sure your chat component matches it?
+  </p>
+  <p>
+    Take a look at the chat component to the right (or below, on mobile). At first glance, you may
+    have assumed it was just another image/gif, but it's actually a <strong>live demo</strong> using our latest{' '}
+    <a href="https://github.com/papercups-io/chat-builder">
+      @papercups-io/chat-builder
+    </a>{' '}
+    library. Try sending us a message!
+  </p>
+  <p>
+    Basically all this library does is abstract away the configuration options,
+    chat state (e.g. messages, customer info), and callbacks (e.g.{' '}
+    <code>onSendMessage</code>) which are required to build a chat UI.
+    Currently, it does this in the form of a React "render prop" component, which passes these as props to its
+    child components.
+  </p>
+  <p>(In case I'm not explaining it well, we happen to be open source. So you can just look at the code for this page right <a href="https://github.com/papercups-io/papercups.io/blob/master/components/ChatDemo.tsx">here</a>! 🤓)</p>
+</Box>
+
+<Box sx={{flex: 1, marginLeft: 24}}>
+  <ChatDemo height={500} width="100%" />
+</Box>
+</Flex>
+
+In code, here's an example of what this might look like if you wanted to keep the "pop-up" UX and just wanted to customize each "section" of it:
+
+```jsx
+import React from 'react';
+import {ChatBuilder} from '@papercups-io/chat-builder';
+import {Header, Body, Footer, Toggle} from './my/custom/components';
+
+const App = () => {
+  const config = {
+    title: 'Welcome to Papercups!',
+    subtitle: 'Ask us anything in the chat window 😊',
+    accountId: '...',
+    greeting: 'Hi there! How can I help you?',
+    customer: {
+      name: 'Test User',
+      email: 'test@test.com',
+    },
+  };
+
+  return (
+    <ChatBuilder
+      config={config}
+      header={({config, state, onClose}) => (
+        <Header config={config} state={state} onClose={onClose} />
+      )}
+      body={({config, state, scrollToRef}) => (
+        <Body config={config} state={state} scrollToRef={scrollToRef} />
+      )}
+      footer={({config, state, onSendMessage}) => (
+        <Footer config={config} state={state} onSendMessage={onSendMessage} />
+      )}
+      toggle={({state, onToggleOpen}) => (
+        <Toggle state={state} onToggleOpen={onToggleOpen} />
+      )}
+    />
+  );
+};
+```
+
+Below are are some examples we've built using the [@papercups-io/chat-builder](https://github.com/papercups-io/chat-builder) library.
+
+The first one uses [NES.css](https://nostalgic-css.github.io/NES.css/) to render an NES-style (8bit-like) chat UI ([source code](https://github.com/papercups-io/chat-builder/tree/master/examples/nes) / [live demo](https://papercups-io.github.io/chat-builder/nes/)). The second one is an example of how you can use the library to mimic Intercom's chat UI, if you happen to be a fan of their design (but not their pricing 😉) ([source code](https://github.com/papercups-io/chat-builder/tree/master/examples/intercom) / [live demo](https://papercups-io.github.io/chat-builder/intercom/)).
+
+<Flex
+  sx={{
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: '100%',
+    flexDirection: ['column', 'row'],
+  }}
+>
+  <Box sx={{flex: 1.2}}>
+    <img
+      style={{maxWidth: '100%', maxHeight: 560}}
+      alt="NES"
+      src="https://user-images.githubusercontent.com/5264279/114090443-6f481780-9885-11eb-9164-3a9ec0ccdee7.gif"
+    />
+  </Box>
+  <Box sx={{flex: 1}}>
+    <img
+      style={{maxWidth: '100%', maxHeight: 560, flex: 1}}
+      alt="Intercom"
+      src="https://user-images.githubusercontent.com/5264279/114090445-6fe0ae00-9885-11eb-8449-811ab4973056.gif"
+    />
+  </Box>
+</Flex>
+
+## What's next?
+
+What's next in chat at Papercups? Here are a few of the things we're excited about:
+
+- Rich message layouts, conversation components (looking at [Slack](https://api.slack.com/messaging/composing/layouts) and [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/introduction/conversation-components/) for inspiration)
+- A better UX for managing multiple conversations
+- Better support for automatically handling frequently asked questions
+- Programmatically setting bot playbooks
+- A contact form API, so you can forward messages from your website's contact form to Papercups
+
+What do you want to see us build over the next few months? We'd love to hear from you! Open the chat in the lower right corner and let us know 😊
+
+---
+
+_Posted on April 12, 2021_
