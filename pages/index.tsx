@@ -276,7 +276,7 @@ export default class extends Component {
                           width: '100%',
                           height: '30px',
                         }}
-                        src="Jovian-logo.svg"
+                        src="jovian-logo.svg"
                       />
                     </Box>
                     <Box pt={60} flex={1} mx={[0, 4]}>
