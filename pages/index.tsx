@@ -165,7 +165,7 @@ export default class extends Component {
               </Box>
             </Flex>
 
-            <Box mb={[5, 6]}>
+            <Box mb={[4, 6]}>
               <Flex
                 sx={{
                   justifyContent: 'center',
@@ -203,7 +203,95 @@ export default class extends Component {
                 </Carousel>
               </Box>
             </Box>
-
+            <Box mx={[4, 6]} pb={50}>
+              <Flex
+                sx={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                }}
+              >
+                <Title level={2}>Our customers</Title>
+                <Box flex={1}>
+                  <Flex
+                    mx={-5}
+                    justifyContent="space-between"
+                    flexDirection={['column', 'row']}
+                  >
+                    <Box pt={60} flex={1} mx={[0, 4]}>
+                      <img
+                        style={{
+                          width: '100%',
+                          height: '30px',
+                        }}
+                        src="ycombinator-logo.svg"
+                      />
+                    </Box>
+                    <Box pt={60} flex={1} mx={[0, 4]}>
+                      <img
+                        style={{
+                          width: '100%',
+                          height: '30px',
+                        }}
+                        src="posthog-logo.svg"
+                      />
+                    </Box>
+                    <Box pt={60} flex={1} mx={[0, 4]}>
+                      <img
+                        style={{
+                          width: '100%',
+                          height: '30px',
+                        }}
+                        src="pry-logo.svg"
+                      />
+                    </Box>
+                    <Box pt={60} flex={1} mx={[0, 4]}>
+                      <img
+                        style={{
+                          width: '100%',
+                          height: '30px',
+                        }}
+                        src="batch-logo.svg"
+                      />
+                    </Box>
+                  </Flex>
+                  <Flex
+                    mx={-3}
+                    justifyContent="space-between"
+                    mb={0}
+                    flexDirection={['column', 'row']}
+                  >
+                    <Box pt={60} flex={1} mx={[0, 4]}>
+                      <img
+                        style={{
+                          width: '100%',
+                          height: '30px',
+                        }}
+                        src="quadranteye-logo.svg"
+                      />
+                    </Box>
+                    <Box pt={60} flex={1} mx={[0, 4]}>
+                      <img
+                        style={{
+                          width: '100%',
+                          height: '30px',
+                        }}
+                        src="Jovian-logo.svg"
+                      />
+                    </Box>
+                    <Box pt={60} flex={1} mx={[0, 4]}>
+                      <img
+                        style={{
+                          width: '100%',
+                          height: '30px',
+                        }}
+                        src="cotter-logo.svg"
+                      />
+                    </Box>
+                  </Flex>
+                </Box>
+              </Flex>
+            </Box>
             <Box mb={[5, 6]}>
               <Divider />
             </Box>
