@@ -224,34 +224,34 @@ export default class extends Component {
                           width: '100%',
                           height: '30px',
                         }}
+                        src="batch-logo.svg"
+                      />
+                    </Box>
+                    <Box pt={60} mx={[0, 4]}>
+                      <img
+                        style={{
+                          // width: '',
+                          height: '35px',
+                        }}
                         src="ycombinator-logo.svg"
                       />
                     </Box>
-                    <Box pt={60} flex={1} mx={[0, 4]}>
+                    <Box pt={60} mx={[0, 4]}>
                       <img
                         style={{
-                          width: '100%',
-                          height: '30px',
+                          // width: '100%',
+                          height: '35px',
                         }}
                         src="posthog-logo.svg"
                       />
                     </Box>
-                    <Box pt={60} flex={1} mx={[0, 4]}>
+                    <Box pt={68} mx={[0, 4]}>
                       <img
                         style={{
                           width: '100%',
                           height: '30px',
                         }}
                         src="pry-logo.svg"
-                      />
-                    </Box>
-                    <Box pt={60} flex={1} mx={[0, 4]}>
-                      <img
-                        style={{
-                          width: '100%',
-                          height: '30px',
-                        }}
-                        src="batch-logo.svg"
                       />
                     </Box>
                   </Flex>
