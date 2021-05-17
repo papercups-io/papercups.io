@@ -49,6 +49,48 @@ const PricingCard = ({
   );
 };
 
+export const FAQ = () => {
+  return (
+    <Flex
+      flexDirection="column"
+      justify-content="center"
+      alignItems="center"
+      paddingBottom="20px"
+      paddingTop="40px"
+    >
+      <Box mb={3}>
+        <Title level={2}>Why use Papercups?</Title>
+      </Box>
+
+      <Flex mx={-2} flexDirection={['column', 'row']}>
+        <Box mx={3}>
+          <Title level={4}>Open source</Title>
+          We've built Papercups open source and in the public since day one. Our
+          source code is available and accessible on GitHub so anyone can read
+          it and verify what we do with your data.
+        </Box>
+        <Box mx={3}>
+          <Title level={4}>Cookies free</Title>
+          Papercups is built with privacy first. We don't use any cookies so you
+          don't need the cookies consent banners in your chatwidget.
+        </Box>
+        <Box mx={3}>
+          <Title level={4}>Reply from Slack</Title>
+          Our Slack integration lets you reply directly from Slack in a single
+          channel. Other integrations spam your Slack with links to their
+          website or open a new channel everytime.
+        </Box>
+        <Box mx={3}>
+          <Title level={4}>10 minute installation</Title>
+          Papercups is made by and for developers. We make sure that the
+          installation process is frictionless for your development team so they
+          can set it up quickly and go back to building their features.
+        </Box>
+      </Flex>
+    </Flex>
+  );
+};
+
 export const PricingOptions = () => {
   return (
     <Flex mx={-2} flexDirection={['column', 'row']}>
@@ -208,6 +250,7 @@ const Pricing = () => {
         </Flex>
       </Flex>
       <PricingOptions />
+      <FAQ />
     </Layout>
   );
 };
