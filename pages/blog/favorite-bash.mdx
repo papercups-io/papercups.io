@@ -1,0 +1,161 @@
+import {Box, Flex, Image} from 'rebass';
+import Layout from '../../components/layout';
+
+export default ({children}) => (
+  <Layout title="Kam's favorite bash tips">
+    {children}
+  </Layout>
+);
+
+# Quick bash commands to try
+
+_By Kam Leung_
+
+`cd -` When you need to cd to your previous folder
+
+Example:
+
+```bash
+workspace > cd papercups
+papercups > cd -
+/Users/workspace
+workspace >
+```
+
+`cd !$` When you need to cd to the last argument of the previous command
+
+```bash
+workspace > ls papercups
+CHANGELOG.md			Procfile			compile				docker-compose.prod.yml		elixir_buildpack.config		index.html			priv
+CODE_OF_CONDUCT.md		README.md			config				docker-compose.yml		erl_crash.dump			lib				rel
+CONTRIBUTING.md			_build				deps				docker-entrypoint-dev.sh			mix.exs				scripts
+Dockerfile			app.json			dev.Dockerfile			docker-entrypoint.sh		mix.lock			test
+LICENSE				assets				docker-compose.dev.yml		docs			phoenix_static_buildpack.config
+workspace > cd !$
+cd papercups
+papercups >
+```
+
+`mdfind` (Mac only) - Search your entire mac for filename or content with that string instantly since macos automatically indexes your files see https://ss64.com/osx/mdfind.html for more details
+
+```bash
+papercups > mdfind papercups.png
+/Users/Downloads/a84d1a73491349259196f52fbdc53321-Papercups.png
+/Users/Downloads/V2.zip
+/Users/Downloads/Papercups.png
+/Users/Downloads/Color-Papercups.png
+/Users/Downloads/White-Papercups.png
+/Users/Downloads/Large_Papercups.png
+/Users/Downloads/logo-design-a-paper-cups-inspi.zip
+/Users/Downloads/File.zip
+papercups >
+
+```
+
+`pbcopy` (Mac only) copys content in to your paste buffer
+
+`pbpaste` (Mac only) output the contents of your paste buffer
+
+Two for one example:
+```bash
+papercups > echo "Papercups Papercups Papercups" | pbcopy
+papercups > pbpaste
+Papercups Papercups Papercups
+```
+
+`wc -l` Gets line count of file
+
+```bash
+papercups > ls
+CHANGELOG.md			README.md			deps				docker-entrypoint.sh			mix.lock
+CODE_OF_CONDUCT.md		_build				dev.Dockerfile			docs				phoenix_static_buildpack.config
+CONTRIBUTING.md			app.json			docker-compose.dev.yml		echo			priv
+Dockerfile			assets				docker-compose.prod.yml		elixir_buildpack.config		index.html			rel
+LICENSE				compile				docker-compose.yml		erl_crash.dump			lib				scripts
+Procfile			config				docker-entrypoint-dev.sh	file.txt			mix.exs				test
+papercups > wc -l README.md
+      93 README.md
+papercups >
+```
+
+
+`sort` sorts a file by line
+
+`uniq` find all the unique lines in a file (only works with sorted files)
+
+`grep` use it to find files but I mostly use it as a way to filter when working with files
+
+`awk` gets specific columns of a file
+
+`|` Pipes output of one command in to the input of another command
+
+I got a little lazy at this point and figure the best way to show case these commands is to chain them together. 
+I was putting this post together when I wanted to see what are some of my common bash commands so I wrote some bash commands that
+looks through my bash history and gets filters out my git and echo commands.
+
+`history | awk -F' ' '{print $2, $3}' | sort | uniq | grep -v 'git\|echo'`
+
+```bash
+history | awk -F' ' '{print $2, $3}' | sort | uniq | grep -v 'git\|echo'
+cat file.txt
+cat results.
+cat results.csv
+cd -
+cd ..
+cd ../docs/
+cd ../papercups.io
+cd ../papercups.io/
+cd papercups
+cd papercups.io
+cd papercups.io/
+code .
+code index.html
+cp results.csv
+docs
+env
+gap
+less results.csv
+ls
+ls papercups
+ls results.csv
+mdfind
+mdfind papercups
+mdfind papercups.png
+mix phx.server
+node
+npm install
+npm run
+open index.html
+papercups >
+pbcopy |
+pbpaste
+pbpaste |
+rm results.csv
+rm results.txt
+source .env
+stty sane
+tail -f
+tail results.csv
+tail results.txt
+touch results.csv
+ts-node inspect
+ts-node inspeect
+vim results.
+vim results.csv
+vim yc_companies.csv
+wc -l
+which node
+```
+
+---
+
+_Papercups is an open source customer support tool and an alternative to Intercom and Zendesk_
+
+_GitHub repo: https://github.com/papercups-io/papercups_
+
+---
+
+
+#### Related Posts:
+
+[Elxir gen server explained](/blog/genserver)
