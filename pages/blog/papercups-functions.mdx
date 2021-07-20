@@ -1,0 +1,117 @@
+import {Box, Flex, Image} from 'rebass';
+import Layout from '../../components/layout';
+import {Text} from '../../components/common';
+
+export default ({children}) => (
+  <Layout title="Announcing Papercups Functions ">{children}</Layout>
+);
+
+# Announcing Papercups Functions
+
+### How a series of pivots & failed experiments led to our latest feature
+
+_By Kam Leung_
+
+### Introduction
+
+At Papercups, building developer-centric tooling is a core part of our development philosophy. Instead of offering a limited UI that gives you equally limited control, we want to empower you to customize the end-to-end process of how you find and communicate with your customers. We provide everything from customizable widgets, integrations with Slack and Mattermost, and webhook events.
+
+<Box mb={3} textAlign="center">
+  <Box mb={2}>
+    <Image
+      alt="Papercups react configuration page"
+      src="../images/papercups-functions/image1.png"
+    />
+  </Box>
+</Box>
+
+The Papercups dashboard provides the chat widget as both an HTML and React component for easier customization by developers.
+
+<Box mb={3} textAlign="center">
+  <Box mb={2}>
+    <Image
+      alt="Papercups Integrations page"
+      src="../images/papercups-functions/image4.png"
+    />
+  </Box>
+</Box>
+
+<strong>
+  All these features are in service of our long-term vision for Papercups – to
+  grow beyond a live customer chat web app into a one-stop shop for your
+  customer communication needs.
+</strong>
+
+But even with our ideas and good intentions, we know we can’t cover all the possible
+cases for how our users chat with and learn from their customers.
+
+<strong>
+  That’s why we’re very excited to announce the release of Papercups’ Functions,
+  a new way to uniquely handle your incoming chat messages using the most
+  developer-friendly tool of all – code.
+</strong>
+
+But why did we decide on this feature?
+
+## History of failed experiments
+
+To talk about how Papercups’ roadmap, we have to consider where we came from.
+
+What many people don’t know about Papercups is that it started as a freight company.
+
+When Alex and I first got into YC, our grand entrepreneurial idea was that we would make it easy for companies to book freight shipments online. With Alex’s background in shipping, we wanted to provide instantaneous price quotes without having to talk to multiple sales people across multiple shipping providers. We essentially wanted to build Expedia for ocean freight.
+
+Another thing many people don’t know about Papercups is that we pivoted on our core product many times before settling on our mission of making seamless and secure customer communication. Some ideas lasted weeks; others lasted mere days. We bounced around between an AI product that would improve image SEO with machine learning, an IDE to schedule cron jobs, and an NLP-driven chatbot.
+
+Through all these iterations, there was one theme – we wanted to use cool technology (lambda functions, NLP, chron jobs) to help developers accomplish the tasks that they most frequently do, and that require the most time and attention. We also found ourselves attracted to making customer communications easier for developers to design and deploy.
+
+One of these intermediary pivots was a product that we dubbed Taro. Taro helped developers automate recurring cron jobs to do things like schedule emails, drip onboarding materials, and manage long-term marketing campaigns.
+
+<Box mb={3} textAlign="center">
+  <Box mb={2}>
+    <Image
+      alt="Taro landing page"
+      src="../images/papercups-functions/image3.png"
+    />
+  </Box>
+</Box>
+
+We knew Taro solved a real customer need – it reached #4 on Product Hunt and developed a passionate user base.
+
+To our own chagrin, we abandoned Taro too quickly in retrospect. We had a product that solved a real existing need, that customers loved. We could have very well expanded on this idea.
+
+We eventually discovered the user need for Papercups and developed that idea into the iteration you know and love today, but remained intrigued by the success we’d had with Taro. But as we developed our product to best serve our users to communicate with their users securely, we found ourselves revisiting many of the findings from our Taro days.
+
+One theme that we kept coming back to was making Papercups more dev-friendly. We don’t want to box our users into what we provide out-of-the-box. We don’t ever want our users to be blocked by our current roadmap priorities or our finite dev resources. We wanted to let you loose and use Papercups however you saw fit. As a member of the open-source community, we wanted to open Papercups development up to our most vital collaborators – our users.
+
+<Box mb={3} textAlign="center">
+  <Box mb={2}>
+    <Image
+      alt="What Papercups functions looks like"
+      src="../images/papercups-functions/image2.png"
+    />
+  </Box>
+</Box>
+
+Our goal is to set you up with the hackable tools, but for your team to do what you know best – add all the team-specific bells and whistles, all while leveraging Papercups’ existing features. Papercups should empower you to develop bespoke tools for your specific needs, versus limit you from doing the specific thing you want it to do.
+You can rely on Papercups to be a one-stop shop for communicating with your users. With Papercups Functions, there is no limit to how uniquely tailored your chat responses can be to your customers.
+
+## Summary
+
+While we focused on providing seamless and secure customer communication in the past, our team at Papercups want to focus on making customer communication as developer-friendly, and hackable, as possible.
+
+Check out our [docs](https://docs.papercups.io/functions) to get started writing Papercups functions!
+
+---
+
+_Posted on July 20, 2021_
+
+---
+
+_Papercups is an [open source](https://github.com/papercups-io/papercups) alternative to customer messaging tools like Intercom._
+
+_Check out our [FAQ chatbot demo](https://www.papercupsbot.io/bot/demo)!_
+
+_GitHub repo: https://github.com/papercups-io/papercups_
+
+---
