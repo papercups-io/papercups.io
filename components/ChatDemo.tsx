@@ -17,24 +17,14 @@ const Header = ({
 }) => {
   return (
     <div
+      className="p-4 text-white"
       style={{
-        padding: '16px',
         background: color,
-        color: '#fff',
         transition: 'background 0.4s ease',
       }}
     >
-      <h2
-        style={{
-          marginTop: 4,
-          marginBottom: 4,
-          fontWeight: 500,
-          color: 'rgb(255, 255, 255)',
-        }}
-      >
-        {title}
-      </h2>
-      <p style={{margin: 0, color: 'rgba(255, 255, 255, 0.8)'}}>
+      <h2 className="text-xl my-2 text-white font-medium">{title}</h2>
+      <p className="text-white text-sm text-opacity-90">
         Questions? Feedback? Let us know below!
       </p>
     </div>
@@ -127,7 +117,7 @@ const Body = ({state, color, scrollToRef}) => {
   const {customerId, messages = []} = state;
 
   return (
-    <div style={{padding: '16px 16px'}}>
+    <div className="p-4">
       {messages.map((message: any, idx: number) => {
         const isCustomer =
           message.customer_id === customerId ||
@@ -207,11 +197,10 @@ const ChatDemo = ({
       {({config, state, scrollToRef, onSendMessage}) => {
         return (
           <Box
+            className="border rounded"
             sx={{
               height: height || 560,
               width: width || 376,
-              border: '1px solid rgb(230, 230, 230)',
-              borderRadius: 4,
               overflow: 'hidden',
             }}
           >
