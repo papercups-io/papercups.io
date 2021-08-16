@@ -6,22 +6,78 @@ import posthog from 'posthog-js';
 import {Box, Flex, Image} from 'rebass';
 import {ChatWidget, Papercups} from '@papercups-io/chat-widget';
 
-import {
-  colors,
-  Carousel,
-  Content,
-  Footer,
-  Header,
-  Layout,
-  Menu,
-  Divider,
-  // Beta
-  H1,
-  H2,
-  H3,
-  P,
-} from '../components/common';
+import {H1, H2, H3, P} from '../components/common';
 import ChatDemo from '../components/ChatDemo';
+
+const NavMenu = () => {
+  // TODO: figure out how to make this responsive!
+  // See https://tailwindui.com/components/application-ui/navigation/navbars
+
+  return (
+    <nav className="flex items-center justify-between flex-wrap p-6">
+      <div className="flex flex-grow items-center text-white mr-6">
+        <img src="/papercups-v2.svg" style={{height: 40, width: 160}} />
+      </div>
+
+      <div className="block lg:hidden">
+        <button className="flex justify-start items-center px-3 py-2 border rounded text-gray-700 border-blue-400 hover:text-white hover:border-white">
+          <svg
+            className="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="flex flex-grow justify-center lg:flex lg:items-center lg:w-auto">
+        <div className="text-sm">
+          <a
+            href="#responsive-header"
+            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+          >
+            Blog
+          </a>
+          <a
+            href="#responsive-header"
+            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+          >
+            Docs
+          </a>
+          <a
+            href="#responsive-header"
+            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+          >
+            Features
+          </a>
+          <a
+            href="#responsive-header"
+            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+          >
+            GitHub
+          </a>
+          <a
+            href="#responsive-header"
+            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+          >
+            Pricing
+          </a>
+        </div>
+      </div>
+
+      <div className="flex flex-grow justify-end">
+        <a
+          href="#"
+          className="bg-blue-500 hover:bg-blue-700 text-white text-sm hover:text-white py-2 px-4 rounded-full transition-colors"
+        >
+          Get started
+        </a>
+      </div>
+    </nav>
+  );
+};
 
 export default class extends Component {
   componentDidMount() {
@@ -39,7 +95,7 @@ export default class extends Component {
 
   render() {
     return (
-      <Layout style={{background: colors.white}}>
+      <Flex className="flex-auto flex-col min-h-0 bg-white">
         <Head>
           <title>Papercups | Open Source Intercom Alternative</title>
           <link rel="icon" href="/logo-v2.svg" />
@@ -49,64 +105,9 @@ export default class extends Component {
           ></meta>
         </Head>
 
-        <Header style={{background: 'transparent'}}>
-          <Flex>
-            <Box flex={1}>
-              <Link href="/">
-                <a>
-                  <img
-                    src="/papercups-v2.svg"
-                    style={{height: 40, width: 160}}
-                  />
-                </a>
-              </Link>
-            </Box>
+        <NavMenu />
 
-            <Box>
-              <Menu style={{borderBottom: 'none'}} mode="horizontal">
-                <Menu.Item style={{margin: '0 1em'}} key="blog">
-                  <Link href="/blog">
-                    <a>Blog</a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="features">
-                  <a
-                    href="https://docs.papercups.io/#features"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Features
-                  </a>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="pricing">
-                  <Link href="/pricing">
-                    <a>Pricing</a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="github">
-                  <a
-                    href="https://github.com/papercups-io/papercups"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="Sign up">
-                  <a
-                    href="https://app.papercups.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Login
-                  </a>
-                </Menu.Item>
-              </Menu>
-            </Box>
-          </Flex>
-        </Header>
-
-        <Content>
+        <main className="flex-auto min-h-0">
           <Box mx="auto" style={{maxWidth: 960}} py={5} px={4}>
             <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
@@ -125,7 +126,7 @@ export default class extends Component {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <button className="bg-white hover:bg-gray-100 text-base py-3 px-6 rounded border">
+                        <button className="bg-white hover:bg-gray-100 text-base py-2 px-5 rounded border">
                           Demo
                         </button>
                       </a>
@@ -136,7 +137,7 @@ export default class extends Component {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white text-base py-3 px-6 rounded">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white text-base py-2 px-5 rounded">
                           Sign up for free
                         </button>
                       </a>
@@ -176,26 +177,11 @@ export default class extends Component {
               </Flex>
 
               <Box>
-                <Carousel autoplay effect="fade">
-                  <Flex sx={{height: 400, justifyContent: 'center'}}>
-                    <Image
-                      sx={{width: '100%'}}
-                      src="images/demo-getting-started.png"
-                    />
-                  </Flex>
-                  <Flex sx={{height: 400, justifyContent: 'center'}}>
-                    <Image
-                      sx={{width: '100%'}}
-                      src="images/demo-conversations.png"
-                    />
-                  </Flex>
-                  <Flex sx={{height: 400, justifyContent: 'center'}}>
-                    <Image
-                      sx={{width: '100%'}}
-                      src="images/demo-reporting.png"
-                    />
-                  </Flex>
-                </Carousel>
+                {/* TODO: find better images/screenshots! */}
+                <Image
+                  sx={{width: '100%'}}
+                  src="images/demo-conversations.png"
+                />
               </Box>
             </Box>
             <Box mx={[4, 6]} pb={50}>
@@ -287,9 +273,7 @@ export default class extends Component {
               </Flex>
             </Box>
 
-            <Box mb={[5, 6]}>
-              <Divider />
-            </Box>
+            <Box className="border-b" mb={[5, 6]}></Box>
 
             <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
@@ -477,14 +461,14 @@ export default class extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="bg-white hover:bg-gray-100 text-base py-3 px-6 rounded border">
+                    <button className="bg-white hover:bg-gray-100 text-base py-2 px-5 rounded border">
                       Find out on Github
                     </button>
                   </a>
                 </Box>
                 <Box mx={2}>
                   <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white text-base py-3 px-6 rounded"
+                    className="bg-blue-500 hover:bg-blue-700 text-white text-base py-2 px-5 rounded"
                     onClick={Papercups.toggle}
                   >
                     Ask us!
@@ -493,9 +477,12 @@ export default class extends Component {
               </Flex>
             </Flex>
           </Box>
-        </Content>
+        </main>
 
-        <Footer style={{backgroundColor: '#001529'}}>
+        <footer
+          className=""
+          style={{flex: '0 0 auto', backgroundColor: '#001529'}}
+        >
           <Flex
             mx="auto"
             py={5}
@@ -522,7 +509,7 @@ export default class extends Component {
               </a>
             </Box>
           </Flex>
-        </Footer>
+        </footer>
 
         <ChatWidget
           title="Welcome to Papercups!"
@@ -536,7 +523,7 @@ export default class extends Component {
           requireEmailUpfront
           showAgentAvailability
         />
-      </Layout>
+      </Flex>
     );
   }
 }
