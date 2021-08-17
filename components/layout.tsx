@@ -6,17 +6,13 @@ import {Box, Flex} from 'rebass';
 import {MDXProvider} from '@mdx-js/react';
 import {ChatWidget} from '@papercups-io/chat-widget';
 import {
-  colors,
-  Content,
-  Divider,
-  Footer,
-  Header,
-  Layout,
-  Menu,
-  Paragraph,
-  Text,
-  Title,
-} from '../components/common';
+  // beta
+  P,
+  H1,
+  H2,
+  H3,
+} from './common';
+import NavMenu from './nav';
 
 type Props = {width?: number; title?: string; children: any};
 type State = any;
@@ -25,12 +21,12 @@ export default class Container extends React.Component<Props, State> {
   storytime: any = null;
 
   state = {
-    h1: Title,
-    h2: (props: any) => <Title level={2} {...props} />,
-    h3: (props: any) => <Title level={3} {...props} />,
+    h1: H1,
+    h2: H2,
+    h3: H3,
     ul: (props: any) => <ul className="ant-typography" {...props}></ul>,
-    p: Paragraph,
-    hr: Divider,
+    p: P,
+    hr: (props: any) => <Box mb={4} className="border-b" {...props} />,
   };
 
   componentDidMount() {
@@ -77,14 +73,16 @@ export default class Container extends React.Component<Props, State> {
   };
 
   shouldDisplayMailchimpForm = () => {
-    const path = this.getCurrentWindowPath();
+    // const path = this.getCurrentWindowPath();
     // Only display on blog pages
-    return path && path?.startsWith('/blog');
+    // return path && path?.startsWith('/blog');
+
+    return false;
   };
 
   render() {
     return (
-      <Layout style={{background: colors.white}}>
+      <Flex className="flex-auto flex-col min-h-0 bg-white">
         <Head>
           <title>
             Papercups | {this.props.title || 'Open Source Intercom Alternative'}
@@ -101,64 +99,9 @@ export default class Container extends React.Component<Props, State> {
           ></script>
         </Head>
 
-        <Header style={{background: 'transparent'}}>
-          <Flex>
-            <Box flex={1}>
-              <Link href="/">
-                <a>
-                  <img
-                    src="/papercups-v2.svg"
-                    style={{height: 40, width: 160}}
-                  />
-                </a>
-              </Link>
-            </Box>
+        <NavMenu />
 
-            <Box>
-              <Menu style={{borderBottom: 'none'}} mode="horizontal">
-                <Menu.Item style={{margin: '0 1em'}} key="blog">
-                  <Link href="/blog">
-                    <a>Blog</a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="features">
-                  <a
-                    href="https://docs.papercups.io/#features"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Features
-                  </a>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="pricing">
-                  <Link href="/pricing">
-                    <a>Pricing</a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="github">
-                  <a
-                    href="https://github.com/papercups-io/papercups"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </Menu.Item>
-                <Menu.Item style={{margin: '0 1em'}} key="Sign up">
-                  <a
-                    href="https://app.papercups.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Login
-                  </a>
-                </Menu.Item>
-              </Menu>
-            </Box>
-          </Flex>
-        </Header>
-
-        <Content>
+        <main className="flex-auto min-h-0">
           <Box
             mx="auto"
             style={{maxWidth: this.props.width || 800}}
@@ -170,7 +113,8 @@ export default class Container extends React.Component<Props, State> {
               {this.props.children}
             </MDXProvider>
           </Box>
-        </Content>
+        </main>
+
         {this.shouldDisplayMailchimpForm() && (
           <div>
             {/* Begin Mailchimp Signup Form */}
@@ -232,13 +176,37 @@ export default class Container extends React.Component<Props, State> {
           </div>
         )}
 
-        <Footer style={{backgroundColor: '#001529'}}>
-          <Box p={5}>
-            <Text style={{color: colors.white}}>
-              Made with ❤️ in SF &amp; NYC
-            </Text>
-          </Box>
-        </Footer>
+        <footer
+          className=""
+          style={{flex: '0 0 auto', backgroundColor: '#001529'}}
+        >
+          <Flex
+            mx="auto"
+            py={5}
+            px={4}
+            sx={{justifyContent: 'space-between', maxWidth: 960}}
+          >
+            <Flex p={3} sx={{alignItems: 'center'}}>
+              <p className="text-white pr-3">
+                Backed by <b>Y Combinator</b>
+              </p>
+
+              <img
+                style={{
+                  width: '20px',
+                  height: '20px',
+                }}
+                src="/yc-logo.png"
+              />
+            </Flex>
+
+            <Box p={3}>
+              <a href="/privacy" className="white_link">
+                Privacy
+              </a>
+            </Box>
+          </Flex>
+        </footer>
 
         {this.isWindowReady() && (
           <ChatWidget
@@ -266,7 +234,7 @@ export default class Container extends React.Component<Props, State> {
             }}
           />
         )}
-      </Layout>
+      </Flex>
     );
   }
 }
