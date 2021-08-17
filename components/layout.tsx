@@ -21,12 +21,12 @@ export default class Container extends React.Component<Props, State> {
   storytime: any = null;
 
   state = {
-    h1: H1,
-    h2: H2,
-    h3: H3,
-    ul: (props: any) => <ul className="ant-typography" {...props}></ul>,
-    p: P,
-    hr: (props: any) => <Box mb={4} className="border-b" {...props} />,
+    // h1: H1,
+    // h2: H2,
+    // h3: H3,
+    // ul: (props: any) => <ul className="ant-typography" {...props}></ul>,
+    // p: P,
+    // hr: (props: any) => <Box mb={4} className="border-b" {...props} />,
   };
 
   componentDidMount() {

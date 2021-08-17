@@ -1,9 +1,14 @@
 import {Box, Flex, Image} from 'rebass';
 import Layout from '../../components/layout';
-import {Text} from '../../components/common';
 
 export default ({children}) => (
-  <Layout title="Building an FAQ chatbot">{children}</Layout>
+  <Layout title="Building an FAQ chatbot">
+    <article className="prose lg:prose-xl">{children}</article>
+  </Layout>
+);
+
+export const SubText = ({children}) => (
+  <span className="text-gray-500">{children}</span>
 );
 
 # Building an FAQ chatbot
@@ -55,7 +60,7 @@ One caveat with comparing text embedding value is that subtracting values from o
       src="https://user-images.githubusercontent.com/4218509/95612704-d4839300-0a31-11eb-8d0d-7a3aadf6b266.png"
     />
   </Box>
-  <Text type="secondary">Visualizing cosine similarity</Text>
+  <SubText>Visualizing cosine similarity</SubText>
 </Box>
 
 ### Putting it all together

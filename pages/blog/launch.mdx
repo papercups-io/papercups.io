@@ -1,9 +1,14 @@
 import {Box, Flex, Image} from 'rebass';
 import Layout from '../../components/layout';
-import {Text} from '../../components/common';
 
 export default ({children}) => (
-  <Layout title="Lessons from the Launch">{children}</Layout>
+  <Layout title="Lessons from the Launch">
+    <article className="prose lg:prose-xl">{children}</article>
+  </Layout>
+);
+
+export const SubText = ({children}) => (
+  <span className="text-gray-500">{children}</span>
 );
 
 # Lessons from the Launch
@@ -41,7 +46,7 @@ Here are two of my favorite messages of that day.
       src="https://paper-attachments.dropbox.com/s_62D2302FB94827F5A18A61935D23AB3FA86DCD04FE076A7F7D63F33490F45185_1599701874812_Screen+Shot+2020-08-05+at+11.02.07+PM.png"
     />
   </Box>
-  <Text type="secondary">All the teams consisted of me and Alex</Text>
+  <SubText>All the teams consisted of me and Alex</SubText>
 </Box>
 
 <Box mb={3} textAlign="center">

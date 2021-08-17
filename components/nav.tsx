@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export const Nav = () => {
   // TODO: figure out how to make this responsive!
   // See https://tailwindui.com/components/application-ui/navigation/navbars
@@ -5,7 +7,11 @@ export const Nav = () => {
   return (
     <nav className="flex items-center justify-between flex-wrap p-6">
       <div className="flex flex-grow items-center text-white mr-6">
-        <img src="/papercups-v2.svg" style={{height: 40, width: 160}} />
+        <Link href="/">
+          <a>
+            <img src="/papercups-v2.svg" style={{height: 40, width: 160}} />
+          </a>
+        </Link>
       </div>
 
       <div className="block lg:hidden">
@@ -23,45 +29,74 @@ export const Nav = () => {
 
       <div className="flex flex-grow justify-center lg:flex lg:items-center lg:w-auto">
         <div className="text-sm">
+          <Link href="/blog">
+            <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6">
+              Blog
+            </a>
+          </Link>
           <a
-            href="#responsive-header"
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
-          >
-            Blog
-          </a>
-          <a
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+            href="https://docs.papercups.io"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Docs
           </a>
           <a
-            href="#responsive-header"
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+            href="https://docs.papercups.io/#features"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Features
           </a>
           <a
-            href="#responsive-header"
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+            href="https://github.com/papercups-io/papercups"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             GitHub
           </a>
-          <a
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
-          >
-            Pricing
-          </a>
+          <Link href="/pricing">
+            <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6">
+              Pricing
+            </a>
+          </Link>
         </div>
       </div>
 
       <div className="flex flex-grow justify-end">
         <a
-          href="#"
-          className="bg-blue-500 hover:bg-blue-700 text-white text-sm hover:text-white py-2 px-4 rounded-full transition-colors"
+          className="text-sm hover:text-blue-500 hover:bg-gray-50 py-2 px-4 mr-2 rounded-full transition-colors"
+          href="https://app.papercups.io"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Get started
+          Log in
+        </a>
+
+        <a
+          className="flex items-center bg-blue-500 hover:bg-blue-400 text-white text-sm hover:text-white py-2 px-4 rounded-full transition-colors"
+          href="https://app.papercups.io"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="mr-2">Start now</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
+          </svg>
         </a>
       </div>
     </nav>

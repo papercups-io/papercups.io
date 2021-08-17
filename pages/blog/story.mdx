@@ -1,6 +1,10 @@
 import Layout from '../../components/layout';
 
-export default ({children}) => <Layout title="Our Story">{children}</Layout>;
+export default ({children}) => (
+  <Layout title="Our Story">
+    <article className="prose lg:prose-xl">{children}</article>
+  </Layout>
+);
 
 # Our Story
 

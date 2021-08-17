@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import {Component} from 'react';
 import ReactGA from 'react-ga';
 import posthog from 'posthog-js';
@@ -46,11 +45,11 @@ export default class extends Component {
                   <H1>Connect and chat with customers from your website</H1>
 
                   <p className="leading-relaxed text-xl text-gray-700 font-light">
-                    Open source customer messaging, built for startups and
-                    enterprise alike.
+                    Open source customer messaging, built for both startups and
+                    enterprise.
                   </p>
 
-                  <Flex my={3}>
+                  <Flex my={4}>
                     <Box mr={2}>
                       <a
                         href="https://app.papercups.io/demo"
@@ -64,12 +63,26 @@ export default class extends Component {
                     </Box>
                     <Box mr={2}>
                       <a
-                        href="https://app.papercups.io/register?redirect=/account/getting-started"
+                        href="https://app.papercups.io/register"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white text-base py-2 px-5 rounded">
-                          Sign up for free
+                        <button className="flex items-center bg-blue-500 hover:bg-blue-400 text-white text-base py-2 px-5 rounded">
+                          <span className="mr-2">Sign up for free</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
+                          </svg>
                         </button>
                       </a>
                     </Box>
@@ -399,7 +412,7 @@ export default class extends Component {
                 </Box>
                 <Box mx={2}>
                   <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white text-base py-2 px-5 rounded"
+                    className="bg-blue-500 hover:bg-blue-400 text-white text-base py-2 px-5 rounded"
                     onClick={Papercups.toggle}
                   >
                     Ask us!

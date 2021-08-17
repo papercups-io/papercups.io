@@ -2,7 +2,9 @@ import {Image} from 'rebass';
 import Layout from '../../components/layout';
 
 export default ({children}) => (
-  <Layout title="Launch HN: What We Learned">{children}</Layout>
+  <Layout title="Launch HN: What We Learned">
+    <article className="prose lg:prose-xl">{children}</article>
+  </Layout>
 );
 
 # Launch HN: What We Learned

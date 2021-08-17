@@ -1,8 +1,39 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 import {Box, Flex} from 'rebass';
 import request from 'axios';
-import {Button, Input, Paragraph, Text, Title} from '../components/common';
+import {
+  // beta
+  H2,
+} from '../components/common';
 import Layout from '../components/layout';
+
+const Text = ({
+  children,
+  className = '',
+  style = {},
+  danger = false,
+}: PropsWithChildren<{className?: string; style?: any; danger?: boolean}>) => {
+  return (
+    <span
+      className={`text-sm ${className} ${danger ? 'text-red-500' : ''}`}
+      style={style}
+    >
+      {children}
+    </span>
+  );
+};
+
+const Paragraph = ({
+  children,
+  className = '',
+  style = {},
+}: PropsWithChildren<{className?: string; style?: any}>) => {
+  return (
+    <p className={`text-base leading-relaxed mb-4 ${className}`} style={style}>
+      {children}
+    </p>
+  );
+};
 
 const DEFAULT_ERROR_MESSAGE =
   'Something went wrong. Please try again in a few minutes or contact us for help.';
@@ -54,7 +85,7 @@ const PgNewsletter = () => {
           justify-content="center"
           paddingBottom="20px"
         >
-          <Title level={1}>Thanks for subscribing!</Title>
+          <H2>Thanks for subscribing!</H2>
 
           <Paragraph>
             You should start receiving the newsletter within 24 hours.
@@ -71,7 +102,7 @@ const PgNewsletter = () => {
         justify-content="center"
         paddingBottom="20px"
       >
-        <Title level={1}>Subscribe to the newsletter</Title>
+        <H2>Subscribe to the newsletter</H2>
 
         <Paragraph>
           Enter your email to receive one of Paul Graham's essays in your inbox
@@ -80,30 +111,30 @@ const PgNewsletter = () => {
 
         <form onSubmit={handleSubscribe}>
           <Flex my={2}>
-            <Input
+            <input
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
               name="email"
               type="email"
-              size="large"
               placeholder="me@company.com"
               onChange={handleChangeEmail}
             />
+
             <Box ml={1}>
-              <Button
-                htmlType="submit"
-                type="primary"
-                size="large"
-                loading={isPending}
+              {/* TODO: handle loading/isPending state */}
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-400 text-white text-base py-2 px-5 rounded"
               >
                 Subscribe
-              </Button>
+              </button>
             </Box>
           </Flex>
         </form>
 
         {error && (
           <Box my={3}>
-            <Text type="danger">{error}</Text>
+            <Text danger>{error}</Text>
           </Box>
         )}
       </Flex>

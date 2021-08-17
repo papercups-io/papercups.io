@@ -3,7 +3,9 @@ import Layout from '../../components/layout';
 import {Text} from '../../components/common';
 
 export default ({children}) => (
-  <Layout title="Papercups + Mattermost Integration">{children}</Layout>
+  <Layout title="Papercups + Mattermost Integration">
+    <article className="prose lg:prose-xl">{children}</article>
+  </Layout>
 );
 
 # Papercups + Mattermost Integration
@@ -30,8 +32,8 @@ After a couple weeks of hard work, we're excited to announce that the integratio
   <iframe
     src="https://www.loom.com/embed/f7aad02e8bd44f2b89e27472d07799ed"
     frameBorder="0"
-    webkitAllowFullScreen
-    mozAllowFullScreen
+    webkitallowfullscreen="true"
+    mozallowfullscreen="true"
     allowFullScreen
     style={{
       position: 'absolute',
