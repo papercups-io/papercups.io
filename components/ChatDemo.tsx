@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Flex} from 'rebass';
-import {ChatBuilder, ChatFooter} from '@papercups-io/chat-builder';
+import {ChatBuilder} from '@papercups-io/chat-builder';
 
 const config = {
   title: 'Welcome to Papercups!',
@@ -154,6 +154,40 @@ const Body = ({state, color, scrollToRef}) => {
   );
 };
 
+const ChatFooter = ({config, onSendMessage}) => {
+  const [body, setMessageBody] = React.useState('');
+  const {newMessagePlaceholder = 'Start typing...'} = config;
+
+  const handleChange = (e: any) => setMessageBody(e.target.value);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    onSendMessage({body});
+    setMessageBody('');
+  };
+
+  return (
+    <div
+      className="p-2 border-t"
+      style={{
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 100px 0px',
+      }}
+    >
+      <form onSubmit={handleSubmit}>
+        <input
+          className="border-none w-full p-2 outline-none text-sm text-gray-700"
+          style={{
+            boxSizing: 'border-box',
+          }}
+          value={body}
+          placeholder={newMessagePlaceholder}
+          onChange={handleChange}
+        />
+      </form>
+    </div>
+  );
+};
+
 const ChatDemo = ({
   height,
   width,
@@ -162,13 +196,13 @@ const ChatDemo = ({
   width?: number | string;
 }) => {
   const colors = [
-    'rgb(24, 144, 255)',
-    '#00488c',
-    '#7c065d',
-    '#8650fa',
-    '#4c51bf',
-    'rgba(0, 0, 0, 0.8)',
-    '#ff6900',
+    '#3B82F6',
+    '#6366F1',
+    '#8B5CF6',
+    '#EC4899',
+    '#EF4444',
+    '#F59E0B',
+    '#10B981',
   ];
   const titles = [
     'Welcome to Papercups 👋',
@@ -228,11 +262,7 @@ const ChatDemo = ({
                 />
               </Box>
 
-              <ChatFooter
-                config={config}
-                state={state}
-                onSendMessage={onSendMessage}
-              />
+              <ChatFooter config={config} onSendMessage={onSendMessage} />
             </Flex>
           </Box>
         );

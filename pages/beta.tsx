@@ -42,9 +42,11 @@ export default class extends Component {
             <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Box mb={6}>
-                  <H1>Connect and chat with customers from your website</H1>
+                  <H1 className="mb-5">
+                    Connect and chat with customers from your website
+                  </H1>
 
-                  <p className="leading-relaxed text-xl text-gray-700 font-light">
+                  <p className="leading-relaxed text-xl text-gray-700">
                     Open source customer messaging, built for both startups and
                     enterprise.
                   </p>
@@ -466,7 +468,7 @@ export default class extends Component {
           iconVariant="filled"
           requireEmailUpfront
           showAgentAvailability
-          popUpInitialMessage={5000}
+          popUpInitialMessage={8000}
         />
       </Flex>
     );
