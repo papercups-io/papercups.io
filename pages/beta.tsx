@@ -123,13 +123,10 @@ export default class extends Component {
               </Flex>
 
               <Box>
+                {/* TODO: find better images/screenshots! */}
                 <Image
-                  sx={{
-                    width: '100%',
-                    borderRadius: 8,
-                    boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
-                  }}
-                  src="dashboard.png"
+                  sx={{width: '100%'}}
+                  src="images/demo-conversations.png"
                 />
               </Box>
             </Box>
@@ -150,8 +147,8 @@ export default class extends Component {
                     flexDirection={['column', 'row']}
                   >
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
+                      <img
+                        style={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -159,24 +156,24 @@ export default class extends Component {
                       />
                     </Box>
                     <Box pt={60} mx={[0, 4]}>
-                      <Image
-                        sx={{
+                      <img
+                        style={{
                           height: '35px',
                         }}
                         src="ycombinator-logo.svg"
                       />
                     </Box>
                     <Box pt={60} mx={[0, 4]}>
-                      <Image
-                        sx={{
+                      <img
+                        style={{
                           height: '35px',
                         }}
                         src="posthog-logo.svg"
                       />
                     </Box>
                     <Box pt={68} mx={[0, 4]}>
-                      <Image
-                        sx={{
+                      <img
+                        style={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -191,8 +188,8 @@ export default class extends Component {
                     flexDirection={['column', 'row']}
                   >
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
+                      <img
+                        style={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -200,8 +197,8 @@ export default class extends Component {
                       />
                     </Box>
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
+                      <img
+                        style={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -209,8 +206,8 @@ export default class extends Component {
                       />
                     </Box>
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
+                      <img
+                        style={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -224,12 +221,7 @@ export default class extends Component {
 
             <Box className="border-b" mb={[5, 6]}></Box>
 
-            <Flex
-              mb={[5, 6]}
-              mx={[0, -4]}
-              alignItems="center"
-              flexDirection={['column', 'row']}
-            >
+            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Flex
                   alignItems="center"
@@ -239,15 +231,13 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
-                  <Image
-                    sx={{
+                  <img
+                    style={{
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
-                      borderRadius: 4,
-                      boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
                     }}
-                    src="reply-from-slack.gif"
+                    src="setup.svg"
                   />
                 </Flex>
               </Box>
@@ -265,7 +255,6 @@ export default class extends Component {
             <Flex
               mb={[5, 6]}
               mx={[0, -4]}
-              alignItems="center"
               flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
@@ -286,23 +275,18 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
-                  <Image
-                    sx={{
+                  <img
+                    style={{
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
                     }}
-                    src="customize.gif"
+                    src="customize.svg"
                   />
                 </Flex>
               </Box>
             </Flex>
-            <Flex
-              mb={[5, 6]}
-              mx={[0, -4]}
-              alignItems="center"
-              flexDirection={['column', 'row']}
-            >
+            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box flex={1} mx={[0, 4]}>
                 <Flex
                   alignItems="center"
@@ -312,19 +296,17 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
-                  <Image
-                    sx={{
+                  <img
+                    style={{
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
-                      borderRadius: 4,
-                      boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
                     }}
-                    src="papercups-js.png"
+                    src="secure.svg"
                   />
                 </Flex>
               </Box>
-              <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
+              <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <H3>Save your developers time</H3>
                 <P>
                   Papercups is open source and made with a developer in mind. We
@@ -387,7 +369,7 @@ export default class extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src="slack-v1.svg" sx={{height: 144}} />
+                  <img src="slack-v1.svg" style={{height: 144}} />
                 </a>
               </Flex>
               <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
@@ -396,7 +378,7 @@ export default class extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src="github-v1.svg" sx={{height: 144}} />
+                  <img src="github-v1.svg" style={{height: 144}} />
                 </a>
               </Flex>
               <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
@@ -405,7 +387,7 @@ export default class extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src="discord-color.svg" sx={{height: 144}} />
+                  <img src="discord-color.svg" style={{height: 144}} />
                 </a>
               </Flex>
             </Flex>
@@ -458,8 +440,8 @@ export default class extends Component {
                 Backed by <b>Y Combinator</b>
               </p>
 
-              <Image
-                sx={{
+              <img
+                style={{
                   width: '20px',
                   height: '20px',
                 }}

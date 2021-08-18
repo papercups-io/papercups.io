@@ -1,8 +1,10 @@
 import {Box, Flex, Image} from 'rebass';
-import Layout from '../../components/layout';
+import Prose from '../../components/prose';
 import ChatDemo from '../../components/ChatDemo';
 
-export default Layout;
+export default ({children}) => (
+  <Prose title="Evolution of a chat widget">{children}</Prose>
+);
 
 # Evolution of a chat widget
 

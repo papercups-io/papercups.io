@@ -1,13 +1,11 @@
 import {Box, Flex, Image} from 'rebass';
-import Layout from '../../components/layout';
+import Prose from '../../components/prose';
 
 export default ({children}) => (
-  <Layout title="Kam's favorite bash tips">
-    {children}
-  </Layout>
+  <Prose title="Kam's favorite bash tips">{children}</Prose>
 );
 
-# Quick bash commands to try
+# Getting started with bash
 
 _By Kam Leung_
 
@@ -57,6 +55,7 @@ papercups >
 `pbpaste` (Mac only) output the contents of your paste buffer
 
 Two for one example:
+
 ```bash
 papercups > echo "Papercups Papercups Papercups" | pbcopy
 papercups > pbpaste
@@ -78,7 +77,6 @@ papercups > wc -l README.md
 papercups >
 ```
 
-
 `sort` sorts a file by line
 
 `uniq` removes duplicate adjacent lines. I like to combine it with sort to dedupe a file.
@@ -89,7 +87,7 @@ papercups >
 
 `|` Pipes output of one command in to the input of another command
 
-I got a little lazy at this point and figure the best way to show case these commands is to chain them together. 
+I got a little lazy at this point and figure the best way to show case these commands is to chain them together.
 I was putting this post together when I wanted to see what are some of my common bash commands so I wrote some bash commands that
 looks through my bash history and gets filters out my git and echo commands.
 
@@ -154,7 +152,6 @@ _Papercups is an open source customer support tool and an alternative to Interco
 _GitHub repo: https://github.com/papercups-io/papercups_
 
 ---
-
 
 #### Related Posts:
 

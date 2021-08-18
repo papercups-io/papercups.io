@@ -1,15 +1,60 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 import {Box, Flex} from 'rebass';
 import {
-  colors,
-  Button,
-  Divider,
-  Paragraph,
-  Text,
-  Title,
+  // beta
+  H1,
+  H2,
+  H3,
+  H4,
 } from '../components/common';
-import {CheckCircleTwoTone} from '../components/icons';
 import Layout from '../components/layout';
+
+const Text = ({
+  children,
+  className = '',
+  style = {},
+  strong = false,
+}: PropsWithChildren<{className?: string; style?: any; strong?: boolean}>) => {
+  return (
+    <span
+      className={`text-sm ${className} ${strong ? 'font-bold' : ''}`}
+      style={style}
+    >
+      {children}
+    </span>
+  );
+};
+
+const Paragraph = ({
+  children,
+  className = '',
+  style = {},
+}: PropsWithChildren<{className?: string; style?: any}>) => {
+  return (
+    <p className={`text-sm leading-relaxed mb-4 ${className}`} style={style}>
+      {children}
+    </p>
+  );
+};
+
+const CheckCircleIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4 text-blue-500"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+};
 
 const PricingCard = ({
   title,
@@ -25,25 +70,12 @@ const PricingCard = ({
   features: React.ReactElement;
 }) => {
   return (
-    <Box
-      m={2}
-      p={3}
-      style={{
-        flex: 1,
-        border: '1px solid #f5f5f5',
-        borderRadius: 4,
-        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 8px',
-      }}
-    >
-      <Title level={3}>{title}</Title>
+    <Box m={2} p={3} className="flex-1 border rounded shadow-md">
+      <H3>{title}</H3>
       <Paragraph style={{minHeight: 44}}>{description}</Paragraph>
-
       <Box my={3}>{cta}</Box>
-
       <Box style={{fontSize: 16}}>{pricing}</Box>
-
-      <Divider />
-
+      <hr className="border-t border-gray-100 my-4" />
       {features}
     </Box>
   );
@@ -52,39 +84,46 @@ const PricingCard = ({
 export const FAQ = () => {
   return (
     <Flex
+      my={5}
       flexDirection="column"
       justify-content="center"
       alignItems="center"
-      paddingBottom="20px"
-      paddingTop="40px"
     >
-      <Box mb={3}>
-        <Title level={2}>Why use Papercups?</Title>
+      <Box mb={4}>
+        <H2>Why use Papercups?</H2>
       </Box>
 
-      <Flex mx={-2} flexDirection={['column', 'row']}>
-        <Box mx={3}>
-          <Title level={4}>Open source</Title>
-          We've built Papercups open source and in the public since day one. Our
-          source code is available and accessible on GitHub so anyone can read
-          it and verify what we do with your data.
+      <Flex mx={-4} flexDirection={['column', 'row']}>
+        <Box mx={4} sx={{flex: 1}}>
+          <H4>Open source</H4>
+          <Paragraph>
+            We've built Papercups open source and in the public since day one.
+            Our source code is available and accessible on GitHub so anyone can
+            read it and verify what we do with your data.
+          </Paragraph>
         </Box>
-        <Box mx={3}>
-          <Title level={4}>Cookies free</Title>
-          Papercups is built with privacy first. We don't use any cookies so you
-          don't need the cookies consent banners in your chatwidget.
+        <Box mx={4} sx={{flex: 1}}>
+          <H4>Cookie free</H4>
+          <Paragraph>
+            Papercups is built with privacy first. We don't use any cookies so
+            you don't need the cookies consent banners in your chat widget.
+          </Paragraph>
         </Box>
-        <Box mx={3}>
-          <Title level={4}>Reply from Slack</Title>
-          Our Slack integration lets you reply directly from Slack in a single
-          channel. Other integrations spam your Slack with links to their
-          website or open a new channel everytime.
+        <Box mx={4} sx={{flex: 1}}>
+          <H4>Reply from Slack</H4>
+          <Paragraph>
+            Our Slack integration lets you reply directly from Slack in a single
+            channel. Other integrations spam your Slack with links to their
+            website or open a new channel everytime.
+          </Paragraph>
         </Box>
-        <Box mx={3}>
-          <Title level={4}>10 minute installation</Title>
-          Papercups is made by and for developers. We make sure that the
-          installation process is frictionless for your development team so they
-          can set it up quickly and go back to building their features.
+        <Box mx={4} sx={{flex: 1}}>
+          <H4>10 minute installation</H4>
+          <Paragraph>
+            Papercups is made by and for developers. We make sure that the
+            installation process is frictionless for your development team so
+            they can set it up quickly and go back to building their features.
+          </Paragraph>
         </Box>
       </Flex>
     </Flex>
@@ -103,9 +142,9 @@ export const PricingOptions = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button type="primary" size="large" block ghost>
+            <button className="w-full border border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-base py-2 px-5 rounded">
               Create free account
-            </Button>
+            </button>
           </a>
         }
         pricing={
@@ -135,9 +174,9 @@ export const PricingOptions = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button type="primary" size="large" block>
+            <button className="w-full bg-blue-500 hover:bg-blue-400 text-white text-base py-2 px-5 rounded">
               Start my free trial
-            </Button>
+            </button>
           </a>
         }
         pricing={
@@ -147,7 +186,10 @@ export const PricingOptions = () => {
         }
         features={
           <>
-            Everything in <Text strong>Starter</Text> plus:
+            <Paragraph>
+              Everything in <Text strong>Starter</Text> plus:
+            </Paragraph>
+
             <Paragraph>
               <li>4 seats included</li>
               <li>Unlimited messages</li>
@@ -167,9 +209,9 @@ export const PricingOptions = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button type="primary" size="large" block ghost>
+            <button className="w-full border border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-base py-2 px-5 rounded">
               Start my free trial
-            </Button>
+            </button>
           </a>
         }
         pricing={
@@ -199,12 +241,12 @@ export const PricingOptions = () => {
         description="Advanced workflows, security, and support."
         cta={
           <a href="mailto:founders@papercups.io?Subject=Papercups Enterprise Edition">
-            <Button type="primary" size="large" block ghost>
+            <button className="w-full border border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-base py-2 px-5 rounded">
               Contact sales
-            </Button>
+            </button>
           </a>
         }
-        pricing={<Text>Custom pricing</Text>}
+        pricing={<Text strong>Custom pricing</Text>}
         features={
           <>
             <Paragraph>
@@ -232,21 +274,21 @@ const Pricing = () => {
         alignItems="center"
         paddingBottom="20px"
       >
-        <Title level={1}>Get started with Papercups</Title>
+        <H1>Get started with Papercups</H1>
 
-        <Flex mx={-3} mb={3} justifyContent="space-between">
-          <Box mx={3}>
-            <CheckCircleTwoTone style={{marginRight: 8}} />
-            14 day free trial
-          </Box>
-          <Box mx={3}>
-            <CheckCircleTwoTone style={{marginRight: 8}} />
-            No credit card required
-          </Box>
-          <Box mx={3}>
-            <CheckCircleTwoTone style={{marginRight: 8}} />
-            Cancel anytime
-          </Box>
+        <Flex mx={-3} my={3} justifyContent="space-between">
+          <Flex mx={3} sx={{alignItems: 'center'}}>
+            <CheckCircleIcon />
+            <Text className="ml-1">14 day free trial</Text>
+          </Flex>
+          <Flex mx={3} sx={{alignItems: 'center'}}>
+            <CheckCircleIcon />
+            <Text className="ml-1">No credit card required</Text>
+          </Flex>
+          <Flex mx={3} sx={{alignItems: 'center'}}>
+            <CheckCircleIcon />
+            <Text className="ml-1">Cancel anytime</Text>
+          </Flex>
         </Flex>
       </Flex>
       <PricingOptions />
