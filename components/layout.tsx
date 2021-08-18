@@ -1,21 +1,13 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import Head from 'next/head';
-import Link from 'next/link';
 import {Box, Flex} from 'rebass';
 import {MDXProvider} from '@mdx-js/react';
 import {ChatWidget} from '@papercups-io/chat-widget';
-import {
-  // beta
-  P,
-  H1,
-  H2,
-  H3,
-} from './common';
 import NavMenu from './nav';
 
-type Props = {width?: number; title?: string; children: any};
-type State = any;
+export type Props = {width?: number; title?: string; children: any};
+export type State = {};
 
 export default class Container extends React.Component<Props, State> {
   storytime: any = null;
