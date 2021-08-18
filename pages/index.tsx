@@ -124,10 +124,7 @@ export default class extends Component {
 
               <Box>
                 {/* TODO: find better images/screenshots! */}
-                <Image
-                  sx={{width: '100%'}}
-                  src="images/demo-conversations.png"
-                />
+                <Image sx={{width: '100%'}} src="dashboard.png" />
               </Box>
             </Box>
             <Box mx={[4, 6]} pb={50}>
@@ -221,7 +218,12 @@ export default class extends Component {
 
             <Box className="border-b" mb={[5, 6]}></Box>
 
-            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
+            <Flex
+              mb={[5, 6]}
+              mx={[0, -4]}
+              alignItems="center"
+              flexDirection={['column', 'row']}
+            >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Flex
                   alignItems="center"
@@ -237,7 +239,7 @@ export default class extends Component {
                       height: '100%',
                       minHeight: 320,
                     }}
-                    src="setup.svg"
+                    src="reply-from-slack.gif"
                   />
                 </Flex>
               </Box>
@@ -255,6 +257,7 @@ export default class extends Component {
             <Flex
               mb={[5, 6]}
               mx={[0, -4]}
+              alignItems="center"
               flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
@@ -281,12 +284,17 @@ export default class extends Component {
                       height: '100%',
                       minHeight: 320,
                     }}
-                    src="customize.svg"
+                    src="customize.gif"
                   />
                 </Flex>
               </Box>
             </Flex>
-            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
+            <Flex
+              mb={[5, 6]}
+              mx={[0, -4]}
+              alignItems="center"
+              flexDirection={['column', 'row']}
+            >
               <Box flex={1} mx={[0, 4]}>
                 <Flex
                   alignItems="center"
@@ -302,11 +310,11 @@ export default class extends Component {
                       height: '100%',
                       minHeight: 320,
                     }}
-                    src="secure.svg"
+                    src="papercups-js.png"
                   />
                 </Flex>
               </Box>
-              <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
+              <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <H3>Save your developers time</H3>
                 <P>
                   Papercups is open source and made with a developer in mind. We
