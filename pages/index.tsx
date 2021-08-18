@@ -123,8 +123,14 @@ export default class extends Component {
               </Flex>
 
               <Box>
-                {/* TODO: find better images/screenshots! */}
-                <Image sx={{width: '100%'}} src="dashboard.png" />
+                <Image
+                  sx={{
+                    width: '100%',
+                    borderRadius: 8,
+                    boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
+                  }}
+                  src="dashboard.png"
+                />
               </Box>
             </Box>
             <Box mx={[4, 6]} pb={50}>
@@ -144,8 +150,8 @@ export default class extends Component {
                     flexDirection={['column', 'row']}
                   >
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <img
-                        style={{
+                      <Image
+                        sx={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -153,24 +159,24 @@ export default class extends Component {
                       />
                     </Box>
                     <Box pt={60} mx={[0, 4]}>
-                      <img
-                        style={{
+                      <Image
+                        sx={{
                           height: '35px',
                         }}
                         src="ycombinator-logo.svg"
                       />
                     </Box>
                     <Box pt={60} mx={[0, 4]}>
-                      <img
-                        style={{
+                      <Image
+                        sx={{
                           height: '35px',
                         }}
                         src="posthog-logo.svg"
                       />
                     </Box>
                     <Box pt={68} mx={[0, 4]}>
-                      <img
-                        style={{
+                      <Image
+                        sx={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -185,8 +191,8 @@ export default class extends Component {
                     flexDirection={['column', 'row']}
                   >
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <img
-                        style={{
+                      <Image
+                        sx={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -194,8 +200,8 @@ export default class extends Component {
                       />
                     </Box>
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <img
-                        style={{
+                      <Image
+                        sx={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -203,8 +209,8 @@ export default class extends Component {
                       />
                     </Box>
                     <Box pt={60} flex={1} mx={[0, 4]}>
-                      <img
-                        style={{
+                      <Image
+                        sx={{
                           width: '100%',
                           height: '30px',
                         }}
@@ -233,11 +239,13 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
-                  <img
-                    style={{
+                  <Image
+                    sx={{
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
+                      borderRadius: 4,
+                      boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
                     }}
                     src="reply-from-slack.gif"
                   />
@@ -278,8 +286,8 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
-                  <img
-                    style={{
+                  <Image
+                    sx={{
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
@@ -304,11 +312,13 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
-                  <img
-                    style={{
+                  <Image
+                    sx={{
                       width: '100%',
                       height: '100%',
                       minHeight: 320,
+                      borderRadius: 4,
+                      boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
                     }}
                     src="papercups-js.png"
                   />
@@ -377,7 +387,7 @@ export default class extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="slack-v1.svg" style={{height: 144}} />
+                  <Image src="slack-v1.svg" sx={{height: 144}} />
                 </a>
               </Flex>
               <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
@@ -386,7 +396,7 @@ export default class extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="github-v1.svg" style={{height: 144}} />
+                  <Image src="github-v1.svg" sx={{height: 144}} />
                 </a>
               </Flex>
               <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
@@ -395,7 +405,7 @@ export default class extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="discord-color.svg" style={{height: 144}} />
+                  <Image src="discord-color.svg" sx={{height: 144}} />
                 </a>
               </Flex>
             </Flex>
@@ -448,8 +458,8 @@ export default class extends Component {
                 Backed by <b>Y Combinator</b>
               </p>
 
-              <img
-                style={{
+              <Image
+                sx={{
                   width: '20px',
                   height: '20px',
                 }}
