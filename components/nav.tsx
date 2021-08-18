@@ -14,7 +14,7 @@ export const Nav = () => {
         </Link>
       </div>
 
-      <div className="block lg:hidden">
+      <div className="hidden">
         <button className="flex justify-start items-center px-3 py-2 border rounded text-gray-700 border-blue-400 hover:text-white hover:border-white">
           <svg
             className="fill-current h-3 w-3"
@@ -27,15 +27,15 @@ export const Nav = () => {
         </button>
       </div>
 
-      <div className="flex flex-grow justify-center lg:flex lg:items-center lg:w-auto">
+      <div className="flex flex-grow justify-center md:flex md:items-center md:w-auto">
         <div className="text-sm">
           <Link href="/blog">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6">
+            <a className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-gray-900 mx-6">
               Blog
             </a>
           </Link>
           <a
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+            className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-gray-900 mx-6"
             href="https://docs.papercups.io"
             target="_blank"
             rel="noopener noreferrer"
@@ -43,7 +43,7 @@ export const Nav = () => {
             Docs
           </a>
           <a
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+            className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-gray-900 mx-6"
             href="https://docs.papercups.io/#features"
             target="_blank"
             rel="noopener noreferrer"
@@ -51,7 +51,7 @@ export const Nav = () => {
             Features
           </a>
           <a
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6"
+            className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-gray-900 mx-6"
             href="https://github.com/papercups-io/papercups"
             target="_blank"
             rel="noopener noreferrer"
@@ -59,14 +59,14 @@ export const Nav = () => {
             GitHub
           </a>
           <Link href="/pricing">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-900 mx-6">
+            <a className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-gray-900 mx-6">
               Pricing
             </a>
           </Link>
         </div>
       </div>
 
-      <div className="flex flex-grow justify-end">
+      <div className="hidden md:flex flex-grow justify-end">
         <a
           className="text-sm hover:text-blue-500 hover:bg-gray-50 py-2 px-4 mr-2 rounded-full transition-colors"
           href="https://app.papercups.io"

@@ -106,7 +106,7 @@ export default class extends Component {
               </Box>
             </Flex>
 
-            <Box mb={[4, 6]}>
+            <Box mb={6}>
               <Flex
                 mb={4}
                 sx={{
@@ -133,6 +133,7 @@ export default class extends Component {
                 />
               </Box>
             </Box>
+
             <Box mx={[4, 6]} pb={50}>
               <Flex
                 sx={{
@@ -228,7 +229,7 @@ export default class extends Component {
               mb={[5, 6]}
               mx={[0, -4]}
               alignItems="center"
-              flexDirection={['column', 'row']}
+              flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Flex
@@ -266,7 +267,7 @@ export default class extends Component {
               mb={[5, 6]}
               mx={[0, -4]}
               alignItems="center"
-              flexDirection={['column-reverse', 'row']}
+              flexDirection={['column', 'row']}
             >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <H3>Brand and customize your widget</H3>
@@ -297,11 +298,12 @@ export default class extends Component {
                 </Flex>
               </Box>
             </Flex>
+
             <Flex
               mb={[5, 6]}
               mx={[0, -4]}
               alignItems="center"
-              flexDirection={['column', 'row']}
+              flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]}>
                 <Flex
