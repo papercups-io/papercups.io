@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import {Box, Flex} from 'rebass';
 import Layout from '../../components/layout';
-import {H2, P} from '../../components/common';
+import {H2} from '../../components/common';
 
 export const BlogPost = ({post}: {post: any}) => {
   const {title, date, href, snippet, author = {}} = post;
@@ -130,7 +130,7 @@ function getSortedPosts() {
       date: 'December 10, 2020',
       href: '/blog/genserver',
       snippet:
-        "I started learning Elixir a few months ago, mostly through hacking on [Papercups](https://github.com/papercups-io/papercups). I'm ashamed to say most of my Elixir education has been through trial and error, figuring things out as I go along. So this past week I decided to take some time off from Papercups to go a bit deeper into the language.",
+        "I started learning Elixir a few months ago, mostly through hacking on Papercups. I'm ashamed to say most of my Elixir education has been through trial and error, figuring things out as I go along. So this past week I decided to take some time off from Papercups to go a bit deeper into the language.",
       author: {
         name: 'Alex Reichert',
         position: 'Cofounder and CTO',
@@ -168,7 +168,7 @@ function getSortedPosts() {
       date: 'October 8, 2020',
       href: '/blog/chatbot',
       snippet:
-        "We recently launched our open source Papercups FAQ chatbot in beta mode. It's a simple chatbot that you can “train” by feeding it questions and answers. You can play around with it [here](https://www.papercupsbot.io/bot/demo) and see the code [here](https://github.com/papercups-io/papercups/blob/master/assets/src/components/demo/BotDemo.tsx).",
+        "We recently launched our open source Papercups FAQ chatbot in beta mode. It's a simple chatbot that you can “train” by feeding it questions and answers.",
       author: {
         name: 'Kam Leung',
         position: 'Cofounder and CEO',
@@ -181,7 +181,7 @@ function getSortedPosts() {
       date: 'October 1, 2020',
       href: '/blog/hacktoberfest',
       snippet:
-        'The month of October happens to be “[Hacktoberfest](https://hacktoberfest.digitalocean.com/details)”, so we decided that for the next 31 days, our primary focus will be on the developer community around Papercups.',
+        'The month of October happens to be “Hacktoberfest”, so we decided that for the next 31 days, our primary focus will be on the developer community around Papercups.',
       author: {
         name: 'Alex Reichert',
         position: 'Cofounder and CTO',
