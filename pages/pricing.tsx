@@ -255,6 +255,9 @@ export const PricingOptions = () => {
 
             <Paragraph>
               <li>Unlimited seats</li>
+              <li>End to End Encryption</li>
+              <li>SSO via SAML 2.0</li>
+              <li>Advanced access control policy</li>
               <li>On premise deployment</li>
               <li>Custom integrations</li>
             </Paragraph>
