@@ -78,7 +78,7 @@ export const Nav = () => {
 
         <a
           className="flex items-center bg-blue-500 hover:bg-blue-400 text-white text-sm hover:text-white py-2 px-4 rounded-full transition-colors"
-          href="https://app.papercups.io"
+          href="https://app.papercups.io/register"
           target="_blank"
           rel="noopener noreferrer"
         >
