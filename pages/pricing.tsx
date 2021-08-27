@@ -158,7 +158,7 @@ export const PricingOptions = () => {
 
             <Paragraph>
               <li>2 seats included</li>
-              <li>100,000 messages</li>
+              <li>1,000 messages/month</li>
               <li>30 day message retention</li>
               <li>Customizable chat widget</li>
             </Paragraph>
