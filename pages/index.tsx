@@ -109,9 +109,8 @@ export default class extends Component {
                       width: '100%',
                       borderRadius: 5,
                       minWidth: '600px',
-                      // pb: "100px"
                     }}
-                    src="Slack-Dashboard.png"
+                    src="slack-dashboard.png"
                   />
                 </Flex>
               </Box>
@@ -269,9 +268,9 @@ export default class extends Component {
               <Box flex={1} mx={[0, 4]} my={[4, 0]}>
                 <H3>Reply from where you work</H3>
                 <P>
-                  You can reply to conversations from Slack, our webapp and our
-                  Mobile app Remove the friction of having to login to another
-                  dashboard.
+                  You can reply to conversations from Slack, our dashboard, or
+                  our mobile app. Remove the friction of having to log in to
+                  another dashboard.
                 </P>
               </Box>
             </Flex>
