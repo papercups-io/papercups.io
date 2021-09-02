@@ -222,7 +222,7 @@ export const PricingOptions = () => {
         features={
           <>
             <Paragraph>
-              Everything in <Text strong>Starter</Text> plus:
+              Everything in <Text strong>Lite</Text> plus:
             </Paragraph>
 
             <Paragraph>

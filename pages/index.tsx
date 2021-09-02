@@ -39,7 +39,11 @@ export default class extends Component {
 
         <main className="flex-auto min-h-0">
           <Box mx="auto" py={5} px={4} className="max-w-7xl mx-auto px-4 py-5">
-            <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
+            <Flex
+              mb={[5, 4]}
+              mx={[0, -4]}
+              flexDirection={['column', 'column', 'row']}
+            >
               <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Box mb={6}>
                   <H1 className="mb-5">
@@ -92,30 +96,117 @@ export default class extends Component {
                 </Box>
               </Box>
 
-              <Box flex={2} mx={[0, 4]}>
+              <Box flex={2}>
                 <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  style={{
-                    // width: '100%',
+                  sx={{
+                    justifyContent: 'center',
+                    flexDirection: 'column',
                     height: '100%',
                   }}
                 >
                   <Image
                     sx={{
                       width: '100%',
-                      height: '100%',
-                      minHeight: 320,
                       borderRadius: 5,
+                      minWidth: '600px',
+                      // pb: "100px"
                     }}
                     src="Slack-Dashboard.png"
                   />
-                  {/* </Flex> */}
-                  {/* <ChatDemo /> */}
                 </Flex>
               </Box>
             </Flex>
           </Box>
+
+          <Box mx={[4, 6]} pb={50}>
+            <Flex
+              sx={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <H2>Our customers</H2>
+
+              <Box flex={1}>
+                <Flex
+                  mx={-5}
+                  justifyContent="space-between"
+                  flexDirection={['column', 'row']}
+                >
+                  <Box pt={60} flex={1} mx={[0, 4]}>
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '30px',
+                      }}
+                      src="batch-logo.svg"
+                    />
+                  </Box>
+                  <Box pt={60} mx={[0, 4]}>
+                    <Image
+                      sx={{
+                        height: '35px',
+                      }}
+                      src="ycombinator-logo.svg"
+                    />
+                  </Box>
+                  <Box pt={60} mx={[0, 4]}>
+                    <Image
+                      sx={{
+                        height: '35px',
+                      }}
+                      src="posthog-logo.svg"
+                    />
+                  </Box>
+                  <Box pt={68} mx={[0, 4]}>
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '30px',
+                      }}
+                      src="pry-logo.svg"
+                    />
+                  </Box>
+                </Flex>
+                <Flex
+                  mx={-3}
+                  justifyContent="space-between"
+                  mb={0}
+                  flexDirection={['column', 'row']}
+                >
+                  <Box pt={60} flex={1} mx={[0, 4]}>
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '30px',
+                      }}
+                      src="quadranteye-logo.svg"
+                    />
+                  </Box>
+                  <Box pt={60} flex={1} mx={[0, 4]}>
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '30px',
+                      }}
+                      src="jovian-logo.svg"
+                    />
+                  </Box>
+                  <Box pt={60} flex={1} mx={[0, 4]}>
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '30px',
+                      }}
+                      src="cotter-logo.svg"
+                    />
+                  </Box>
+                </Flex>
+              </Box>
+            </Flex>
+          </Box>
+
           <Box mx="auto" py={5} px={4} className="max-w-5xl mx-auto px-4 py-5">
             <Box mb={6}>
               <Flex
@@ -143,95 +234,6 @@ export default class extends Component {
                   src="dashboard.png"
                 />
               </Box>
-            </Box>
-
-            <Box mx={[4, 6]} pb={50}>
-              <Flex
-                sx={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                }}
-              >
-                <H2>Our customers</H2>
-
-                <Box flex={1}>
-                  <Flex
-                    mx={-5}
-                    justifyContent="space-between"
-                    flexDirection={['column', 'row']}
-                  >
-                    <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
-                          width: '100%',
-                          height: '30px',
-                        }}
-                        src="batch-logo.svg"
-                      />
-                    </Box>
-                    <Box pt={60} mx={[0, 4]}>
-                      <Image
-                        sx={{
-                          height: '35px',
-                        }}
-                        src="ycombinator-logo.svg"
-                      />
-                    </Box>
-                    <Box pt={60} mx={[0, 4]}>
-                      <Image
-                        sx={{
-                          height: '35px',
-                        }}
-                        src="posthog-logo.svg"
-                      />
-                    </Box>
-                    <Box pt={68} mx={[0, 4]}>
-                      <Image
-                        sx={{
-                          width: '100%',
-                          height: '30px',
-                        }}
-                        src="pry-logo.svg"
-                      />
-                    </Box>
-                  </Flex>
-                  <Flex
-                    mx={-3}
-                    justifyContent="space-between"
-                    mb={0}
-                    flexDirection={['column', 'row']}
-                  >
-                    <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
-                          width: '100%',
-                          height: '30px',
-                        }}
-                        src="quadranteye-logo.svg"
-                      />
-                    </Box>
-                    <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
-                          width: '100%',
-                          height: '30px',
-                        }}
-                        src="jovian-logo.svg"
-                      />
-                    </Box>
-                    <Box pt={60} flex={1} mx={[0, 4]}>
-                      <Image
-                        sx={{
-                          width: '100%',
-                          height: '30px',
-                        }}
-                        src="cotter-logo.svg"
-                      />
-                    </Box>
-                  </Flex>
-                </Box>
-              </Flex>
             </Box>
 
             <Box className="border-b" mb={[5, 6]}></Box>
@@ -265,11 +267,11 @@ export default class extends Component {
               </Box>
 
               <Box flex={1} mx={[0, 4]} my={[4, 0]}>
-                <H3>Reply directly from Slack</H3>
+                <H3>Reply from where you work</H3>
                 <P>
-                  Directly talk to your users from a single Slack channel.
-                  Remove the friction of having to login to another dashboard.
-                  Set up our Slack integration in minutes.
+                  You can reply to conversations from Slack, our webapp and our
+                  Mobile app Remove the friction of having to login to another
+                  dashboard.
                 </P>
               </Box>
             </Flex>
