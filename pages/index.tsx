@@ -38,17 +38,17 @@ export default class extends Component {
         <NavMenu />
 
         <main className="flex-auto min-h-0">
-          <Box mx="auto" py={5} px={4} className="max-w-5xl mx-auto px-4 py-5">
+          <Box mx="auto" py={5} px={4} className="max-w-7xl mx-auto px-4 py-5">
             <Flex mb={[5, 6]} mx={[0, -4]} flexDirection={['column', 'row']}>
               <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <Box mb={6}>
                   <H1 className="mb-5">
-                    Connect and chat with customers from your website
+                    Reply to Emails, Chat, SMS from Slack
                   </H1>
 
                   <p className="leading-relaxed text-xl text-gray-700">
-                    Open source customer messaging, built for both startups and
-                    enterprise.
+                    Manage all your customer conversations in one place. Reply
+                    through Slack, web, or our mobile app.
                   </p>
 
                   <Flex my={4}>
@@ -92,20 +92,31 @@ export default class extends Component {
                 </Box>
               </Box>
 
-              <Box flex={1} mx={[0, 4]}>
+              <Box flex={2} mx={[0, 4]}>
                 <Flex
                   alignItems="center"
                   justifyContent="center"
                   style={{
-                    width: '100%',
+                    // width: '100%',
                     height: '100%',
                   }}
                 >
-                  <ChatDemo />
+                  <Image
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      minHeight: 320,
+                      borderRadius: 5,
+                    }}
+                    src="Slack-Dashboard.png"
+                  />
+                  {/* </Flex> */}
+                  {/* <ChatDemo /> */}
                 </Flex>
               </Box>
             </Flex>
-
+          </Box>
+          <Box mx="auto" py={5} px={4} className="max-w-5xl mx-auto px-4 py-5">
             <Box mb={6}>
               <Flex
                 mb={4}
@@ -287,14 +298,7 @@ export default class extends Component {
                     height: '100%',
                   }}
                 >
-                  <Image
-                    sx={{
-                      width: '100%',
-                      height: '100%',
-                      minHeight: 320,
-                    }}
-                    src="customize.gif"
-                  />
+                  <ChatDemo />
                 </Flex>
               </Box>
             </Flex>
@@ -399,15 +403,6 @@ export default class extends Component {
                   rel="noopener noreferrer"
                 >
                   <Image src="github-v1.svg" sx={{height: 144}} />
-                </a>
-              </Flex>
-              <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
-                <a
-                  href="https://discord.gg/Dq2A3eh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src="discord-color.svg" sx={{height: 144}} />
                 </a>
               </Flex>
             </Flex>
