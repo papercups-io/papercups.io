@@ -108,7 +108,6 @@ export default class extends Component {
                     sx={{
                       width: '100%',
                       borderRadius: 5,
-                      minWidth: '600px',
                     }}
                     src="slack-dashboard.png"
                   />
