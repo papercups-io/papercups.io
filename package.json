@@ -27,7 +27,7 @@
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^11.1.0",
     "@papercups-io/chat-builder": "0.0.7",
-    "@papercups-io/chat-widget": "^1.2.0-beta.0",
+    "@papercups-io/chat-widget": "^1.2.0",
     "@papercups-io/storytime": "^1.0.5",
     "@tailwindcss/typography": "^0.4.1",
     "axios": "^0.21.1",
