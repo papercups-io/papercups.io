@@ -228,7 +228,7 @@ export const PricingOptions = () => {
             <Paragraph>
               <li>10 seats included</li>
               <li>Unlimited data retention</li>
-              <li>Website screen sharing</li>
+              <li>Multiple inboxes</li>
               <li>Webhooks</li>
               <li>Priority support</li>
             </Paragraph>
