@@ -385,36 +385,6 @@ export default class extends Component {
               </Flex>
             </Flex>
 
-            <Flex justifyContent="center" mb={[3, 4]} mt={[6, 0]}>
-              <H2>Connect with us</H2>
-            </Flex>
-
-            <Flex
-              mx={-3}
-              justifyContent="space-between"
-              mb={6}
-              flexDirection={['column', 'row']}
-            >
-              <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
-                <a
-                  href="https://join.slack.com/t/papercups-io/shared_invite/zt-h0c3fxmd-hZi1Zp8~D61S6GD16aMqmg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src="slack-v1.svg" sx={{height: 144}} />
-                </a>
-              </Flex>
-              <Flex flex={1} mx={3} my={[3, 0]} justifyContent="center">
-                <a
-                  href="https://github.com/papercups-io/papercups"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src="github-v1.svg" sx={{height: 144}} />
-                </a>
-              </Flex>
-            </Flex>
-
             <Flex
               mb={5}
               justifyContent="center"
