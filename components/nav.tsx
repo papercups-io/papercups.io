@@ -75,7 +75,7 @@ export const Nav = ({dark}: {dark?: boolean}) => {
 
       <div className="hidden md:flex flex-grow justify-end">
         <a
-          className="text-sm hover:text-blue-500 hover:bg-gray-50 py-2 px-4 mr-2 rounded-full transition-colors"
+          className="text-sm hover:text-blue-500 hover:bg-gray-50 dark:bg-white py-2 px-4 mr-2 rounded-full transition-colors"
           href="https://app.papercups.io"
           target="_blank"
           rel="noopener noreferrer"
