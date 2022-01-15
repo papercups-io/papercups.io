@@ -9,7 +9,7 @@ export const Nav = () => {
       <div className="flex flex-grow items-center text-white mr-6">
         <Link href="/">
           <a>
-            <img src="/papercups-v2.svg" style={{height: 40, width: 160}} />
+            <img src="/papercups-v3.svg" style={{height: 40, width: 160}} />
           </a>
         </Link>
       </div>
