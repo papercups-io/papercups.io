@@ -35,178 +35,139 @@ export default class extends Component {
           ></meta>
         </Head>
 
-        <NavMenu />
+        <NavMenu dark />
 
         <main className="flex-auto min-h-0">
-          <Box mx="auto" py={5} px={4} className="max-w-7xl mx-auto px-4 py-5">
-            <Flex
-              mb={[5, 4]}
-              mx={[0, -4]}
-              flexDirection={['column', 'column', 'row']}
-            >
-              <Box pt={100} flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Box mb={6}>
-                  <H1 className="mb-5">
-                    Reply to Emails, Chat, SMS from Slack
-                  </H1>
+          {/* Hero section */}
+          <div className="dark bg-gray-900 pb-16">
+            <div className="max-w-7xl mx-auto px-4 pt-12 pb-6 dark:text-white">
+              <div className="flex flex-col sm:flex-row">
+                <div className="flex-1 pt-40 pr-12">
+                  <Box className="mb-6">
+                    <H1 className="font-bold text-6xl mb-5">
+                      Streamline communication with your customers
+                    </H1>
 
-                  <p className="leading-relaxed text-xl text-gray-700">
-                    Manage all your customer conversations in one place. Reply
-                    through Slack, web, or our mobile app.
-                  </p>
+                    <p className="leading-relaxed text-xl text-gray-700 dark:text-gray-300">
+                      A privacy-focused, open-source alternative to Intercom,
+                      Drift, and Zendesk.
+                    </p>
 
-                  <Flex my={4}>
-                    <Box mr={2}>
-                      <a
-                        href="https://app.papercups.io/demo"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <button className="bg-white hover:bg-gray-100 text-base py-2 px-5 rounded border">
-                          Demo
-                        </button>
-                      </a>
-                    </Box>
-                    <Box mr={2}>
-                      <a
-                        href="https://app.papercups.io/register"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <button className="flex items-center bg-blue-500 hover:bg-blue-400 text-white text-base py-2 px-5 rounded">
-                          <span className="mr-2">Sign up for free</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M14 5l7 7m0 0l-7 7m7-7H3"
-                            />
-                          </svg>
-                        </button>
-                      </a>
-                    </Box>
-                  </Flex>
-                </Box>
-              </Box>
+                    <Flex my={4}>
+                      <Box mr={2}>
+                        <a
+                          href="https://app.papercups.io/demo"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <button className="bg-white hover:bg-gray-100 text-black text-base py-2 px-5 rounded border">
+                            See the demo
+                          </button>
+                        </a>
+                      </Box>
+                      <Box mr={2}>
+                        <a
+                          href="https://app.papercups.io/register"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <button className="flex items-center bg-blue-500 hover:bg-blue-400 border border-blue-500 hover:border-blue-400 text-white text-base py-2 px-5 rounded">
+                            <span className="mr-2">Sign up for free</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-4 w-4"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                              />
+                            </svg>
+                          </button>
+                        </a>
+                      </Box>
+                    </Flex>
+                  </Box>
+                </div>
 
-              <Box flex={2}>
+                <div style={{flex: 1.6}}>
+                  <div className="flex flex-col justify-center items-center py-16 sm:py-0">
+                    <Image
+                      className="w-full rounded"
+                      style={{minWidth: 720}}
+                      src="papercups-hero.svg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Customers section */}
+          <div className="dark pt-16 pb-32 border-gray-800 bg-gray-900">
+            <div className="max-w-5xl mx-auto flex justify-center items-center flex-col">
+              <H2 className="dark:text-white">Our customers</H2>
+
+              <div className="flex-1">
                 <Flex
-                  sx={{
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    height: '100%',
-                  }}
-                >
-                  <Image
-                    sx={{
-                      width: '100%',
-                      borderRadius: 5,
-                    }}
-                    src="slack-dashboard.png"
-                  />
-                </Flex>
-              </Box>
-            </Flex>
-          </Box>
-
-          <Box mx={[4, 6]} pb={50}>
-            <Flex
-              sx={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-              }}
-            >
-              <H2>Our customers</H2>
-
-              <Box flex={1}>
-                <Flex
-                  mx={-5}
-                  justifyContent="space-between"
+                  mx={-4}
+                  justifyContent="center"
                   flexDirection={['column', 'row']}
                 >
-                  <Box pt={60} flex={1} mx={[0, 4]}>
+                  <Box pt={60} mx={[0, 4]}>
                     <Image
-                      sx={{
-                        width: '100%',
-                        height: '30px',
-                      }}
+                      sx={{width: '100%', height: '30px'}}
                       src="batch-logo.svg"
                     />
                   </Box>
                   <Box pt={60} mx={[0, 4]}>
-                    <Image
-                      sx={{
-                        height: '35px',
-                      }}
-                      src="ycombinator-logo.svg"
-                    />
+                    <Image sx={{height: '35px'}} src="ycombinator-logo.svg" />
                   </Box>
                   <Box pt={60} mx={[0, 4]}>
-                    <Image
-                      sx={{
-                        height: '35px',
-                      }}
-                      src="posthog-logo.svg"
-                    />
+                    <Image sx={{height: '35px'}} src="posthog-logo.svg" />
                   </Box>
                   <Box pt={68} mx={[0, 4]}>
                     <Image
-                      sx={{
-                        width: '100%',
-                        height: '30px',
-                      }}
+                      sx={{width: '100%', height: '30px'}}
                       src="pry-logo.svg"
                     />
                   </Box>
                 </Flex>
                 <Flex
-                  mx={-3}
-                  justifyContent="space-between"
+                  mx={-4}
                   mb={0}
+                  justifyContent="center"
                   flexDirection={['column', 'row']}
                 >
-                  <Box pt={60} flex={1} mx={[0, 4]}>
+                  <Box pt={60} mx={[0, 4]}>
                     <Image
-                      sx={{
-                        width: '100%',
-                        height: '30px',
-                      }}
+                      sx={{width: '100%', height: '30px'}}
                       src="quadranteye-logo.svg"
                     />
                   </Box>
-                  <Box pt={60} flex={1} mx={[0, 4]}>
+                  <Box pt={60} mx={[0, 4]}>
                     <Image
-                      sx={{
-                        width: '100%',
-                        height: '30px',
-                      }}
+                      sx={{width: '100%', height: '30px'}}
                       src="jovian-logo.svg"
                     />
                   </Box>
-                  <Box pt={60} flex={1} mx={[0, 4]}>
+                  <Box pt={60} mx={[0, 4]}>
                     <Image
-                      sx={{
-                        width: '100%',
-                        height: '30px',
-                      }}
+                      sx={{width: '100%', height: '30px'}}
                       src="cotter-logo.svg"
                     />
                   </Box>
                 </Flex>
-              </Box>
-            </Flex>
-          </Box>
+              </div>
+            </div>
+          </div>
 
-          <Box mx="auto" py={5} px={4} className="max-w-5xl mx-auto px-4 py-5">
-            <Box mb={6}>
+          {/* Dashboard highlight section */}
+          <div className="">
+            <div className="max-w-5xl mx-auto px-4 pt-24 pb-16 mb-16 border-b">
               <Flex
                 mb={4}
                 sx={{
@@ -232,10 +193,10 @@ export default class extends Component {
                   src="dashboard.png"
                 />
               </Box>
-            </Box>
+            </div>
+          </div>
 
-            <Box className="border-b" mb={[5, 6]}></Box>
-
+          <div className="max-w-5xl mx-auto px-4">
             <Flex
               mb={[5, 6]}
               mx={[0, -4]}
@@ -348,106 +309,98 @@ export default class extends Component {
                 </P>
               </Box>
             </Flex>
+          </div>
 
-            <Flex justifyContent="center" mb={[4, 5]} mt={[6, 0]}>
-              <H2>Papercups for Enterprise</H2>
-            </Flex>
-
-            <Flex
-              mx={-3}
-              justifyContent="space-between"
-              mb={6}
-              flexDirection={['column', 'row']}
-            >
-              <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
-                <H3>Self-managed</H3>
-                <P>
-                  Papercups can be deployed in your cloud, for painless adoption
-                  and onboarding. Whether it's AWS, Docker, or Heroku, we've got
-                  you covered.
-                </P>
+          <div className="dark bg-gray-900 py-24">
+            <div className="max-w-5xl mx-auto px-4">
+              <Flex justifyContent="center" mb={[4, 5]} mt={[6, 0]}>
+                <H2>Papercups for Enterprise</H2>
               </Flex>
-              <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
-                <H3>Unlimited volume</H3>
-                <P>
-                  Papercups is built with Elixir on top of BEAM for incredible
-                  scalability. This scalability extends to our open core pricing
-                  model.
-                </P>
-              </Flex>
-              <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
-                <H3>Personalized support</H3>
-                <P>
-                  We can manage your deployment on your infrastructure. Get the
-                  benefits of self-hosting with the reliability and scalability
-                  of the cloud.
-                </P>
-              </Flex>
-            </Flex>
 
-            <Flex
-              mb={5}
-              justifyContent="center"
-              alignItems="center"
-              flexDirection="column"
-            >
-              <H1>What's new?</H1>
+              <Flex
+                mx={-3}
+                justifyContent="space-between"
+                mb={6}
+                flexDirection={['column', 'row']}
+              >
+                <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
+                  <H3>Self-managed</H3>
+                  <P>
+                    Papercups can be deployed in your cloud, for painless
+                    adoption and onboarding. Whether it's AWS, Docker, or
+                    Heroku, we've got you covered.
+                  </P>
+                </Flex>
+                <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
+                  <H3>Unlimited volume</H3>
+                  <P>
+                    Papercups is built with Elixir on top of BEAM for incredible
+                    scalability. This scalability extends to our open core
+                    pricing model.
+                  </P>
+                </Flex>
+                <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
+                  <H3>Personalized support</H3>
+                  <P>
+                    We can manage your deployment on your infrastructure. Get
+                    the benefits of self-hosting with the reliability and
+                    scalability of the cloud.
+                  </P>
+                </Flex>
+              </Flex>
 
-              <Flex my={4} mx={-2}>
-                <Box mx={2}>
-                  <a
-                    href="https://github.com/papercups-io/papercups"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button className="bg-white hover:bg-gray-100 text-base py-2 px-5 rounded border">
-                      Find out on Github
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                flexDirection="column"
+              >
+                <H1>What's new?</H1>
+
+                <Flex my={4} mx={-2}>
+                  <Box mx={2}>
+                    <a
+                      href="https://github.com/papercups-io/papercups"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="inline-flex h-10 items-center justify-center bg-white hover:bg-gray-100 text-black text-base py-2 px-5 rounded border">
+                        <img src="github-v1.svg" className="h-full mr-2" />
+                        <span>Find out on Github</span>
+                      </button>
+                    </a>
+                  </Box>
+                  <Box mx={2}>
+                    <button
+                      className="h-10 bg-blue-500 hover:bg-blue-400 text-white text-base py-2 px-5 rounded"
+                      onClick={Papercups.toggle}
+                    >
+                      Ask us!
                     </button>
-                  </a>
-                </Box>
-                <Box mx={2}>
-                  <button
-                    className="bg-blue-500 hover:bg-blue-400 text-white text-base py-2 px-5 rounded"
-                    onClick={Papercups.toggle}
-                  >
-                    Ask us!
-                  </button>
-                </Box>
+                  </Box>
+                </Flex>
               </Flex>
-            </Flex>
-          </Box>
+            </div>
+          </div>
         </main>
 
-        <footer
-          className=""
-          style={{flex: '0 0 auto', backgroundColor: '#001529'}}
-        >
-          <Flex
-            mx="auto"
-            py={5}
-            px={4}
-            sx={{justifyContent: 'space-between', maxWidth: 960}}
-          >
-            <Flex p={3} sx={{alignItems: 'center'}}>
-              <p className="text-white pr-3">
-                Backed by <b>Y Combinator</b>
-              </p>
+        <footer className="bg-gray-800 flex-0">
+          <div className="max-w-5xl mx-auto px-4">
+            <Flex py={5} sx={{justifyContent: 'space-between'}}>
+              <Flex sx={{alignItems: 'center'}}>
+                <p className="text-white pr-3">
+                  Backed by <b>Y Combinator</b>
+                </p>
 
-              <Image
-                sx={{
-                  width: '20px',
-                  height: '20px',
-                }}
-                src="yc-logo.png"
-              />
+                <Image sx={{width: '20px', height: '20px'}} src="yc-logo.png" />
+              </Flex>
+
+              <Box>
+                <a href="/privacy" className="white_link">
+                  Privacy
+                </a>
+              </Box>
             </Flex>
-
-            <Box p={3}>
-              <a href="/privacy" className="white_link">
-                Privacy
-              </a>
-            </Box>
-          </Flex>
+          </div>
         </footer>
 
         <ChatWidget

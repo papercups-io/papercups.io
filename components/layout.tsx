@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import Head from 'next/head';
-import {Box, Flex} from 'rebass';
+import {Box, Flex, Image} from 'rebass';
 import {MDXProvider} from '@mdx-js/react';
 import {ChatWidget} from '@papercups-io/chat-widget';
 import NavMenu from './nav';
@@ -168,36 +168,24 @@ export default class Container extends React.Component<Props, State> {
           </div>
         )}
 
-        <footer
-          className=""
-          style={{flex: '0 0 auto', backgroundColor: '#001529'}}
-        >
-          <Flex
-            mx="auto"
-            py={5}
-            px={4}
-            sx={{justifyContent: 'space-between', maxWidth: 960}}
-          >
-            <Flex p={3} sx={{alignItems: 'center'}}>
-              <p className="text-white pr-3">
-                Backed by <b>Y Combinator</b>
-              </p>
+        <footer className="bg-gray-800 flex-0">
+          <div className="max-w-5xl mx-auto px-4">
+            <Flex py={5} sx={{justifyContent: 'space-between'}}>
+              <Flex sx={{alignItems: 'center'}}>
+                <p className="text-white pr-3">
+                  Backed by <b>Y Combinator</b>
+                </p>
 
-              <img
-                style={{
-                  width: '20px',
-                  height: '20px',
-                }}
-                src="/yc-logo.png"
-              />
+                <Image sx={{width: '20px', height: '20px'}} src="yc-logo.png" />
+              </Flex>
+
+              <Box>
+                <a href="/privacy" className="white_link">
+                  Privacy
+                </a>
+              </Box>
             </Flex>
-
-            <Box p={3}>
-              <a href="/privacy" className="white_link">
-                Privacy
-              </a>
-            </Box>
-          </Flex>
+          </div>
         </footer>
 
         {this.isWindowReady() && (
