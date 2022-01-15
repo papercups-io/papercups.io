@@ -9,6 +9,10 @@ import {
 } from '../components/common';
 import Layout from '../components/layout';
 
+const STARTER_PRICE = 49;
+const LITE_PRICE = 99;
+const TEAM_PRICE = 249;
+
 const Text = ({
   children,
   className = '',
@@ -143,13 +147,13 @@ export const PricingOptions = () => {
             rel="noopener noreferrer"
           >
             <button className="w-full border border-blue-500 hover:border-blue-400 text-blue-500 hover:text-blue-400 text-base py-2 px-5 rounded">
-              Create free account
+              Start my free trial
             </button>
           </a>
         }
         pricing={
           <Text>
-            <Text strong>$0</Text> forever
+            <Text strong>${STARTER_PRICE}</Text>/month
           </Text>
         }
         features={
@@ -181,7 +185,7 @@ export const PricingOptions = () => {
         }
         pricing={
           <Text>
-            <Text strong>$34</Text>/month
+            <Text strong>${LITE_PRICE}</Text>/month
           </Text>
         }
         features={
@@ -216,7 +220,7 @@ export const PricingOptions = () => {
         }
         pricing={
           <Text>
-            <Text strong>$94</Text>/month
+            <Text strong>${TEAM_PRICE}</Text>/month
           </Text>
         }
         features={
