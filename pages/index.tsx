@@ -49,8 +49,9 @@ export default class extends Component {
                     </H1>
 
                     <p className="leading-relaxed text-xl text-gray-700 dark:text-gray-300">
-                      A privacy-focused, open-source alternative to Intercom,
-                      Drift, and Zendesk.
+                      Coordinate and reply to messages over chat, email, Slack,
+                      and SMS. A privacy-focused, open-source alternative to
+                      Intercom, Drift, and Zendesk.
                     </p>
 
                     <Flex my={4}>
