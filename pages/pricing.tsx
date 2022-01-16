@@ -35,7 +35,10 @@ const Paragraph = ({
   style = {},
 }: PropsWithChildren<{className?: string; style?: any}>) => {
   return (
-    <p className={`text-sm leading-relaxed mb-4 ${className}`} style={style}>
+    <p
+      className={`text-sm leading-relaxed mb-4 text-gray-800 dark:text-gray-200 ${className}`}
+      style={style}
+    >
       {children}
     </p>
   );
@@ -74,25 +77,20 @@ const PricingCard = ({
   features: React.ReactElement;
 }) => {
   return (
-    <Box m={2} p={3} className="flex-1 border rounded shadow-md">
+    <div className="flex-1 m-2 p-4 border rounded shadow-md dark:border-gray-500">
       <H3>{title}</H3>
       <Paragraph style={{minHeight: 44}}>{description}</Paragraph>
       <Box my={3}>{cta}</Box>
       <Box style={{fontSize: 16}}>{pricing}</Box>
       <hr className="border-t border-gray-100 my-4" />
       {features}
-    </Box>
+    </div>
   );
 };
 
 export const FAQ = () => {
   return (
-    <Flex
-      my={5}
-      flexDirection="column"
-      justify-content="center"
-      alignItems="center"
-    >
+    <Flex flexDirection="column" justify-content="center" alignItems="center">
       <Box mb={4}>
         <H2>Why use Papercups?</H2>
       </Box>
@@ -274,7 +272,7 @@ export const PricingOptions = () => {
 
 const Pricing = () => {
   return (
-    <Layout width={1200}>
+    <Layout width={1200} dark>
       <Flex
         flexDirection="column"
         justify-content="center"
@@ -298,8 +296,14 @@ const Pricing = () => {
           </Flex>
         </Flex>
       </Flex>
-      <PricingOptions />
-      <FAQ />
+
+      <div className="mb-20">
+        <PricingOptions />
+      </div>
+
+      <div className="mb-8">
+        <FAQ />
+      </div>
     </Layout>
   );
 };
