@@ -72,7 +72,7 @@ export default class extends Component {
                           rel="noopener noreferrer"
                         >
                           <button className="flex items-center bg-blue-500 hover:bg-blue-400 border border-blue-500 hover:border-blue-400 text-white text-base py-2 px-5 rounded">
-                            <span className="mr-2">Sign up for free</span>
+                            <span className="mr-2">Get started for free</span>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-4 w-4"
