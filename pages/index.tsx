@@ -42,7 +42,7 @@ export default class extends Component {
           <div className="dark bg-gray-900 pb-16">
             <div className="max-w-7xl mx-auto px-4 pt-12 pb-6 dark:text-white">
               <div className="flex flex-col sm:flex-row">
-                <div className="flex-1 pt-40 pr-12">
+                <div className="flex-1 pt-36 pr-12">
                   <Box className="mb-6">
                     <H1 className="font-bold text-6xl mb-5">
                       Streamline communication with your customers
