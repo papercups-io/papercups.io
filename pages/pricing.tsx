@@ -7,6 +7,7 @@ import {
   H3,
   H4,
 } from '../components/common';
+import FadeIn from '../components/FadeIn';
 import Layout from '../components/layout';
 
 const STARTER_PRICE = 49;
@@ -35,7 +36,10 @@ const Paragraph = ({
   style = {},
 }: PropsWithChildren<{className?: string; style?: any}>) => {
   return (
-    <p className={`text-sm leading-relaxed mb-4 ${className}`} style={style}>
+    <p
+      className={`text-sm leading-relaxed mb-4 text-gray-800 dark:text-gray-200 ${className}`}
+      style={style}
+    >
       {children}
     </p>
   );
@@ -74,61 +78,64 @@ const PricingCard = ({
   features: React.ReactElement;
 }) => {
   return (
-    <Box m={2} p={3} className="flex-1 border rounded shadow-md">
+    <div className="flex-1 m-2 p-4 border rounded shadow-md dark:border-gray-500">
       <H3>{title}</H3>
       <Paragraph style={{minHeight: 44}}>{description}</Paragraph>
       <Box my={3}>{cta}</Box>
       <Box style={{fontSize: 16}}>{pricing}</Box>
       <hr className="border-t border-gray-100 my-4" />
       {features}
-    </Box>
+    </div>
   );
 };
 
 export const FAQ = () => {
   return (
-    <Flex
-      my={5}
-      flexDirection="column"
-      justify-content="center"
-      alignItems="center"
-    >
+    <Flex flexDirection="column" justify-content="center" alignItems="center">
       <Box mb={4}>
         <H2>Why use Papercups?</H2>
       </Box>
 
       <Flex mx={-4} flexDirection={['column', 'row']}>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>Open source</H4>
-          <Paragraph>
-            We've built Papercups open source and in the public since day one.
-            Our source code is available and accessible on GitHub so anyone can
-            read it and verify what we do with your data.
-          </Paragraph>
-        </Box>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>Cookie free</H4>
-          <Paragraph>
-            Papercups is built with privacy first. We don't use any cookies so
-            you don't need the cookies consent banners in your chat widget.
-          </Paragraph>
-        </Box>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>Reply from Slack</H4>
-          <Paragraph>
-            Our Slack integration lets you reply directly from Slack in a single
-            channel. Other integrations spam your Slack with links to their
-            website or open a new channel everytime.
-          </Paragraph>
-        </Box>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>10 minute installation</H4>
-          <Paragraph>
-            Papercups is made by and for developers. We make sure that the
-            installation process is frictionless for your development team so
-            they can set it up quickly and go back to building their features.
-          </Paragraph>
-        </Box>
+        <FadeIn delay={0}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>Open source</H4>
+            <Paragraph>
+              We've built Papercups open source and in the public since day one.
+              Our source code is available and accessible on GitHub so anyone
+              can read it and verify what we do with your data.
+            </Paragraph>
+          </Box>
+        </FadeIn>
+        <FadeIn delay={100}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>Cookie free</H4>
+            <Paragraph>
+              Papercups is built with privacy first. We don't use any cookies so
+              you don't need the cookies consent banners in your chat widget.
+            </Paragraph>
+          </Box>
+        </FadeIn>
+        <FadeIn delay={200}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>Reply from Slack</H4>
+            <Paragraph>
+              Our Slack integration lets you reply directly from Slack in a
+              single channel. Other integrations spam your Slack with links to
+              their website or open a new channel everytime.
+            </Paragraph>
+          </Box>
+        </FadeIn>
+        <FadeIn delay={300}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>10 minute installation</H4>
+            <Paragraph>
+              Papercups is made by and for developers. We make sure that the
+              installation process is frictionless for your development team so
+              they can set it up quickly and go back to building their features.
+            </Paragraph>
+          </Box>
+        </FadeIn>
       </Flex>
     </Flex>
   );
@@ -274,7 +281,7 @@ export const PricingOptions = () => {
 
 const Pricing = () => {
   return (
-    <Layout width={1200}>
+    <Layout width={1200} dark>
       <Flex
         flexDirection="column"
         justify-content="center"
@@ -284,22 +291,34 @@ const Pricing = () => {
         <H1>Get started with Papercups</H1>
 
         <Flex mx={-3} my={3} justifyContent="space-between">
-          <Flex mx={3} sx={{alignItems: 'center'}}>
-            <CheckCircleIcon />
-            <Text className="ml-1">14 day free trial</Text>
-          </Flex>
-          <Flex mx={3} sx={{alignItems: 'center'}}>
-            <CheckCircleIcon />
-            <Text className="ml-1">No credit card required</Text>
-          </Flex>
-          <Flex mx={3} sx={{alignItems: 'center'}}>
-            <CheckCircleIcon />
-            <Text className="ml-1">Cancel anytime</Text>
-          </Flex>
+          <FadeIn>
+            <Flex mx={3} sx={{alignItems: 'center'}}>
+              <CheckCircleIcon />
+              <Text className="ml-1">14 day free trial</Text>
+            </Flex>
+          </FadeIn>
+          <FadeIn delay={500}>
+            <Flex mx={3} sx={{alignItems: 'center'}}>
+              <CheckCircleIcon />
+              <Text className="ml-1">No credit card required</Text>
+            </Flex>
+          </FadeIn>
+          <FadeIn delay={1000}>
+            <Flex mx={3} sx={{alignItems: 'center'}}>
+              <CheckCircleIcon />
+              <Text className="ml-1">Cancel anytime</Text>
+            </Flex>
+          </FadeIn>
         </Flex>
       </Flex>
-      <PricingOptions />
-      <FAQ />
+
+      <div className="mb-20">
+        <PricingOptions />
+      </div>
+
+      <div className="mb-8">
+        <FAQ />
+      </div>
     </Layout>
   );
 };
