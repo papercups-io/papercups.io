@@ -7,7 +7,7 @@ import {ChatWidget, Papercups} from '@papercups-io/chat-widget';
 
 import {H1, H2, H3, P} from '../components/common';
 import NavMenu from '../components/nav';
-import ChatDemo from '../components/ChatDemo';
+import FadeIn from '../components/FadeIn';
 
 export default class extends Component {
   componentDidMount() {
@@ -97,11 +97,13 @@ export default class extends Component {
 
                 <div style={{flex: 1.6}}>
                   <div className="hidden sm:flex flex-col justify-center items-center py-16 sm:py-0">
-                    <Image
-                      className="w-full rounded"
-                      style={{minWidth: 720}}
-                      src="papercups-hero.svg"
-                    />
+                    <FadeIn direction="left">
+                      <Image
+                        className="w-full rounded"
+                        style={{minWidth: 720}}
+                        src="papercups-hero.svg"
+                      />
+                    </FadeIn>
                   </div>
                 </div>
               </div>
@@ -185,14 +187,16 @@ export default class extends Component {
               </Flex>
 
               <Box>
-                <Image
-                  sx={{
-                    width: '100%',
-                    borderRadius: 8,
-                    boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
-                  }}
-                  src="dashboard.png"
-                />
+                <FadeIn delay={200}>
+                  <Image
+                    sx={{
+                      width: '100%',
+                      borderRadius: 8,
+                      boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
+                    }}
+                    src="dashboard.png"
+                  />
+                </FadeIn>
               </Box>
             </div>
           </div>
@@ -205,25 +209,27 @@ export default class extends Component {
               flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                  }}
-                >
-                  <Image
-                    sx={{
+                <FadeIn direction="right" delay={200}>
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{
                       width: '100%',
                       height: '100%',
-                      minHeight: 320,
-                      borderRadius: 4,
-                      boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
                     }}
-                    src="reply-from-slack.gif"
-                  />
-                </Flex>
+                  >
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        minHeight: 320,
+                        borderRadius: 4,
+                        boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
+                      }}
+                      src="reply-from-slack.gif"
+                    />
+                  </Flex>
+                </FadeIn>
               </Box>
 
               <Box flex={1} mx={[0, 4]} my={[4, 0]}>
@@ -252,24 +258,26 @@ export default class extends Component {
               </Box>
 
               <Box flex={1} mx={[0, 4]}>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                  }}
-                >
-                  <Image
-                    sx={{
+                <FadeIn direction="left" delay={200}>
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{
                       width: '100%',
                       height: '100%',
-                      minHeight: 320,
                     }}
-                    src="customize.gif"
-                  />
-                  {/* <ChatDemo /> */}
-                </Flex>
+                  >
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        minHeight: 320,
+                      }}
+                      src="customize.gif"
+                    />
+                    {/* <ChatDemo /> */}
+                  </Flex>
+                </FadeIn>
               </Box>
             </Flex>
 
@@ -280,25 +288,27 @@ export default class extends Component {
               flexDirection={['column-reverse', 'row']}
             >
               <Box flex={1} mx={[0, 4]}>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                  }}
-                >
-                  <Image
-                    sx={{
+                <FadeIn direction="right" delay={200}>
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{
                       width: '100%',
                       height: '100%',
-                      minHeight: 320,
-                      borderRadius: 4,
-                      boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
                     }}
-                    src="papercups-js.png"
-                  />
-                </Flex>
+                  >
+                    <Image
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        minHeight: 320,
+                        borderRadius: 4,
+                        boxShadow: 'rgb(0 0 0 / 16%) 0px 5px 40px',
+                      }}
+                      src="papercups-js.png"
+                    />
+                  </Flex>
+                </FadeIn>
               </Box>
               <Box flex={1} mx={[0, 4]} mb={[4, 0]}>
                 <H3>Save your developers time</H3>
@@ -324,30 +334,36 @@ export default class extends Component {
                 mb={6}
                 flexDirection={['column', 'row']}
               >
-                <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
-                  <H3>Self-managed</H3>
-                  <P>
-                    Papercups can be deployed in your cloud, for painless
-                    adoption and onboarding. Whether it's AWS, Docker, or
-                    Heroku, we've got you covered.
-                  </P>
-                </Flex>
-                <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
-                  <H3>Unlimited volume</H3>
-                  <P>
-                    Papercups is built with Elixir on top of BEAM for incredible
-                    scalability. This scalability extends to our open core
-                    pricing model.
-                  </P>
-                </Flex>
-                <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
-                  <H3>Personalized support</H3>
-                  <P>
-                    We can manage your deployment on your infrastructure. Get
-                    the benefits of self-hosting with the reliability and
-                    scalability of the cloud.
-                  </P>
-                </Flex>
+                <FadeIn delay={100}>
+                  <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
+                    <H3>Self-managed</H3>
+                    <P>
+                      Papercups can be deployed in your cloud, for painless
+                      adoption and onboarding. Whether it's AWS, Docker, or
+                      Heroku, we've got you covered.
+                    </P>
+                  </Flex>
+                </FadeIn>
+                <FadeIn delay={200}>
+                  <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
+                    <H3>Unlimited volume</H3>
+                    <P>
+                      Papercups is built with Elixir on top of BEAM for
+                      incredible scalability. This scalability extends to our
+                      open core pricing model.
+                    </P>
+                  </Flex>
+                </FadeIn>
+                <FadeIn delay={300}>
+                  <Flex flex={1} mx={3} my={[3, 0]} flexDirection="column">
+                    <H3>Personalized support</H3>
+                    <P>
+                      We can manage your deployment on your infrastructure. Get
+                      the benefits of self-hosting with the reliability and
+                      scalability of the cloud.
+                    </P>
+                  </Flex>
+                </FadeIn>
               </Flex>
 
               <Flex
