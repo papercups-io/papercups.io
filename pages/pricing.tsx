@@ -7,6 +7,7 @@ import {
   H3,
   H4,
 } from '../components/common';
+import FadeIn from '../components/FadeIn';
 import Layout from '../components/layout';
 
 const STARTER_PRICE = 49;
@@ -96,37 +97,45 @@ export const FAQ = () => {
       </Box>
 
       <Flex mx={-4} flexDirection={['column', 'row']}>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>Open source</H4>
-          <Paragraph>
-            We've built Papercups open source and in the public since day one.
-            Our source code is available and accessible on GitHub so anyone can
-            read it and verify what we do with your data.
-          </Paragraph>
-        </Box>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>Cookie free</H4>
-          <Paragraph>
-            Papercups is built with privacy first. We don't use any cookies so
-            you don't need the cookies consent banners in your chat widget.
-          </Paragraph>
-        </Box>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>Reply from Slack</H4>
-          <Paragraph>
-            Our Slack integration lets you reply directly from Slack in a single
-            channel. Other integrations spam your Slack with links to their
-            website or open a new channel everytime.
-          </Paragraph>
-        </Box>
-        <Box mx={4} sx={{flex: 1}}>
-          <H4>10 minute installation</H4>
-          <Paragraph>
-            Papercups is made by and for developers. We make sure that the
-            installation process is frictionless for your development team so
-            they can set it up quickly and go back to building their features.
-          </Paragraph>
-        </Box>
+        <FadeIn delay={0}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>Open source</H4>
+            <Paragraph>
+              We've built Papercups open source and in the public since day one.
+              Our source code is available and accessible on GitHub so anyone
+              can read it and verify what we do with your data.
+            </Paragraph>
+          </Box>
+        </FadeIn>
+        <FadeIn delay={100}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>Cookie free</H4>
+            <Paragraph>
+              Papercups is built with privacy first. We don't use any cookies so
+              you don't need the cookies consent banners in your chat widget.
+            </Paragraph>
+          </Box>
+        </FadeIn>
+        <FadeIn delay={200}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>Reply from Slack</H4>
+            <Paragraph>
+              Our Slack integration lets you reply directly from Slack in a
+              single channel. Other integrations spam your Slack with links to
+              their website or open a new channel everytime.
+            </Paragraph>
+          </Box>
+        </FadeIn>
+        <FadeIn delay={300}>
+          <Box mx={4} sx={{flex: 1}}>
+            <H4>10 minute installation</H4>
+            <Paragraph>
+              Papercups is made by and for developers. We make sure that the
+              installation process is frictionless for your development team so
+              they can set it up quickly and go back to building their features.
+            </Paragraph>
+          </Box>
+        </FadeIn>
       </Flex>
     </Flex>
   );
@@ -282,18 +291,24 @@ const Pricing = () => {
         <H1>Get started with Papercups</H1>
 
         <Flex mx={-3} my={3} justifyContent="space-between">
-          <Flex mx={3} sx={{alignItems: 'center'}}>
-            <CheckCircleIcon />
-            <Text className="ml-1">14 day free trial</Text>
-          </Flex>
-          <Flex mx={3} sx={{alignItems: 'center'}}>
-            <CheckCircleIcon />
-            <Text className="ml-1">No credit card required</Text>
-          </Flex>
-          <Flex mx={3} sx={{alignItems: 'center'}}>
-            <CheckCircleIcon />
-            <Text className="ml-1">Cancel anytime</Text>
-          </Flex>
+          <FadeIn>
+            <Flex mx={3} sx={{alignItems: 'center'}}>
+              <CheckCircleIcon />
+              <Text className="ml-1">14 day free trial</Text>
+            </Flex>
+          </FadeIn>
+          <FadeIn delay={500}>
+            <Flex mx={3} sx={{alignItems: 'center'}}>
+              <CheckCircleIcon />
+              <Text className="ml-1">No credit card required</Text>
+            </Flex>
+          </FadeIn>
+          <FadeIn delay={1000}>
+            <Flex mx={3} sx={{alignItems: 'center'}}>
+              <CheckCircleIcon />
+              <Text className="ml-1">Cancel anytime</Text>
+            </Flex>
+          </FadeIn>
         </Flex>
       </Flex>
 
