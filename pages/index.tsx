@@ -42,13 +42,13 @@ export default class extends Component {
           <div className="dark bg-gray-900 pb-16">
             <div className="max-w-7xl mx-auto px-4 pt-12 pb-6 dark:text-white">
               <div className="flex flex-col sm:flex-row">
-                <div className="flex-1 pt-36 pr-12">
+                <div className="flex-1 pt-24 sm:pt-36 pr-12">
                   <Box className="mb-6">
-                    <H1 className="font-bold text-6xl mb-5">
+                    <H1 className="font-bold text-4xl sm:text-6xl mb-5">
                       Streamline communication with your customers
                     </H1>
 
-                    <p className="leading-relaxed text-xl text-gray-700 dark:text-gray-300">
+                    <p className="leading-relaxed text-lg sm:text-xl text-gray-700 dark:text-gray-300">
                       Coordinate and reply to messages over chat, email, Slack,
                       and SMS. A privacy-focused, open-source alternative to
                       Intercom, Drift, and Zendesk.
@@ -96,7 +96,7 @@ export default class extends Component {
                 </div>
 
                 <div style={{flex: 1.6}}>
-                  <div className="flex flex-col justify-center items-center py-16 sm:py-0">
+                  <div className="hidden sm:flex flex-col justify-center items-center py-16 sm:py-0">
                     <Image
                       className="w-full rounded"
                       style={{minWidth: 720}}
