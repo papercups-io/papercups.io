@@ -97,11 +97,13 @@ export default class extends Component {
 
                 <div style={{flex: 1.6}}>
                   <div className="hidden sm:flex flex-col justify-center items-center py-16 sm:py-0">
-                    <Image
-                      className="w-full rounded"
-                      style={{minWidth: 720}}
-                      src="papercups-hero.svg"
-                    />
+                    <FadeIn direction="left">
+                      <Image
+                        className="w-full rounded"
+                        style={{minWidth: 720, minHeight: 680}}
+                        src="papercups-hero.svg"
+                      />
+                    </FadeIn>
                   </div>
                 </div>
               </div>
