@@ -75,6 +75,19 @@ export const Blog = () => {
 function getSortedPosts() {
   return [
     {
+      title: 'Papercups is in maintenance mode',
+      date: 'January 17, 2022',
+      href: '/blog/papercups-maintenance',
+      snippet:
+        'As some of you might have seen Papercups is currently in maintenance mode',
+      author: {
+        name: 'Kam Leung',
+        position: 'Cofounder and CEO',
+        avatar:
+          'https://ca.slack-edge.com/T0129C08QV8-U013SUTQB9A-ddd642397af2-512',
+      },
+    },
+    {
       title: 'Announcing Papercups Functions',
       date: 'July 16, 2021',
       href: '/blog/papercups-functions',
