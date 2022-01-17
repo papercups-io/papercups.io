@@ -281,7 +281,7 @@ export const PricingOptions = () => {
 
 const Pricing = () => {
   return (
-    <Layout width={1200} dark>
+    <Layout width={1200}>
       <Flex
         flexDirection="column"
         justify-content="center"
